@@ -50,6 +50,31 @@ const api = {
       });
     },
   },
+  personas: {
+    list() {
+      return callApi('/personas');
+    },
+    create(persona) {
+      return callApi(`/personas`, {
+        method: 'POST',
+        body: JSON.stringify(persona),
+      });
+    },
+    read(personaId) {
+      return callApi(`/personas/${personaId}`);
+    },
+    update(personaId, updates) {
+      return callApi(`/personas/${personaId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    remove(personaId) {
+      return callApi(`/personas/${personaId}`, {
+        method: 'DELETE',
+      });
+    },
+  },
 };
 
 export default api;
