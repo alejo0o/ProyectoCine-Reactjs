@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Api from './api';
+import Api from '../utils/api';
 class Form extends Component {
   constructor(props) {
     super(props);

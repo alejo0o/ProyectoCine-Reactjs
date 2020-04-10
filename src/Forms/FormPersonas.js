@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Api from './api';
-class FormNoticias extends Component {
+import Api from '../utils/api';
+class FormPersonas extends Component {
   constructor(props) {
     super(props);
 
@@ -8,10 +8,12 @@ class FormNoticias extends Component {
       loading: false,
       error: false,
       form: {
-        notid: '',
-        peliculasid: '',
-        nottexto: '',
-        notfecha: '',
+        perid: '',
+        paiid: '',
+        pernombre: '',
+        perapellido: '',
+        perfechanacim: '',
+        perlugarnacim: '',
       },
     };
   }
@@ -33,7 +35,7 @@ class FormNoticias extends Component {
     });
 
     try {
-      await Api.noticias.create(this.state.form);
+      await Api.personas.create(this.state.form);
       this.setState({
         loading: false,
       });
@@ -53,40 +55,60 @@ class FormNoticias extends Component {
             <label className='label'>ID:</label>
             <input
               type='text'
-              name='notid'
+              name='perid'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.notid}></input>
+              value={this.state.form.perid}></input>
           </div>
 
           <div className='form-group'>
-            <label className='label'>Película Id:</label>
+            <label className='label'>Pais Id:</label>
             <input
               type='text'
-              name='peliculasid'
+              name='paiid'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.peliculasid}></input>
+              value={this.state.form.paiid}></input>
           </div>
 
           <div className='form-group'>
-            <label className='label'>Texto:</label>
+            <label className='label'>Nombre:</label>
             <input
               type='text'
-              name='nottexto'
+              name='pernombre'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.nottexto}></input>
+              value={this.state.form.pernombre}></input>
           </div>
 
           <div className='form-group'>
-            <label className='label'>Fecha</label>
+            <label className='label'>Apellido</label>
             <input
               type='text'
-              name='notfecha'
+              name='perapellido'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.notfecha}></input>
+              value={this.state.form.perapellido}></input>
+          </div>
+
+          <div className='form-group'>
+            <label className='label'>Fecha nacimiento:</label>
+            <input
+              type='text'
+              name='perfechanacim'
+              className='form-control'
+              onChange={this.onChange}
+              value={this.state.form.perfechanacim}></input>
+          </div>
+
+          <div className='form-group'>
+            <label className='label'>Lugar nacimiento:</label>
+            <input
+              type='text'
+              name='perlugarnacim'
+              className='form-control'
+              onChange={this.onChange}
+              value={this.state.form.perlugarnacim}></input>
           </div>
           <button className='btn btn-primary'>Save</button>
         </form>
@@ -95,4 +117,4 @@ class FormNoticias extends Component {
   }
 }
 
-export default FormNoticias;
+export default FormPersonas;

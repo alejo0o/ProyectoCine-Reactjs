@@ -1,15 +1,21 @@
 import React from 'react';
-import FormPeliculas from './FormPeliculas';
-import FormPersonas from './FormPersonas'
-import FormNoticias from './FormNoticias'
+
+//Forms
+import FormPeliculas from './Forms/FormPeliculas';
+import FormPersonas from './Forms/FormPersonas';
+import FormNoticias from './Forms/FormNoticias';
+//
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='container'>
-      <FormPeliculas></FormPeliculas>
-      <FormPersonas></FormPersonas>
-      <FormNoticias></FormNoticias>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/forms/Peliculas' component={FormPeliculas} />
+        <Route exact path='/forms/Personas' component={FormPersonas} />
+        <Route exact path='/forms/Noticias' component={FormNoticias} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

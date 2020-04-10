@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Api from './api';
-class FormPersonas extends Component {
+import Api from '../utils/api';
+class FormNoticias extends Component {
   constructor(props) {
     super(props);
 
@@ -8,14 +8,10 @@ class FormPersonas extends Component {
       loading: false,
       error: false,
       form: {
-        perid: '',
-        paiid: '',
-        pernombre: '',
-        perapellido: '',
-        perfechanacim: '',
-        perlugarnacim: '',
-        created_at: '',
-        updated_at: '',
+        notid: '',
+        peliculasid: '',
+        nottexto: '',
+        notfecha: '',
       },
     };
   }
@@ -37,7 +33,7 @@ class FormPersonas extends Component {
     });
 
     try {
-      await Api.personas.create(this.state.form);
+      await Api.noticias.create(this.state.form);
       this.setState({
         loading: false,
       });
@@ -57,60 +53,40 @@ class FormPersonas extends Component {
             <label className='label'>ID:</label>
             <input
               type='text'
-              name='perid'
+              name='notid'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.perid}></input>
+              value={this.state.form.notid}></input>
           </div>
 
           <div className='form-group'>
-            <label className='label'>Pais Id:</label>
+            <label className='label'>Película Id:</label>
             <input
               type='text'
-              name='paiid'
+              name='peliculasid'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.paiid}></input>
+              value={this.state.form.peliculasid}></input>
           </div>
 
           <div className='form-group'>
-            <label className='label'>Nombre:</label>
+            <label className='label'>Texto:</label>
             <input
               type='text'
-              name='pernombre'
+              name='nottexto'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.pernombre}></input>
+              value={this.state.form.nottexto}></input>
           </div>
 
           <div className='form-group'>
-            <label className='label'>Apellido</label>
+            <label className='label'>Fecha</label>
             <input
               type='text'
-              name='perapellido'
+              name='notfecha'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.perapellido}></input>
-          </div>
-
-          <div className='form-group'>
-            <label className='label'>Fecha nacimiento:</label>
-            <input
-              type='text'
-              name='perfechanacim'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.perfechanacim}></input>
-          </div>
-
-          <div className='form-group'>
-            <label className='label'>Lugar nacimiento:</label>
-            <input
-              type='text'
-              name='perlugarnacim'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.perlugarnacim}></input>
+              value={this.state.form.notfecha}></input>
           </div>
           <button className='btn btn-primary'>Save</button>
         </form>
@@ -119,4 +95,4 @@ class FormPersonas extends Component {
   }
 }
 
-export default FormPersonas;
+export default FormNoticias;
