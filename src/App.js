@@ -1,11 +1,14 @@
 import React from 'react';
-import Form from './Form';
+import FormPeliculas from './FormPeliculas';
 import FormPersonas from './FormPersonas'
+import FormNoticias from './FormNoticias'
+
 function App() {
   return (
     <div className='container'>
-      <Form></Form>
+      <FormPeliculas></FormPeliculas>
       <FormPersonas></FormPersonas>
+      <FormNoticias></FormNoticias>
     </div>
   );
 }

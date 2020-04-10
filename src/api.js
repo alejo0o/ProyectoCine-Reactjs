@@ -75,6 +75,31 @@ const api = {
       });
     },
   },
+  noticias: {
+    list() {
+      return callApi('/noticias');
+    },
+    create(noticia) {
+      return callApi(`/noticias`, {
+        method: 'POST',
+        body: JSON.stringify(noticia),
+      });
+    },
+    read(noticiaId) {
+      return callApi(`/noticias/${noticiaId}`);
+    },
+    update(noticiaId, updates) {
+      return callApi(`/noticias/${noticiaId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    remove(noticiaId) {
+      return callApi(`/noticias/${noticiaId}`, {
+        method: 'DELETE',
+      });
+    },
+  },
 };
 
 export default api;
