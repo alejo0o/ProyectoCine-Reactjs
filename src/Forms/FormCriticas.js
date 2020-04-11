@@ -8,7 +8,6 @@ class FormCriticas extends Component {
       loading: false,
       error: false,
       form: {
-        criid: '',
         peliculasid: '',
         id: '',
         critexto: '',
@@ -51,16 +50,6 @@ class FormCriticas extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <div className='form-group'>
-            <label className='label'>critica ID:</label>
-            <input
-              type='text'
-              name='criid'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.criid}></input>
-          </div>
-
           <div className='form-group'>
             <label className='label'>Película Id:</label>
             <input
