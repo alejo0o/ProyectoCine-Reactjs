@@ -100,6 +100,31 @@ const api = {
       });
     },
   },
+  criticas: {
+    list() {
+      return callApi('/criticas');
+    },
+    create(critica) {
+      return callApi(`/criticas`, {
+        method: 'POST',
+        body: JSON.stringify(critica),
+      });
+    },
+    read(criticaId) {
+      return callApi(`/criticas/${criticaId}`);
+    },
+    update(criticaId, updates) {
+      return callApi(`/criticas/${criticaId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updates),
+      });
+    },
+    remove(criticaId) {
+      return callApi(`/criticas/${criticaId}`, {
+        method: 'DELETE',
+      });
+    },
+  },
 };
 
 export default api;
