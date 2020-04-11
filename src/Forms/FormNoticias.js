@@ -8,7 +8,6 @@ class FormNoticias extends Component {
       loading: false,
       error: false,
       form: {
-        notid: '',
         peliculasid: '',
         nottexto: '',
         notfecha: '',
@@ -49,16 +48,6 @@ class FormNoticias extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <div className='form-group'>
-            <label className='label'>ID:</label>
-            <input
-              type='text'
-              name='notid'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.notid}></input>
-          </div>
-
           <div className='form-group'>
             <label className='label'>Película Id:</label>
             <input

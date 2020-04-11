@@ -8,7 +8,6 @@ class FormPersonas extends Component {
       loading: false,
       error: false,
       form: {
-        perid: '',
         paiid: '',
         pernombre: '',
         perapellido: '',
@@ -51,16 +50,6 @@ class FormPersonas extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <div className='form-group'>
-            <label className='label'>ID:</label>
-            <input
-              type='text'
-              name='perid'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.perid}></input>
-          </div>
-
           <div className='form-group'>
             <label className='label'>Pais Id:</label>
             <input

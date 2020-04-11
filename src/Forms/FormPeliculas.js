@@ -8,16 +8,12 @@ class Form extends Component {
       loading: false,
       error: false,
       form: {
-        id: '',
+        claid: '',
         nombre: '',
         fechadelanzamiento: '',
         duracion: '',
-        clasificacion: '',
         sinopsis: '',
         trailer: '',
-        paisdeorigen: '',
-        created_at: '',
-        updated_at: '',
       },
     };
   }
@@ -56,13 +52,13 @@ class Form extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>
-            <label className='label'>ID:</label>
+            <label className='label'>Claid:</label>
             <input
               type='text'
-              name='id'
+              name='claid'
               className='form-control'
               onChange={this.onChange}
-              value={this.state.form.id}></input>
+              value={this.state.form.claid}></input>
           </div>
 
           <div className='form-group'>
@@ -96,16 +92,6 @@ class Form extends Component {
           </div>
 
           <div className='form-group'>
-            <label className='label'>Clasificacion:</label>
-            <input
-              type='text'
-              name='clasificacion'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.clasificacion}></input>
-          </div>
-
-          <div className='form-group'>
             <label className='label'>Sinopsis:</label>
             <input
               type='text'
@@ -123,16 +109,6 @@ class Form extends Component {
               className='form-control'
               onChange={this.onChange}
               value={this.state.form.trailer}></input>
-          </div>
-
-          <div className='form-group'>
-            <label className='label'>Pais de Origen:</label>
-            <input
-              type='text'
-              name='paisdeorigen'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.paisdeorigen}></input>
           </div>
 
           <button className='btn btn-primary'>Save</button>

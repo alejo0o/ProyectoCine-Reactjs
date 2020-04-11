@@ -1,4 +1,4 @@
-const BASE_URL = 'http://proyectocinegithub.herokuapp.com/api';
+const BASE_URL = 'http://127.0.0.1:8000/api';
 
 /* const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const randomNumber = (min = 0, max = 1) =>
