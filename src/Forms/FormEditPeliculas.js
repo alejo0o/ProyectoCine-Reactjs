@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
+import Peticiones from '../utils/consultasPeliculas';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
-import { Link } from 'react-router-dom';
-import Peticiones from '../utils/consultasPeliculas';
 
 function NavBar() {
   return (
     <div className='Navbar'>
       <div className='container-fluid Navbar__brand'>
-        <h2 className='center'>PELICULAS</h2>
+        <h2 className='center'>PELICULAS EDIT Y DELETE</h2>
       </div>
     </div>
   );
 }
 
-class Form extends Component {
+class FormEditPeliculas extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,13 +27,33 @@ class Form extends Component {
         sinopsis: '',
         trailer: '',
       },
-      peliculasList: [],
     };
   }
   componentDidMount() {
     this.fetchData();
   }
 
+  async fetchData() {
+    //Obtiene el ciente
+    const variables = {
+      id: this.props.match.params.peliId,
+    };
+    try {
+      const data = await Peticiones.ClienteGql.request(
+        Peticiones.getPelicula,
+        variables
+      );
+      this.setState({
+        loading: false,
+        form: data.getPelicula,
+      });
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error,
+      });
+    }
+  }
   onChange = (e) => {
     this.setState({
       form: {
@@ -44,49 +63,41 @@ class Form extends Component {
     });
   };
 
-  fetchData = async () => {
-    this.setState({
-      loading: true,
-      error: null,
-    });
-
-    try {
-      const data = await Peticiones.ClienteGql.request(Peticiones.getPeliculas);
-
-      this.setState({
-        loading: false,
-        peliculasList: this.state.peliculasList.concat(data.getPeliculas),
-      });
-    } catch (error) {
-      this.setState({
-        loading: false,
-        error: error,
-      });
-    }
-  };
-
   handleSubmit = async (evt) => {
     evt.preventDefault();
     this.setState({
       loading: true,
       error: null,
     });
-
+    this.state.form.duracion = parseInt(this.state.form.duracion);
+    const variables = {
+      input: this.state.form,
+      id: this.props.match.params.peliId,
+    };
     try {
-      this.state.form.duracion = parseInt(this.state.form.duracion);
+      await Peticiones.ClienteGql.request(Peticiones.editPelicula, variables);
       this.setState({
         loading: false,
       });
-      const variables = {
-        input: this.state.form,
-      };
-      await Peticiones.ClienteGql.request(Peticiones.createPelicula, variables);
-      //this.props.history.push('/badges');
+
+      this.props.history.push('/forms/Peliculas');
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
       });
+      console.log(error);
+    }
+  };
+  handleDelete = async () => {
+    let variables;
+    try {
+      variables = {
+        id: parseInt(this.props.match.params.peliId),
+      };
+      await Peticiones.ClienteGql.request(Peticiones.deletePelicula, variables);
+      this.props.history.push('/forms/Peliculas');
+    } catch (error) {
       console.log(error);
     }
   };
@@ -160,21 +171,11 @@ class Form extends Component {
 
                 <button className='btn btn-primary'>Save</button>
               </form>
-            </div>
-            <div className='col-6'>
-              <ul>
-                {this.state.peliculasList.map((pelicula) => {
-                  return (
-                    <li key={pelicula.peliculasid}>
-                      <Link to={`${pelicula.peliculasid}/Edit`}>
-                        {pelicula.peliculasid}
-                      </Link>
-                      <p>{pelicula.nombre}</p>
-                      <p>{pelicula.sinopsis}</p>
-                    </li>
-                  );
-                })}
-              </ul>
+              <button
+                className='btn btn-danger mt-2'
+                onClick={this.handleDelete}>
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -183,4 +184,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default FormEditPeliculas;
