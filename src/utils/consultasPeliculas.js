@@ -1,6 +1,9 @@
 //Consultas y mutaciones para la api de graphql
-import { GraphQLClient } from 'graphql-request';
-const API_URL = `http://localhost:8000/api`;
+
+import { GraphQLClient } from "graphql-request";
+
+const API_URL = `https://deploy-zeit.now.sh/api`;
+
 const API_HEADERS = {
   headers: {},
 };
