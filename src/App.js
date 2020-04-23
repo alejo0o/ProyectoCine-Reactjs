@@ -6,6 +6,7 @@ import FormPersonas from './Forms/FormPersonas';
 import FormNoticias from './Forms/FormNoticias';
 import FormCriticas from './Forms/FormCriticas';
 import EditPeli from './Forms/FormEditPeliculas';
+import EditNoti from './Forms/FormEditNoticias';
 //React Router
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 //ApolloProvider para la conexion con Apollo
@@ -24,7 +25,9 @@ function App() {
           <Route exact path='/forms/Personas' component={FormPersonas} />
           <Route exact path='/forms/Noticias' component={FormNoticias} />
           <Route exact path='/forms/Criticas' component={FormCriticas} />
-          <Route exact path='/forms/:peliId/Edit' component={EditPeli}></Route>
+          <Route exact path='/forms/:peliId/Edit' component={EditPeli}>
+          <Route exact path='/forms/:notiId/EditNoticia' component={EditNoti} /></Route>
+          //ruta de editar
         </Switch>
       </BrowserRouter>
     </ApolloProvider>
