@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import Api from '../utils/api';
-class FormNoticias extends Component {
+import 'bootstrap/dist/css/bootstrap.css';
+import './styles/navbar.css';
+import { Link } from 'react-router-dom';
+import Peticiones from '../utils/consultasNoticias';
+
+function NavBar() {
+  return (
+    <div className='Navbar'>
+      <div className='container-fluid Navbar__brand'>
+        <h2 className='center'>NOTICIAS</h2>
+      </div>
+    </div>
+  );
+}
+class Form extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       loading: false,
       error: false,
@@ -12,7 +24,11 @@ class FormNoticias extends Component {
         nottexto: '',
         notfecha: '',
       },
+      noticiasList: [],
     };
+  }
+  componentDidMount() {
+    this.fetchData();
   }
 
   onChange = (e) => {
@@ -24,17 +40,18 @@ class FormNoticias extends Component {
     });
   };
 
-  onSubmit = async (evt) => {
-    evt.preventDefault();
+  fetchData = async () => {
     this.setState({
       loading: true,
       error: null,
     });
 
     try {
-      await Api.noticias.create(this.state.form);
+      const data = await Peticiones.ClienteGql.request(Peticiones.getNoticias);
+
       this.setState({
         loading: false,
+        noticiasList: this.state.noticiasList.concat(data.getNoticias),
       });
     } catch (error) {
       this.setState({
@@ -44,44 +61,93 @@ class FormNoticias extends Component {
     }
   };
 
+  handleSubmit = async (evt) => {
+    evt.preventDefault();
+    this.setState({
+      loading: true,
+      error: null,
+    });
+
+    try {
+      this.setState({
+        loading: false,
+      });
+      const variables = {
+        input: this.state.form,
+      };
+      await Peticiones.ClienteGql.request(Peticiones.createNoticia, variables);
+      //this.props.history.push('/badges');
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error,
+      });
+      console.log(error);
+    }
+  };
+
+
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <div className='form-group'>
-            <label className='label'>Película Id:</label>
-            <input
-              type='text'
-              name='peliculasid'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.peliculasid}></input>
-          </div>
+      <React.Fragment>
+        <NavBar></NavBar>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-6'>
+              <form onSubmit={this.handleSubmit}>
+                <div className='form-group'>
+                  <label className='label'>peliculasid:</label>
+                  <input
+                    type='text'
+                    name='peliculasid'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.peliculasid}></input>
+                </div>
 
-          <div className='form-group'>
-            <label className='label'>Texto:</label>
-            <input
-              type='text'
-              name='nottexto'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.nottexto}></input>
-          </div>
+                <div className='form-group'>
+                  <label className='label'>Texto:</label>
+                  <input
+                    type='text'
+                    name='nottexto'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.nottexto}></input>
+                </div>
 
-          <div className='form-group'>
-            <label className='label'>Fecha</label>
-            <input
-              type='text'
-              name='notfecha'
-              className='form-control'
-              onChange={this.onChange}
-              value={this.state.form.notfecha}></input>
+                <div className='form-group'>
+                  <label className='label'>Fecha:</label>
+                  <input
+                    type='text'
+                    name='notfecha'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.notfecha}></input>
+                </div>
+                <button className='btn btn-primary'>Save</button>
+              </form>
+            </div>
+            <div className='col-6'>
+              <ul>
+                {this.state.noticiasList.map((noticia) => {
+                  return (
+                    <li key={noticia.notid}>
+                      <Link to={`${noticia.notid}/EditNoticia`}>
+                        {noticia.notid}
+                      </Link>
+                      <p>{noticia.nottexto}</p>
+                      <p>{noticia.notfecha}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
-          <button className='btn btn-primary'>Save</button>
-        </form>
-      </div>
+        </div>
+      </React.Fragment>
     );
   }
-}
 
-export default FormNoticias;
+  
+}
+export default Form;
