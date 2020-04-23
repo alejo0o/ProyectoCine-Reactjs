@@ -29,7 +29,7 @@ class FormPersonas extends Component {
         perfechanacim: '',
         perlugarnacim: '',
       },
-      personasList:[],
+      personasList: [],
     };
   }
 
@@ -73,6 +73,7 @@ class FormPersonas extends Component {
         input: this.state.form,
       };
       await Peticiones.ClienteGql.request(Peticiones.createPersona, variables);
+      window.location.reload();
     } catch (error) {
       this.setState({
         loading: false,
@@ -81,7 +82,7 @@ class FormPersonas extends Component {
       console.log(error);
     }
   };
- 
+
   render() {
     return (
       <React.Fragment>
@@ -140,7 +141,7 @@ class FormPersonas extends Component {
                     value={this.state.form.perlugarnacim}></input>
                 </div>
 
-                <button className='btn btn-primary'  onClick={() => window.location.reload(false)} >Save</button>
+                <button className='btn btn-primary'>Save</button>
               </form>
             </div>
             <div className='col-6'>
@@ -151,7 +152,9 @@ class FormPersonas extends Component {
                       <Link to={`${persona.perid}/EditarPersona`}>
                         {persona.perid}
                       </Link>
-                      <p>{persona.pernombre} {persona.perapellido}</p>
+                      <p>
+                        {persona.pernombre} {persona.perapellido}
+                      </p>
                     </li>
                   );
                 })}

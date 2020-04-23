@@ -13,7 +13,6 @@ function NavBar() {
   );
 }
 
-
 class FormEditNoticias extends Component {
   constructor(props) {
     super(props);
@@ -67,6 +66,7 @@ class FormEditNoticias extends Component {
       loading: true,
       error: null,
     });
+    //this.state.form.peliculasid = parseInt(this.state.form.peliculasid);
     const variables = {
       input: this.state.form,
       id: this.props.match.params.notiId,

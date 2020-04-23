@@ -81,7 +81,7 @@ class Form extends Component {
         input: this.state.form,
       };
       await Peticiones.ClienteGql.request(Peticiones.createPelicula, variables);
-      //this.props.history.push('/badges');
+      window.location.reload();
     } catch (error) {
       this.setState({
         loading: false,
@@ -166,7 +166,7 @@ class Form extends Component {
                 {this.state.peliculasList.map((pelicula) => {
                   return (
                     <li key={pelicula.peliculasid}>
-                      <Link to={`${pelicula.peliculasid}/Edit`}>
+                      <Link to={`${pelicula.peliculasid}/EditPelicula`}>
                         {pelicula.peliculasid}
                       </Link>
                       <p>{pelicula.nombre}</p>

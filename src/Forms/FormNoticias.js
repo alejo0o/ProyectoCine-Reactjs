@@ -76,7 +76,7 @@ class Form extends Component {
         input: this.state.form,
       };
       await Peticiones.ClienteGql.request(Peticiones.createNoticia, variables);
-      //this.props.history.push('/badges');
+      window.location.reload();
     } catch (error) {
       this.setState({
         loading: false,
@@ -85,7 +85,6 @@ class Form extends Component {
       console.log(error);
     }
   };
-
 
   render() {
     return (
@@ -147,7 +146,5 @@ class Form extends Component {
       </React.Fragment>
     );
   }
-
-  
 }
 export default Form;
