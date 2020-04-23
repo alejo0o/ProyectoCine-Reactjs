@@ -132,7 +132,7 @@ class Form extends Component {
                 {this.state.noticiasList.map((noticia) => {
                   return (
                     <li key={noticia.notid}>
-                      <Link to={`${noticia.notid}/Edit`}>
+                      <Link to={`${noticia.notid}/EditNoticia`}>
                         {noticia.notid}
                       </Link>
                       <p>{noticia.nottexto}</p>
