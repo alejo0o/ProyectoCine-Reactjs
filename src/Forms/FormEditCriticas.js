@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
+import Peticiones from '../utils/consultasCriticas';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
-import { Link } from 'react-router-dom';
-import Peticiones from '../utils/consultasCriticas';
 
 function NavBar() {
   return (
     <div className='Navbar'>
       <div className='container-fluid Navbar__brand'>
-        <h2 className='center'>CRITICAS</h2>
+        <h2 className='center'>CRITICAS EDIT Y DELETE</h2>
       </div>
     </div>
   );
 }
 
-class Form extends Component {
+class FormEditCriticas extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,13 +26,33 @@ class Form extends Component {
         crifecha: '',
         crivalor: '',
       },
-      criticasList: [],
     };
   }
   componentDidMount() {
     this.fetchData();
   }
 
+  async fetchData() {
+    //Obtiene el ciente
+    const variables = {
+      id: this.props.match.params.criId,
+    };
+    try {
+      const data = await Peticiones.ClienteGql.request(
+        Peticiones.getCritica,
+        variables
+      );
+      this.setState({
+        loading: false,
+        form: data.getCritica,
+      });
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error,
+      });
+    }
+  }
   onChange = (e) => {
     this.setState({
       form: {
@@ -43,51 +62,43 @@ class Form extends Component {
     });
   };
 
-  fetchData = async () => {
-    this.setState({
-      loading: true,
-      error: null,
-    });
-
-    try {
-      const data = await Peticiones.ClienteGql.request(Peticiones.getCriticas);
-
-      this.setState({
-        loading: false,
-        criticasList: this.state.criticasList.concat(data.getCriticas),
-      });
-    } catch (error) {
-      this.setState({
-        loading: false,
-        error: error,
-      });
-    }
-  };
-
   handleSubmit = async (evt) => {
     evt.preventDefault();
     this.setState({
       loading: true,
       error: null,
     });
-
+    this.state.form.crivalor = parseFloat(this.state.form.crivalor);
+    this.state.form.peliculasid = parseInt(this.state.form.peliculasid);
+    this.state.form.id = parseInt(this.state.form.id);
+    const variables = {
+      input: this.state.form,
+      id: this.props.match.params.criId,
+    };
     try {
-      this.state.form.crivalor = parseFloat(this.state.form.crivalor);
-      this.state.form.peliculasid = parseInt(this.state.form.peliculasid);
-      this.state.form.id = parseInt(this.state.form.id);
+      await Peticiones.ClienteGql.request(Peticiones.editCritica, variables);
       this.setState({
         loading: false,
       });
-      const variables = {
-        input: this.state.form,
-      };
-      await Peticiones.ClienteGql.request(Peticiones.createCritica, variables);
-      window.location.reload();
+
+      this.props.history.push('/forms/Criticas');
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
       });
+      console.log(error);
+    }
+  };
+  handleDelete = async () => {
+    let variables;
+    try {
+      variables = {
+        id: parseInt(this.props.match.params.criId),
+      };
+      await Peticiones.ClienteGql.request(Peticiones.deleteCritica, variables);
+      this.props.history.push('/forms/Criticas');
+    } catch (error) {
       console.log(error);
     }
   };
@@ -152,20 +163,11 @@ class Form extends Component {
 
                 <button className='btn btn-primary'>Save</button>
               </form>
-            </div>
-            <div className='col-6'>
-              <ul>
-                {this.state.criticasList.map((critica) => {
-                  return (
-                    <li key={critica.criid}>
-                      <Link to={`${critica.criid}/EditCritica`}>
-                        {critica.criid}
-                      </Link>
-                      <p>{critica.critexto}</p>
-                    </li>
-                  );
-                })}
-              </ul>
+              <button
+                className='btn btn-danger mt-2'
+                onClick={this.handleDelete}>
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -174,4 +176,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default FormEditCriticas;

@@ -7,6 +7,7 @@ import FormCriticas from './Forms/FormCriticas';
 import EditPelicula from './Forms/FormEditPeliculas';
 import EditNoticia from './Forms/FormEditNoticias';
 import EditarPersona from './Forms/FormEditPersonas';
+import EditCritica from './Forms/FormEditCriticas';
 //React Router
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 
@@ -32,7 +33,14 @@ function App() {
         <Route
           exact
           path='/forms/:perid/EditarPersona'
-          component={EditarPersona}></Route>
+          component={EditarPersona}
+        />
+
+        <Route
+          exact
+          path='/forms/:criId/EditCritica'
+          component={EditCritica}
+        />
       </Switch>
     </BrowserRouter>
   );
