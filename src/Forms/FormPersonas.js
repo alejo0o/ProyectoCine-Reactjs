@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
-
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
 import Peticiones from '../utils/consultasPersonas';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -50,7 +51,7 @@ class FormPersonas extends Component {
       error: null,
     });
     try {
-      const data = await Peticiones.ClienteGql.request(Peticiones.getPersonas);
+      const data = await GQLClient.request(Peticiones.getPersonas);
       this.setState({
         loading: false,
         personasList: this.state.personasList.concat(data.getPersonas),
@@ -72,7 +73,7 @@ class FormPersonas extends Component {
       const variables = {
         input: this.state.form,
       };
-      await Peticiones.ClienteGql.request(Peticiones.createPersona, variables);
+      await GQLClient.request(Peticiones.createPersona, variables);
       window.location.reload();
     } catch (error) {
       this.setState({

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Peticiones from '../utils/consultasPeliculas';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -26,6 +29,7 @@ class FormEditPeliculas extends Component {
         duracion: '',
         sinopsis: '',
         trailer: '',
+        portada: '',
       },
     };
   }
@@ -39,10 +43,7 @@ class FormEditPeliculas extends Component {
       id: this.props.match.params.peliId,
     };
     try {
-      const data = await Peticiones.ClienteGql.request(
-        Peticiones.getPelicula,
-        variables
-      );
+      const data = await GQLClient.request(Peticiones.getPelicula, variables);
       this.setState({
         loading: false,
         form: data.getPelicula,
@@ -69,13 +70,14 @@ class FormEditPeliculas extends Component {
       loading: true,
       error: null,
     });
+    this.state.form.claid = parseInt(this.state.form.claid);
     this.state.form.duracion = parseInt(this.state.form.duracion);
     const variables = {
       input: this.state.form,
       id: this.props.match.params.peliId,
     };
     try {
-      await Peticiones.ClienteGql.request(Peticiones.editPelicula, variables);
+      await GQLClient.request(Peticiones.editPelicula, variables);
       this.setState({
         loading: false,
       });
@@ -95,7 +97,7 @@ class FormEditPeliculas extends Component {
       variables = {
         id: parseInt(this.props.match.params.peliId),
       };
-      await Peticiones.ClienteGql.request(Peticiones.deletePelicula, variables);
+      await GQLClient.request(Peticiones.deletePelicula, variables);
       this.props.history.push('/forms/Peliculas');
     } catch (error) {
       console.log(error);
@@ -167,6 +169,16 @@ class FormEditPeliculas extends Component {
                     className='form-control'
                     onChange={this.onChange}
                     value={this.state.form.trailer}></input>
+                </div>
+
+                <div className='form-group'>
+                  <label className='label'>Portada:</label>
+                  <input
+                    type='text'
+                    name='portada'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.portada}></input>
                 </div>
 
                 <button className='btn btn-primary'>Save</button>

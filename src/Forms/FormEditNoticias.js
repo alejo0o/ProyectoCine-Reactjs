@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Peticiones from '../utils/consultasNoticias';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -36,10 +39,7 @@ class FormEditNoticias extends Component {
       id: this.props.match.params.notiId,
     };
     try {
-      const data = await Peticiones.ClienteGql.request(
-        Peticiones.getNoticia,
-        variables
-      );
+      const data = await GQLClient.request(Peticiones.getNoticia, variables);
       this.setState({
         loading: false,
         form: data.getNoticia,
@@ -72,7 +72,7 @@ class FormEditNoticias extends Component {
       id: this.props.match.params.notiId,
     };
     try {
-      await Peticiones.ClienteGql.request(Peticiones.editNoticia, variables);
+      await GQLClient.request(Peticiones.editNoticia, variables);
       this.setState({
         loading: false,
       });
@@ -92,7 +92,7 @@ class FormEditNoticias extends Component {
       variables = {
         id: parseInt(this.props.match.params.notiId),
       };
-      await Peticiones.ClienteGql.request(Peticiones.deleteNoticia, variables);
+      await GQLClient.request(Peticiones.deleteNoticia, variables);
       this.props.history.push('/forms/Noticias');
     } catch (error) {
       console.log(error);

@@ -27,7 +27,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <PrivateRoute exact path='/forms/Peliculas' component={FormPeliculas} />
+        <Route exact path='/forms/Peliculas' component={FormPeliculas} />
         <Route exact path='/forms/Personas' component={FormPersonas} />
         <Route exact path='/forms/Noticias' component={FormNoticias} />
         <Route exact path='/forms/Criticas' component={FormCriticas} />

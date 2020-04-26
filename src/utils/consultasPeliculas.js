@@ -1,15 +1,5 @@
 //Consultas y mutaciones para la api de graphql
-
-import { GraphQLClient } from 'graphql-request';
-
-const API_URL = `https://deploy-zeit.now.sh/api`;
-
-const API_HEADERS = {
-  headers: {},
-};
-
 const Peticiones = {
-  ClienteGql: new GraphQLClient(API_URL, API_HEADERS),
   createPelicula: `
     mutation AddMovie($input: PeliculaInput!) {
       createPelicula(input: $input) {
@@ -41,6 +31,7 @@ const Peticiones = {
         duracion
         sinopsis
         trailer
+        portada
       }
     }
   `,
@@ -52,6 +43,7 @@ const Peticiones = {
     sinopsis
     trailer
     duracion
+    portada
   }
 }`,
   deletePelicula: `mutation DeleteMovie($id:ID!){

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Peticiones from '../utils/consultasCriticas';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -38,10 +41,7 @@ class FormEditCriticas extends Component {
       id: this.props.match.params.criId,
     };
     try {
-      const data = await Peticiones.ClienteGql.request(
-        Peticiones.getCritica,
-        variables
-      );
+      const data = await GQLClient.request(Peticiones.getCritica, variables);
       this.setState({
         loading: false,
         form: data.getCritica,
@@ -76,7 +76,7 @@ class FormEditCriticas extends Component {
       id: this.props.match.params.criId,
     };
     try {
-      await Peticiones.ClienteGql.request(Peticiones.editCritica, variables);
+      await GQLClient.request(Peticiones.editCritica, variables);
       this.setState({
         loading: false,
       });
@@ -96,7 +96,7 @@ class FormEditCriticas extends Component {
       variables = {
         id: parseInt(this.props.match.params.criId),
       };
-      await Peticiones.ClienteGql.request(Peticiones.deleteCritica, variables);
+      await GQLClient.request(Peticiones.deleteCritica, variables);
       this.props.history.push('/forms/Criticas');
     } catch (error) {
       console.log(error);
