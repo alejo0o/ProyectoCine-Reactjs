@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
-
 import React, { Component } from 'react';
-
 import Peticiones from '../utils/consultasPersonas';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -16,21 +17,21 @@ function NavBar() {
 }
 
 class FormEditPersonas extends Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        loading: false,
-        error: false,
-        form: {
-          paiid: '',
-          pernombre: '',
-          perapellido: '',
-          perfechanacim: '',
-          perlugarnacim: '',
-        },
-      };
-    }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      error: false,
+      form: {
+        paiid: '',
+        pernombre: '',
+        perapellido: '',
+        perfechanacim: '',
+        perlugarnacim: '',
+      },
+    };
+  }
   componentDidMount() {
     this.fetchData();
   }
@@ -41,10 +42,7 @@ class FormEditPersonas extends Component {
       id: this.props.match.params.perid,
     };
     try {
-      const data = await Peticiones.ClienteGql.request(
-        Peticiones.getPersona,
-        variables
-      );
+      const data = await GQLClient.request(Peticiones.getPersona, variables);
       this.setState({
         loading: false,
         form: data.getPersona,
@@ -71,12 +69,12 @@ class FormEditPersonas extends Component {
       loading: true,
       error: null,
     });
-      const variables = {
+    const variables = {
       input: this.state.form,
       id: this.props.match.params.perid,
     };
     try {
-      await Peticiones.ClienteGql.request(Peticiones.editPersona, variables);
+      await GQLClient.request(Peticiones.editPersona, variables);
       this.setState({
         loading: false,
       });
@@ -96,7 +94,7 @@ class FormEditPersonas extends Component {
       variables = {
         id: parseInt(this.props.match.params.perid),
       };
-      await Peticiones.ClienteGql.request(Peticiones.deletePersona, variables);
+      await GQLClient.request(Peticiones.deletePersona, variables);
       this.props.history.push('/forms/Personas');
     } catch (error) {
       console.log(error);
@@ -104,65 +102,65 @@ class FormEditPersonas extends Component {
   };
 
   render() {
-    return(
-    <React.Fragment>
-    <NavBar></NavBar>
-    <div className='container'>
-      <div className='row'>
-        <div className='col-6'>
-          <form onSubmit={this.handleSubmit}>
-            <div className='form-group'>
-              <label className='label'>Paiid:</label>
-              <input
-                type='text'
-                name='paiid'
-                className='form-control'
-                onChange={this.onChange}
-                value={this.state.form.paiid}></input>
-            </div>
+    return (
+      <React.Fragment>
+        <NavBar></NavBar>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-6'>
+              <form onSubmit={this.handleSubmit}>
+                <div className='form-group'>
+                  <label className='label'>Paiid:</label>
+                  <input
+                    type='text'
+                    name='paiid'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.paiid}></input>
+                </div>
 
-            <div className='form-group'>
-              <label className='label'>Nombre:</label>
-              <input
-                type='text'
-                name='pernombre'
-                className='form-control'
-                onChange={this.onChange}
-                value={this.state.form.pernombre}></input>
-            </div>
+                <div className='form-group'>
+                  <label className='label'>Nombre:</label>
+                  <input
+                    type='text'
+                    name='pernombre'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.pernombre}></input>
+                </div>
 
-            <div className='form-group'>
-              <label className='label'>Apellido:</label>
-              <input
-                type='text'
-                name='perapellido'
-                className='form-control'
-                onChange={this.onChange}
-                value={this.state.form.perapellido}></input>
-            </div>
+                <div className='form-group'>
+                  <label className='label'>Apellido:</label>
+                  <input
+                    type='text'
+                    name='perapellido'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.perapellido}></input>
+                </div>
 
-            <div className='form-group'>
-              <label className='label'>Fecha nacimiento:</label>
-              <input
-                type='text'
-                name='perfechanacim'
-                className='form-control'
-                onChange={this.onChange}
-                value={this.state.form.perfechanacim}></input>
-            </div>
+                <div className='form-group'>
+                  <label className='label'>Fecha nacimiento:</label>
+                  <input
+                    type='text'
+                    name='perfechanacim'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.perfechanacim}></input>
+                </div>
 
-            <div className='form-group'>
-              <label className='label'>Lugar nacimiento:</label>
-              <input
-                type='text'
-                name='perlugarnacim'
-                className='form-control'
-                onChange={this.onChange}
-                value={this.state.form.perlugarnacim}></input>
-            </div>
+                <div className='form-group'>
+                  <label className='label'>Lugar nacimiento:</label>
+                  <input
+                    type='text'
+                    name='perlugarnacim'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.perlugarnacim}></input>
+                </div>
 
-            <button className='btn btn-primary'>Save</button>
-          </form>
+                <button className='btn btn-primary'>Save</button>
+              </form>
               <button
                 className='btn btn-danger mt-2'
                 onClick={this.handleDelete}>

@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
 import { Link } from 'react-router-dom';
 import Peticiones from '../utils/consultasCriticas';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -50,7 +53,7 @@ class Form extends Component {
     });
 
     try {
-      const data = await Peticiones.ClienteGql.request(Peticiones.getCriticas);
+      const data = await GQLClient.request(Peticiones.getCriticas);
 
       this.setState({
         loading: false,
@@ -81,7 +84,7 @@ class Form extends Component {
       const variables = {
         input: this.state.form,
       };
-      await Peticiones.ClienteGql.request(Peticiones.createCritica, variables);
+      await GQLClient.request(Peticiones.createCritica, variables);
       window.location.reload();
     } catch (error) {
       this.setState({

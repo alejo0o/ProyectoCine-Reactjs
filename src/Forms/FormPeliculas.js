@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
 import { Link } from 'react-router-dom';
 import Peticiones from '../utils/consultasPeliculas';
+import ClienteGql from '../utils/GqlClient';
+
+const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
@@ -27,6 +30,7 @@ class Form extends Component {
         duracion: '',
         sinopsis: '',
         trailer: '',
+        portada: '',
       },
       peliculasList: [],
     };
@@ -51,7 +55,7 @@ class Form extends Component {
     });
 
     try {
-      const data = await Peticiones.ClienteGql.request(Peticiones.getPeliculas);
+      const data = await GQLClient.request(Peticiones.getPeliculas);
 
       this.setState({
         loading: false,
@@ -80,7 +84,7 @@ class Form extends Component {
       const variables = {
         input: this.state.form,
       };
-      await Peticiones.ClienteGql.request(Peticiones.createPelicula, variables);
+      await GQLClient.request(Peticiones.createPelicula, variables);
       window.location.reload();
     } catch (error) {
       this.setState({
@@ -156,6 +160,16 @@ class Form extends Component {
                     className='form-control'
                     onChange={this.onChange}
                     value={this.state.form.trailer}></input>
+                </div>
+
+                <div className='form-group'>
+                  <label className='label'>Portada:</label>
+                  <input
+                    type='text'
+                    name='portada'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.portada}></input>
                 </div>
 
                 <button className='btn btn-primary'>Save</button>
