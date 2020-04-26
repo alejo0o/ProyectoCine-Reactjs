@@ -23,6 +23,8 @@ class Form extends Component {
         peliculasid: '',
         nottexto: '',
         notfecha: '',
+        nottitulo: '',
+        notimagen: '',
       },
       noticiasList: [],
     };
@@ -123,6 +125,24 @@ class Form extends Component {
                     onChange={this.onChange}
                     value={this.state.form.notfecha}></input>
                 </div>
+                <div className='form-group'>
+                  <label className='label'>Titulo:</label>
+                  <input
+                    type='text'
+                    name='nottitulo'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.nottitulo}></input>
+                </div>
+                <div className='form-group'>
+                  <label className='label'>Imagen:</label>
+                  <input
+                    type='text'
+                    name='notimagen'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.notimagen}></input>
+                </div>
                 <button className='btn btn-primary'>Save</button>
               </form>
             </div>
@@ -136,6 +156,8 @@ class Form extends Component {
                       </Link>
                       <p>{noticia.nottexto}</p>
                       <p>{noticia.notfecha}</p>
+                      <p>{noticia.nottitulo}</p>
+                      <p>{noticia.notimagen}</p>
                     </li>
                   );
                 })}

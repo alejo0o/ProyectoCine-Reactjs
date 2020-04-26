@@ -14,6 +14,8 @@ const Peticiones = {
         peliculasid
         nottexto
         notfecha
+        nottitulo
+        notimagen
       }
     }
   `,
@@ -23,6 +25,8 @@ const Peticiones = {
         notid
         nottexto
         notfecha
+        nottitulo
+        notimagen
       }
     }
   `,
@@ -32,6 +36,8 @@ const Peticiones = {
         peliculasid
         nottexto
         notfecha
+        nottitulo
+        notimagen
       }
     }
   `,
@@ -41,6 +47,8 @@ const Peticiones = {
     peliculasid
     nottexto
     notfecha
+    nottitulo
+    notimagen
   }
 }`,
   deleteNoticia: `mutation DeleteNew($id:ID!){
