@@ -7,6 +7,7 @@ import FormCriticas from './Forms/FormCriticas';
 import EditPelicula from './Forms/FormEditPeliculas';
 import EditNoticia from './Forms/FormEditNoticias';
 import EditarPersona from './Forms/FormEditPersonas';
+import EditCritica from './Forms/FormEditCriticas';
 //React Router
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 //AUTENTICACION
@@ -47,6 +48,8 @@ function App() {
           component={EditarPersona}
         />
         <Route path='/profile' component={Profile} />
+
+        <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
       </Switch>
     </BrowserRouter>
   );
