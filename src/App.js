@@ -16,6 +16,8 @@ import { useAuth0 } from './react-auth0-spa';
 import Profile from './components/Profile';
 import history from './utils/history'; //en el causo de uso de router
 import PrivateRoute from './components/PrivateRoute';
+//PAGINAS WEB
+import CriticasPagina from './paginas/Criticas';
 
 function App() {
   const { loading } = useAuth0();
@@ -27,6 +29,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        {/*Rutas de los Forms para la data*/}
         <Route exact path='/forms/Peliculas' component={FormPeliculas} />
         <Route exact path='/forms/Personas' component={FormPersonas} />
         <Route exact path='/forms/Noticias' component={FormNoticias} />
@@ -41,15 +44,16 @@ function App() {
           path='/forms/:notiId/EditNoticia'
           component={EditNoticia}
         />
-
         <Route
           exact
           path='/forms/:perid/EditarPersona'
           component={EditarPersona}
         />
-        <Route path='/profile' component={Profile} />
-
         <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
+
+        {/*Rutas a las paginas web*/}
+        <Route exact path='/criticas' component={CriticasPagina} />
+        <Route exact path='/profile' component={Profile} />
       </Switch>
     </BrowserRouter>
   );

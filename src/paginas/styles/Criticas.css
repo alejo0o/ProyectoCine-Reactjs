@@ -1,0 +1,14 @@
+.contenedorCriticas {
+  display: grid;
+  grid-template-columns: [inicio] 100% [final];
+  grid-template-rows:
+    [inicio] 70vh [linea2] 70vh [linea3] 70vh [linea4] 70vh
+    [final];
+  gap: 5%;
+}
+
+.elemento {
+  background: lightblue;
+
+  border: 1px solid red;
+}

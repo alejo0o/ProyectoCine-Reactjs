@@ -56,7 +56,6 @@ class Form extends Component {
 
     try {
       const data = await GQLClient.request(Peticiones.getPeliculas);
-
       this.setState({
         loading: false,
         peliculasList: this.state.peliculasList.concat(data.getPeliculas),
