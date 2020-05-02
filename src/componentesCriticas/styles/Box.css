@@ -1,23 +1,18 @@
 .contenedorBox {
   display: grid;
   grid-template-columns: [inicio] 100% [final];
-  grid-template-rows: [inicio] 100% [linea2] 10% [linea3] 13% [linea4] 5% [final];
+  grid-template-rows: [inicio] 170% [linea2] 20% [linea3] 20% [linea4] 20% [final];
 
   gap: 1%;
   height: 40%;
 }
-
 .portadaImg {
   width: 100%;
   height: 100%;
 }
 
-.tituloCritica {
-  font-size: 100%;
+.elementoBox1:nth-of-type(3) {
+  font-size: 110%;
   font-family: 'Lucida Console', Courier, monospace;
-}
-.subtituloCritica {
-  font-size: 10px;
-  opacity: 0.6;
-  font-family: 'Lucida Console', Courier, monospace;
+  margin: 2%;
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Box from './Box';
-import Box2 from './Box2';
 import './styles/Lista1.css';
 
 class Lista1 extends Component {
@@ -20,10 +19,3 @@ class Lista1 extends Component {
 }
 
 export default Lista1;
-/*{this.props.peliculas.map((pelicula) => {
-          return (
-            <div key={pelicula.peliculasid} className='item'>
-              <Box pelicula={pelicula} />
-            </div>
-          );
-        })}*/

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import BigBox from '../componentesCriticas/Box';
 import './styles/Criticas.css';
 import Peticiones from '../utils/consultasPersonalizadas';
 import ClienteGql from '../utils/GqlClient';
+//Listas
 import Lista1 from '../componentesCriticas/Lista1';
+import Lista2 from '../componentesCriticas/Lista2';
 
 const GQLClient = ClienteGql;
 
@@ -55,7 +56,9 @@ class Criticas extends Component {
         <div className='elemento'>
           <Lista1 peliculas={this.state.peliculas} />
         </div>
-        <div className='elemento'>item #2</div>
+        <div className='elemento'>
+          <Lista2 peliculas={this.state.peliculas} />
+        </div>
         <div className='elemento'>item #3</div>
         <div className='elemento'>item #4</div>
       </section>
@@ -64,4 +67,3 @@ class Criticas extends Component {
 }
 
 export default Criticas;
-/*<Lista1 peliculas={this.state.peliculas} />*/

@@ -1,7 +1,7 @@
 .contenedorLista1 {
   display: grid;
   grid-template-columns: [inicio] 45% [linea2] 25% [linea3] 25% [final];
-  grid-template-rows: [inicio] 35% [linea2] 35% [final];
+  grid-template-rows: [inicio] 45% [linea2] 45% [final];
   gap: 2%;
   justify-content: center;
 }

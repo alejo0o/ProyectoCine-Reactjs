@@ -5,32 +5,25 @@ class BigBox extends Component {
   render() {
     return (
       <section className='contenedorBox'>
-        <div className='item'>
+        <div className='elementoBox1'>
           <img
             alt=''
             src={this.props.pelicula.portada}
             className='portadaImg'
           />
         </div>
-
-        <Rating
-          name='read-only'
-          value={this.props.pelicula.promedio}
-          readOnly
-          precision={0.5}
-        />
-
-        <div className='tituloCritica'>{this.props.pelicula.nombre}</div>
-        <div className='subtituloCritica'>{this.props.pelicula.sinopsis}</div>
+        <div className='elementoBox1'>
+          <Rating
+            name='read-only'
+            value={this.props.pelicula.promedio}
+            readOnly
+            precision={0.5}
+          />
+        </div>
+        <div className='elementoBox1'>{this.props.pelicula.nombre}</div>
       </section>
     );
   }
 }
 
 export default BigBox;
-/*<Rating
-              name='read-only'
-              value={this.props.pelicula.promedio}
-              readOnly
-              precision={0.5}
-            />*/
