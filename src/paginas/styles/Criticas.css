@@ -1,7 +1,7 @@
 .contenedorCriticas {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: [inicio] minmax(350px, 600px) [linea2] 100vh [linea3] 80vh [final];
+  grid-template-rows: [inicio] 80vh [linea2] 100vh [linea3] 80vh [final];
   gap: 3%;
 }
 
