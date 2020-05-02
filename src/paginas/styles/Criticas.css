@@ -1,9 +1,7 @@
 .contenedorCriticas {
   display: grid;
-  grid-template-columns: [inicio] 100% [final];
-  grid-template-rows:
-    [inicio] 80vh [linea2] 80vh [linea3] 80vh [linea4] 80vh
-    [final];
+  grid-template-columns: 100%;
+  grid-template-rows: [inicio] minmax(350px, 600px) [linea2] 100vh [linea3] 80vh [final];
   gap: 3%;
 }
 
@@ -11,4 +9,46 @@
   background: lightblue;
 
   border: 1px solid red;
+}
+/*Css correspondiente a la lista 1*/
+.contenedorLista1 {
+  display: grid;
+  grid-template-columns: [inicio] 45% [linea2] 25% [linea3] 25% [final];
+  grid-template-rows: [inicio] 45% [linea2] 45% [final];
+  gap: 2%;
+  justify-content: center;
+  background: lightblue;
+
+  border: 1px solid red;
+}
+.item {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  background-color: white;
+  overflow: auto;
+}
+.item:nth-of-type(1) {
+  grid-row: inicio / final;
+}
+/*CSS de la lista 2*/
+.contenedorLista2 {
+  display: grid;
+  grid-template-rows: repeat(5, 17%);
+  grid-template-columns: 70%;
+  gap: 3%;
+  justify-content: space-evenly;
+  margin-top: 1%;
+  background: lightblue;
+
+  border: 1px solid red;
+}
+
+.elementoLista2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  background-color: white;
+  overflow: auto;
+  margin-top: 1%;
+}
+@media screen and (max-width: 768px) {
 }

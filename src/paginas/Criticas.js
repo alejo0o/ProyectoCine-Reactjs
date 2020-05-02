@@ -53,14 +53,12 @@ class Criticas extends Component {
   render() {
     return (
       <section className='contenedorCriticas'>
-        <div className='elemento'>
+        <div className='contenedorLista1'>
           <Lista1 peliculas={this.state.peliculas} />
         </div>
-        <div className='elemento'>
+        <div className='contenedorLista2'>
           <Lista2 peliculas={this.state.peliculas} />
         </div>
-        <div className='elemento'>item #3</div>
-        <div className='elemento'>item #4</div>
       </section>
     );
   }

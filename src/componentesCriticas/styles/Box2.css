@@ -1,6 +1,6 @@
 .contenedorBox2 {
   display: grid;
-  grid-template-rows: [inicio] 60% [linea2] 60% [linea3] 130% [final];
+  grid-template-rows: [inicio] 55% [linea2] 45% [linea3] 150% [final];
   grid-template-columns: minmax(20%, 25%) minmax(50%, 73%);
   height: 40%;
 }
