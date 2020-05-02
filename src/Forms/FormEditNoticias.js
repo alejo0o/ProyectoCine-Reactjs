@@ -26,6 +26,8 @@ class FormEditNoticias extends Component {
         peliculasid: '',
         nottexto: '',
         notfecha: '',
+        nottitulo: '',
+        notimagen: '',
       },
     };
   }
@@ -135,6 +137,24 @@ class FormEditNoticias extends Component {
                     className='form-control'
                     onChange={this.onChange}
                     value={this.state.form.notfecha}></input>
+                </div>
+                <div className='form-group'>
+                  <label className='label'>Titulo:</label>
+                  <input
+                    type='text'
+                    name='nottitulo'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.nottitulo}></input>
+                </div>
+                <div className='form-group'>
+                  <label className='label'>Imagen:</label>
+                  <input
+                    type='text'
+                    name='notimagen'
+                    className='form-control'
+                    onChange={this.onChange}
+                    value={this.state.form.notimagen}></input>
                 </div>
                 <button className='btn btn-primary'>Save</button>
               </form>
