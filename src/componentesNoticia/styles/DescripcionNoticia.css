@@ -1,0 +1,55 @@
+.general {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.noticiaDescrip {
+  padding: 0;
+  width: 30%;
+  float: left;
+  height: auto;
+  margin: 0.8% 1.6%;
+  cursor: pointer;
+  text-align: center;
+  /* border: blue solid; */
+}
+.noticiaTexto {
+  margin: 1% 10.9%;
+  /* background-color: black;
+  color: white; */
+  /* border: rgb(83, 79, 79) solid; */
+}
+.noticiaTexto p {
+  text-align: justify;
+  font-size: 85%;
+}
+.noticiaTexto h5 {
+  font-weight: bold;
+  font-size: 95%;
+}
+.noticiaImagen {
+  width: 77.8%;
+  height: 55.6%;
+  background: none;
+}
+.noticiaImagen:hover {
+  transform: scale(1.005);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  box-shadow: 0 0 9px rgba(9, 9, 121, 1);
+}
+
+.imagen {
+  position: relative;
+}
+.imagenTexto {
+  margin: 0%;
+  width: 15%;
+  height: 12.2%;
+  padding: 1%;
+  position: absolute;
+  left: 11%;
+  top: 87.7%;
+  background-color: black;
+  color: white;
+  font-size: 65%;
+}

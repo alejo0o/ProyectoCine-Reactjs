@@ -1,57 +1,77 @@
-import "./styles/VideosTrailer.css";
+import './styles/VideosTrailer.css';
 
-import ClienteGql from "../utils/consultasPeliculas";
-import Peticiones from "../utils/consultasPeliculas";
-import React from "react";
-import ReactPlayer from "react-player";
+import React, { Component } from 'react';
+
+import ClienteGql from '../utils/GqlClient';
+import Peticiones from '../utils/recursosPersonalizados';
+import ReactPlayer from 'react-player';
 
 const GQLClient = ClienteGql;
 
-class VideosNoticias extends React.Component {
+class VideosTrailer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
       error: false,
-      peliculasList: [],
+      page: '',
+      peliculasEstreno: [],
     };
   }
   componentDidMount() {
     this.fetchData();
   }
+
   fetchData = async () => {
-    this.setState({
-      loading: true,
-      error: null,
-    });
-
+    const variables = {
+      page: 1,
+    };
     try {
-      const data = await GQLClient.request(Peticiones.getPeliculas);
-
+      const data = await GQLClient.request(
+        Peticiones.getPeliculasporEstreno,
+        variables
+      );
       this.setState({
         loading: false,
-        peliculasList: this.state.peliculasList.concat(data.getPeliculas),
+        peliculasEstreno: Object.values(
+          this.state.peliculasEstreno.concat(data.getPeliculasporEstreno)
+        ),
       });
+      // window.location.reload();
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
       });
+      console.log(error);
     }
   };
+
   render() {
     return (
       <React.Fragment>
-        <ReactPlayer
-          url={"https://www.youtube.com/watch?v=lKDGxAHZt0E"}
-          controls={true}
-        ></ReactPlayer>
-        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgrupomedlegal.com%2Fnosotros%2Fabogados%2Fabogados-de-compensacion-laboral%2F&psig=AOvVaw2YvAW0kdgrTjYI-kLG0o2q&ust=1588183923904000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjJxKfci-kCFQAAAAAdAAAAABAD"></img>
-        {this.state.peliculasList.map((pelicula) => {
+        {/* <form className="col-6" onSubmit={this.fetchData}>
+          <div className="form-group">Texto:</div>
+          <button>Save</button>
+        </form> */}
+        {this.state.peliculasEstreno.map((pelicula) => {
           return (
-            <div key={pelicula.peliculaid} className="App">
-              trailer 1
-              <ReactPlayer url={pelicula.trailer} controls={true}></ReactPlayer>
+            <div key={pelicula.peliculasid} className="general">
+              <div className="trailerDescrip">
+                <div className="video">
+                  <ReactPlayer
+                    url={pelicula.trailer}
+                    controls={true}
+                    width={500}
+                    height={300}
+                    className="trailerVideo"
+                  ></ReactPlayer>
+                </div>
+                <div className="trailerTexto">
+                  <h5>{pelicula.nombre}</h5>
+                  <p>{pelicula.sinopsis}</p>
+                </div>
+              </div>
             </div>
           );
         })}
@@ -59,5 +79,22 @@ class VideosNoticias extends React.Component {
     );
   }
 }
+export default VideosTrailer;
 
-export default VideosNoticias;
+{
+  /* <div className="grid-container">
+              <div key={pelicula.peliculasid} className="grid-item">
+                <ReactPlayer
+                  url={pelicula.trailer}
+                  controls={true}
+                  width={500}
+                  height={300}
+                  // className="trailerVideo"
+                ></ReactPlayer>
+                <div className="texto">
+                  <h5>{pelicula.nombre}</h5>
+                  <p>{pelicula.sinopsis}</p>
+                </div>
+              </div>
+            </div> */
+}
