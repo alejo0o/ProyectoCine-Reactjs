@@ -15,11 +15,11 @@ import FormPeliculas from './Forms/FormPeliculas';
 import FormPersonas from './Forms/FormPersonas';
 //AUTENTICACION
 import NavBar from './components/NavBar';
+import NavBar2 from './components/GlobalNavbar';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile';
 import React from 'react';
 //PAGINAS WEB
-import VideosTrailer from './paginas/Trailers';
 import history from './utils/history'; //en el causo de uso de router
 import { useAuth0 } from './react-auth0-spa';
 
@@ -32,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <NavBar2 />
       <Switch>
         <Route exact path="/forms/Peliculas" component={FormPeliculas} />
         <Route exact path="/forms/Personas" component={FormPersonas} />
@@ -55,12 +56,7 @@ function App() {
         <Route path="/profile" component={Profile} />
 
         <Route exact path="/forms/:criId/EditCritica" component={EditCritica} />
-        <Route exact path="/forms/Videos" component={VideosTrailer} />
-        <Route
-          exact
-          path="/forms/NoticiasFecha"
-          component={DescripcioNoticia}
-        />
+        <Route exact path="/NoticiasFecha" component={DescripcioNoticia} />
         <Route exact path="/criticas" component={CriticasPagina} />
       </Switch>
     </BrowserRouter>

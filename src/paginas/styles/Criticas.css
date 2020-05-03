@@ -3,6 +3,7 @@
   grid-template-columns: minmax(900px, 100%);
   grid-template-rows: [inicio] minmax(400px, 80vh) [linea2] minmax(700px, 125vh) [linea3] 80vh [final];
   gap: 3%;
+  margin-top: 4%;
 }
 
 .elemento {
