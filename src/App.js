@@ -29,7 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <NavBar2/>
+      <NavBar2 />
       <Switch>
         {/*Rutas de los Forms para la data*/}
         <Route exact path='/forms/Peliculas' component={FormPeliculas} />

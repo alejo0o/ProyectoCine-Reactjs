@@ -6,9 +6,6 @@ import { Auth0Provider } from './react-auth0-spa';
 import config from './auth_config.json';
 import history from './utils/history';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Archivo CSS de Bootstrap 4 
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js'; // Archivo Javascript de Bootstrap 4 
-
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = (appState) => {
