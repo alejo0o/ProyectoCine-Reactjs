@@ -41,7 +41,7 @@ class Noticias extends Component {
       this.setState({
         loading: false,
         noticiasFecha: this.state.noticiasFecha.concat(
-          respuesta.getNoticiasFecha
+          respuesta.getNoticiasFecha.results
         ),
         nextPage: this.state.nextPage + 1,
       });
@@ -54,11 +54,11 @@ class Noticias extends Component {
   };
   render() {
     return (
-      <section className="contenedorCriticas">
-        <div className="contenedorLista1">
+      <section className='contenedorCriticas'>
+        <div className='contenedorLista1'>
           <Lista1 noticiasFecha={this.state.noticiasFecha} />
         </div>
-        <div className="contenedorLista2">
+        <div className='contenedorLista2'>
           <Lista2 noticiasFecha={this.state.noticiasFecha} />
         </div>
       </section>

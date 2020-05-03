@@ -35,32 +35,32 @@ function App() {
       <NavBar />
       <NavBar2 />
       <Switch>
-        <Route exact path="/forms/Peliculas" component={FormPeliculas} />
-        <Route exact path="/forms/Personas" component={FormPersonas} />
-        <Route exact path="/forms/Noticias" component={FormNoticias} />
-        <Route exact path="/forms/Criticas" component={FormCriticas} />
+        <Route exact path='/forms/Peliculas' component={FormPeliculas} />
+        <Route exact path='/forms/Personas' component={FormPersonas} />
+        <Route exact path='/forms/Noticias' component={FormNoticias} />
+        <Route exact path='/forms/Criticas' component={FormCriticas} />
         <Route
           exact
-          path="/forms/:peliId/EditPelicula"
+          path='/forms/:peliId/EditPelicula'
           component={EditPelicula}
         />
         <Route
           exact
-          path="/forms/:notiId/EditNoticia"
+          path='/forms/:notiId/EditNoticia'
           component={EditNoticia}
         />
         <Route
           exact
-          path="/forms/:perid/EditarPersona"
+          path='/forms/:perid/EditarPersona'
           component={EditarPersona}
         />
-        <Route path="/profile" component={Profile} />
+        <Route path='/profile' component={Profile} />
 
-        <Route exact path="/forms/:criId/EditCritica" component={EditCritica} />
-        <Route exact path="/NoticiasFecha" component={DescripcioNoticia} />
-        <Route exact path="/criticas" component={CriticasPagina} />
+        <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
+        <Route exact path='/NoticiasFecha' component={DescripcioNoticia} />
+        <Route exact path='/criticas' component={CriticasPagina} />
         {/*Rutas a las paginas web*/}
-        <Route exact path="/Criticas/:peliId" component={CriticaPelicula} />
+        <Route exact path='/Criticas/:peliId' component={CriticaPelicula} />
       </Switch>
     </BrowserRouter>
   );

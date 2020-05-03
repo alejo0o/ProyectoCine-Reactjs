@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './scss/Comentarios.scss'
+import './scss/Comentarios.scss';
 import Peticiones from '../../utils/consultasPersonalizadas.js';
 import ClienteGql from '../../utils/GqlClient';
 import Rating from '@material-ui/lab/Rating';
@@ -26,14 +26,21 @@ class Comentarios extends Component {
       error: null,
     });
     const variables = {
-    	page: 1,
-    	id: this.props.peliid,
+      page: 1,
+      id: this.props.peliid,
     };
+    console.log('holi');
     try {
-      const data = await GQLClient.request(Peticiones.getCriticasporPelicula, variables);
+      const data = await GQLClient.request(
+        Peticiones.getCriticasporPelicula,
+        variables
+      );
+
       this.setState({
         loading: false,
-        criticasList: this.state.criticasList.concat(data.getCriticasporPelicula),
+        criticasList: this.state.criticasList.concat(
+          data.getCriticasporPelicula.results
+        ),
       });
     } catch (error) {
       this.setState({
@@ -50,26 +57,25 @@ class Comentarios extends Component {
           <ul>
             {this.state.criticasList.map((critica) => {
               return (
-                <li key={critica.criid} className="listaComentarios">
-                	<div className="critica">
-                  	<h6>{critica.email}</h6>
-                  	<h6 className="puntaje">Puntaje: </h6>
+                <li key={critica.criid} className='listaComentarios'>
+                  <div className='critica'>
+                    <h6>{critica.email}</h6>
+                    <h6 className='puntaje'>Puntaje: </h6>
                     <Rating
-                      name="crivalor"
+                      name='crivalor'
                       value={parseFloat(critica.crivalor)}
                       precision={0.5}
-                      size="small"
+                      size='small'
                       readOnly
                     />
                     <p>{critica.critexto}</p>
-                  	<h6 className="fecha">Fecha: {critica.crifecha}</h6>
-                  	<hr />
-                	</div>
+                    <h6 className='fecha'>Fecha: {critica.crifecha}</h6>
+                    <hr />
+                  </div>
                 </li>
               );
             })}
           </ul>
-          
         </div>
       </React.Fragment>
     );
