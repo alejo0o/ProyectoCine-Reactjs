@@ -18,6 +18,7 @@ import history from './utils/history'; //en el causo de uso de router
 import PrivateRoute from './components/PrivateRoute';
 //PAGINAS WEB
 import CriticasPagina from './paginas/Criticas';
+import CriticaPelicula from './paginas/CriticaPelicula.js';
 import NavBar2 from './components/GlobalNavbar';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
 
         {/*Rutas a las paginas web*/}
         <Route exact path='/criticas' component={CriticasPagina} />
+        <Route exact path='/Criticas/:peliId' component={CriticaPelicula} />
         <Route exact path='/profile' component={Profile} />
       </Switch>
     </BrowserRouter>
