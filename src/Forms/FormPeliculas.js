@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
+
+import React, { Component } from 'react';
+
+import ClienteGql from '../utils/GqlClient';
 import { Link } from 'react-router-dom';
 import Peticiones from '../utils/consultasPeliculas';
-import ClienteGql from '../utils/GqlClient';
 
 const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
-    <div className='Navbar'>
-      <div className='container-fluid Navbar__brand'>
-        <h2 className='center'>PELICULAS</h2>
+    <div className="Navbar">
+      <div className="container-fluid Navbar__brand">
+        <h2 className="center">PELICULAS</h2>
       </div>
     </div>
   );
@@ -98,83 +100,90 @@ class Form extends Component {
     return (
       <React.Fragment>
         <NavBar></NavBar>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-6'>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
               <form onSubmit={this.handleSubmit}>
-                <div className='form-group'>
-                  <label className='label'>Claid:</label>
+                <div className="form-group">
+                  <label className="label">Claid:</label>
                   <input
-                    type='text'
-                    name='claid'
-                    className='form-control'
+                    type="text"
+                    name="claid"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.claid}></input>
+                    value={this.state.form.claid}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Nombre:</label>
+                <div className="form-group">
+                  <label className="label">Nombre:</label>
                   <input
-                    type='text'
-                    name='nombre'
-                    className='form-control'
+                    type="text"
+                    name="nombre"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.nombre}></input>
+                    value={this.state.form.nombre}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Fecha lanzamiento:</label>
+                <div className="form-group">
+                  <label className="label">Fecha lanzamiento:</label>
                   <input
-                    type='text'
-                    name='fechadelanzamiento'
-                    className='form-control'
+                    type="text"
+                    name="fechadelanzamiento"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.fechadelanzamiento}></input>
+                    value={this.state.form.fechadelanzamiento}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Duracion</label>
+                <div className="form-group">
+                  <label className="label">Duracion</label>
                   <input
-                    type='text'
-                    name='duracion'
-                    className='form-control'
+                    type="text"
+                    name="duracion"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.duracion}></input>
+                    value={this.state.form.duracion}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Sinopsis:</label>
+                <div className="form-group">
+                  <label className="label">Sinopsis:</label>
                   <textarea
-                    name='sinopsis'
-                    className='form-control'
+                    name="sinopsis"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.sinopsis}></textarea>
+                    value={this.state.form.sinopsis}
+                  ></textarea>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Trailer:</label>
+                <div className="form-group">
+                  <label className="label">Trailer:</label>
                   <input
-                    type='text'
-                    name='trailer'
-                    className='form-control'
+                    type="text"
+                    name="trailer"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.trailer}></input>
+                    value={this.state.form.trailer}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Portada:</label>
+                <div className="form-group">
+                  <label className="label">Portada:</label>
                   <input
-                    type='text'
-                    name='portada'
-                    className='form-control'
+                    type="text"
+                    name="portada"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.portada}></input>
+                    value={this.state.form.portada}
+                  ></input>
                 </div>
 
-                <button className='btn btn-primary'>Save</button>
+                <button className="btn btn-primary">Save</button>
               </form>
             </div>
-            <div className='col-6'>
+            <div className="col-6">
               <ul>
                 {this.state.peliculasList.map((pelicula) => {
                   return (

@@ -9,7 +9,16 @@ const Peticiones = {
     promedio
   }
 }`,
-getCriticasporPelicula: `
+  getNoticiasFecha: `query getNoticias($page:Int!){
+  getNoticiasFecha(page:$page){
+    notid
+        nottexto
+        nottitulo
+        notimagen
+        notfecha
+  }
+}`,
+  getCriticasporPelicula: `
     query getCriticasporPelicula($page: Int!, $id: ID!) {
       getCriticasporPelicula(page: $page, id: $id) {
         crifecha

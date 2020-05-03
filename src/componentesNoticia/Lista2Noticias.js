@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import Box2 from './Box2';
+import Box2 from './Box2Noticias';
 
 class Lista2 extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.peliculas.map((pelicula) => {
+        {this.props.noticiasFecha.map((noticia) => {
           return (
-            <div key={pelicula.peliculasid} className="elementoLista2">
-              <Box2 pelicula={pelicula} />
+            <div key={noticia.notid} className="elementoLista2">
+              <Box2 noticiasFecha={noticia} />
             </div>
           );
         })}
