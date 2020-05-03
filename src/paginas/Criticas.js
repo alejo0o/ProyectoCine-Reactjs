@@ -1,24 +1,21 @@
-import './styles/Noticias.css';
-
 import React, { Component } from 'react';
-
-import ClienteGql from '../utils/GqlClient';
-import Lista1 from '../componentesNoticia/Lista1Noticias';
-import Lista2 from '../componentesNoticia/Lista2Noticias';
+import './styles/Criticas.css';
 import Peticiones from '../utils/consultasPersonalizadas';
-
+import ClienteGql from '../utils/GqlClient';
 //Listas
+import Lista1 from '../componentesCriticas/Lista1';
+import Lista2 from '../componentesCriticas/Lista2';
 
 const GQLClient = ClienteGql;
 
-class Noticias extends Component {
+class Criticas extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       loading: true,
       nextPage: 1,
-      noticiasFecha: [],
+      peliculas: [],
     };
   }
 
@@ -37,14 +34,12 @@ class Noticias extends Component {
         page: this.state.nextPage,
       };
       const respuesta = await GQLClient.request(
-        Peticiones.getNoticiasFecha,
+        Peticiones.getPeliculasEstreno,
         variables
       );
       this.setState({
         loading: false,
-        noticiasFecha: this.state.noticiasFecha.concat(
-          respuesta.getNoticiasFecha
-        ),
+        peliculas: this.state.peliculas.concat(respuesta.getCriticasValor),
         nextPage: this.state.nextPage + 1,
       });
     } catch (error) {
@@ -57,18 +52,18 @@ class Noticias extends Component {
 
   render() {
     return (
-      <section className="contenedorNoticias">
-        <div className="elemento">
-          <Lista1 noticiasFecha={this.state.noticiasFecha} />
+      <section className='contenedorCriticas'>
+        <div className='elemento'>
+          <Lista1 peliculas={this.state.peliculas} />
         </div>
-        <div className="elemento">
-          <Lista2 noticiasFecha={this.state.noticiasFecha} />
+        <div className='elemento'>
+          <Lista2 peliculas={this.state.peliculas} />
         </div>
-        <div className="elemento">item #3</div>
-        <div className="elemento">item #4</div>
+        <div className='elemento'>item #3</div>
+        <div className='elemento'>item #4</div>
       </section>
     );
   }
 }
 
-export default Noticias;
+export default Criticas;

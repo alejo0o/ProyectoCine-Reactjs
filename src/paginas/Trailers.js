@@ -1,14 +1,8 @@
-import React, { Component } from "react";
-
-import Trailer from "../componentesTrailer/VideosTrailer";
+import React, { Component } from 'react';
 
 class Trailers extends Component {
   render() {
-    return (
-      <div>
-        <Trailer></Trailer>
-      </div>
-    );
+    return <div></div>;
   }
 }
 

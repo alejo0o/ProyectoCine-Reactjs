@@ -1,6 +1,8 @@
 //React Router
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+//PAGINAS WEB
+import CriticasPagina from './paginas/Criticas';
 import DescripcioNoticia from './paginas/Noticias';
 import EditCritica from './Forms/FormEditCriticas';
 import EditNoticia from './Forms/FormEditNoticias';
@@ -45,7 +47,6 @@ function App() {
           path="/forms/:notiId/EditNoticia"
           component={EditNoticia}
         />
-
         <Route
           exact
           path="/forms/:perid/EditarPersona"
@@ -60,6 +61,7 @@ function App() {
           path="/forms/NoticiasFecha"
           component={DescripcioNoticia}
         />
+        <Route exact path="/criticas" component={CriticasPagina} />
       </Switch>
     </BrowserRouter>
   );
