@@ -1,6 +1,7 @@
 //React Router
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import CriticaPelicula from './paginas/CriticaPelicula.js';
 //PAGINAS WEB
 import CriticasPagina from './paginas/Criticas';
 import DescripcioNoticia from './paginas/Noticias';
@@ -58,6 +59,8 @@ function App() {
         <Route exact path="/forms/:criId/EditCritica" component={EditCritica} />
         <Route exact path="/NoticiasFecha" component={DescripcioNoticia} />
         <Route exact path="/criticas" component={CriticasPagina} />
+        {/*Rutas a las paginas web*/}
+        <Route exact path="/Criticas/:peliId" component={CriticaPelicula} />
       </Switch>
     </BrowserRouter>
   );

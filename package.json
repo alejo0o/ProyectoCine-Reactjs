@@ -18,6 +18,7 @@
     "graphql-request": "^1.8.2",
     "pagination": "github:react-bootstrap/Pagination",
     "jquery": "^3.5.0",
+    "node-sass": "^4.14.0",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-apollo": "^3.1.5",
