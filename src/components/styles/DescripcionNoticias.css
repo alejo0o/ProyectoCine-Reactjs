@@ -1,0 +1,44 @@
+.textoNoticia {
+  background: #8f57fd;
+  color: white;
+  font-size: 16px;
+  margin-top: 16px;
+  position: absolute;
+  padding-left: 30px;
+  width: 100%;
+}
+.general {
+  padding-left: 10px;
+  width: 100%;
+  position: relative;
+}
+.noticiaDescrip {
+  padding: 0;
+  width: 30%;
+  float: left;
+  height: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.textoNoticia {
+  background: #8f57fd;
+  color: white;
+  font-size: 16px;
+  margin-top: 16px;
+  position: absolute;
+  padding-left: 30px;
+  width: 100%;
+}
+.general {
+  padding-left: 10px;
+  width: 100%;
+  position: relative;
+}
+.noticiaDescrip {
+  padding: 0;
+  width: 30%;
+  float: left;
+  height: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}

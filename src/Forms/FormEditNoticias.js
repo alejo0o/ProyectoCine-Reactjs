@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import Peticiones from '../utils/consultasNoticias';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/navbar.css';
+
+import React, { Component } from 'react';
+
 import ClienteGql from '../utils/GqlClient';
+import Peticiones from '../utils/consultasNoticias';
 
 const GQLClient = ClienteGql;
 
 function NavBar() {
   return (
-    <div className='Navbar'>
-      <div className='container-fluid Navbar__brand'>
-        <h2 className='center'>NOTICIAS EDIT Y DELETE</h2>
+    <div className="Navbar">
+      <div className="container-fluid Navbar__brand">
+        <h2 className="center">NOTICIAS EDIT Y DELETE</h2>
       </div>
     </div>
   );
@@ -105,62 +107,68 @@ class FormEditNoticias extends Component {
     return (
       <React.Fragment>
         <NavBar></NavBar>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-6'>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
               <form onSubmit={this.handleSubmit}>
-                <div className='form-group'>
-                  <label className='label'>peliculasid:</label>
+                <div className="form-group">
+                  <label className="label">peliculasid:</label>
                   <input
-                    type='text'
-                    name='peliculasid'
-                    className='form-control'
+                    type="text"
+                    name="peliculasid"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.peliculasid}></input>
+                    value={this.state.form.peliculasid}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Texto:</label>
+                <div className="form-group">
+                  <label className="label">Texto:</label>
                   <input
-                    type='text'
-                    name='nottexto'
-                    className='form-control'
+                    type="text"
+                    name="nottexto"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.nottexto}></input>
+                    value={this.state.form.nottexto}
+                  ></input>
                 </div>
 
-                <div className='form-group'>
-                  <label className='label'>Fecha:</label>
+                <div className="form-group">
+                  <label className="label">Fecha:</label>
                   <input
-                    type='text'
-                    name='notfecha'
-                    className='form-control'
+                    type="text"
+                    name="notfecha"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.notfecha}></input>
+                    value={this.state.form.notfecha}
+                  ></input>
                 </div>
-                <div className='form-group'>
-                  <label className='label'>Titulo:</label>
+                <div className="form-group">
+                  <label className="label">Titulo:</label>
                   <input
-                    type='text'
-                    name='nottitulo'
-                    className='form-control'
+                    type="text"
+                    name="nottitulo"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.nottitulo}></input>
+                    value={this.state.form.nottitulo}
+                  ></input>
                 </div>
-                <div className='form-group'>
-                  <label className='label'>Imagen:</label>
+                <div className="form-group">
+                  <label className="label">Imagen:</label>
                   <input
-                    type='text'
-                    name='notimagen'
-                    className='form-control'
+                    type="text"
+                    name="notimagen"
+                    className="form-control"
                     onChange={this.onChange}
-                    value={this.state.form.notimagen}></input>
+                    value={this.state.form.notimagen}
+                  ></input>
                 </div>
-                <button className='btn btn-primary'>Save</button>
+                <button className="btn btn-primary">Save</button>
               </form>
               <button
-                className='btn btn-danger mt-2'
-                onClick={this.handleDelete}>
+                className="btn btn-danger mt-2"
+                onClick={this.handleDelete}
+              >
                 Delete
               </button>
             </div>

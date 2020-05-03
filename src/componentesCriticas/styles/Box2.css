@@ -4,6 +4,7 @@
   grid-template-columns: 25% 74%;
   text-align: justify;
   height: 40%;
+  cursor: pointer;
 }
 
 .portadaImagenBox2 {

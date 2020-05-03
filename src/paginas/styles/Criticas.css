@@ -18,6 +18,9 @@
   grid-template-rows: [inicio] 45% [linea2] 45% [final];
   gap: 2%;
   justify-content: center;
+  /* background: lightblue;
+
+  border: 1px solid red; */
 }
 .item {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -36,6 +39,9 @@
   gap: 1.5%;
   justify-content: space-evenly;
   margin-top: 1%;
+  /* background: lightblue; */
+
+  /* border: 1px solid red; */
 }
 
 .elementoLista2 {
@@ -54,4 +60,8 @@
       [linea3] 80vh [final];
     gap: 1.5%;
   }
+}
+
+.estrellas {
+  line-height: 0px;
 }

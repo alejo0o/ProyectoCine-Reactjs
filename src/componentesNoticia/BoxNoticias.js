@@ -1,8 +1,7 @@
-import './styles/Box.css';
+import './styles/BoxNoticias.css';
 
 import React, { Component } from 'react';
 
-import Rating from '@material-ui/lab/Rating';
 import { withStyles } from '@material-ui/core/styles';
 
 const GlobalCss = withStyles({
@@ -20,24 +19,21 @@ const GlobalCss = withStyles({
 class BigBox extends Component {
   render() {
     return (
-      <section className="contenedorBox">
+      <section className="contenedorBoxNoticias">
         <GlobalCss />
-        <div className="elementoBox1">
+        <div className="elementoBox1Noticias">
           <img
             alt=""
-            src={this.props.pelicula.portada}
+            src={this.props.noticiasFecha.notimagen}
             className="portadaImg"
           />
         </div>
-        <div className="elementoBox1">
-          <Rating
-            name="read-only"
-            value={this.props.pelicula.promedio}
-            readOnly
-            precision={0.5}
-          />
+        <div className="elementoBox1Noticias">
+          {this.props.noticiasFecha.notfecha}
         </div>
-        <div className="elementoBox1">{this.props.pelicula.nombre}</div>
+        <div className="elementoBox1Noticias">
+          {this.props.noticiasFecha.nottitulo}
+        </div>
       </section>
     );
   }
