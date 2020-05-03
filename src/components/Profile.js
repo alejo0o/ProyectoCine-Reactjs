@@ -7,7 +7,6 @@ const Profile = () => {
   if (loading || !user) {
     return <div>Loading...</div>;
   }
-
   return (
     <Fragment>
       <img src={user.picture} alt='Profile' />
