@@ -18,6 +18,7 @@ import history from './utils/history'; //en el causo de uso de router
 import PrivateRoute from './components/PrivateRoute';
 //PAGINAS WEB
 import CriticasPagina from './paginas/Criticas';
+import NavBar2 from './components/GlobalNavbar';
 
 function App() {
   const { loading } = useAuth0();
@@ -28,6 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <NavBar2/>
       <Switch>
         {/*Rutas de los Forms para la data*/}
         <Route exact path='/forms/Peliculas' component={FormPeliculas} />
