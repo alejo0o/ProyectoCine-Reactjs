@@ -1,5 +1,3 @@
-import './styles/Noticias.css';
-
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
@@ -54,18 +52,15 @@ class Noticias extends Component {
       });
     }
   };
-
   render() {
     return (
-      <section className="contenedorNoticias">
-        <div className="elemento">
+      <section className="contenedorCriticas">
+        <div className="contenedorLista1">
           <Lista1 noticiasFecha={this.state.noticiasFecha} />
         </div>
-        <div className="elemento">
+        <div className="contenedorLista2">
           <Lista2 noticiasFecha={this.state.noticiasFecha} />
         </div>
-        <div className="elemento">item #3</div>
-        <div className="elemento">item #4</div>
       </section>
     );
   }

@@ -1,5 +1,3 @@
-import './styles/Lista2.css';
-
 import React, { Component } from 'react';
 
 import Box2 from './Box2';
@@ -7,7 +5,7 @@ import Box2 from './Box2';
 class Lista2 extends Component {
   render() {
     return (
-      <section className="contenedorLista2">
+      <React.Fragment>
         {this.props.peliculas.map((pelicula) => {
           return (
             <div key={pelicula.peliculasid} className="elementoLista2">
@@ -15,7 +13,7 @@ class Lista2 extends Component {
             </div>
           );
         })}
-      </section>
+      </React.Fragment>
     );
   }
 }

@@ -1,7 +1,8 @@
 .contenedorBox2 {
   display: grid;
-  grid-template-rows: [inicio] 60% [linea2] 60% [linea3] 130% [final];
-  grid-template-columns: minmax(20%, 25%) minmax(50%, 73%);
+  grid-template-rows: [inicio] 55% [linea2] 45% [linea3] 150% [final];
+  grid-template-columns: 25% 74%;
+  text-align: justify;
   height: 40%;
   cursor: pointer;
 }
@@ -24,4 +25,17 @@
   opacity: 0.7;
   font-family: 'Lucida Console', Courier, monospace;
   margin: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .elementoBox2:nth-of-type(3) {
+    font-size: 75%;
+    font-family: 'Lucida Console', Courier, monospace;
+  }
+  .elementoBox2:nth-of-type(4) {
+    font-size: 55%;
+    opacity: 0.7;
+    font-family: 'Lucida Console', Courier, monospace;
+    margin: 1.5%;
+  }
 }

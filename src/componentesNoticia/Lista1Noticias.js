@@ -5,7 +5,7 @@ import Box from './BoxNoticias';
 class Lista1 extends Component {
   render() {
     return (
-      <section className="contenedorLista1">
+      <React.Fragment>
         {this.props.noticiasFecha.map((noticia) => {
           return (
             <div key={noticia.notid} className="item">
@@ -13,7 +13,7 @@ class Lista1 extends Component {
             </div>
           );
         })}
-      </section>
+      </React.Fragment>
     );
   }
 }

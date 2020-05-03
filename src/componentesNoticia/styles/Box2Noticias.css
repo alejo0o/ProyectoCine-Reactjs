@@ -1,39 +1,42 @@
-.contenedorBoxNoticias {
+.contenedorBox2Noticias {
   display: grid;
-  grid-template-columns: [inicio] 100% [final];
-  grid-template-rows: [inicio] 170% [linea2] 20% [linea3] 20% [linea4] 20% [final];
-
-  gap: 1%;
+  grid-template-rows: [inicio] 55% [linea2] 45% [linea3] 150% [final];
+  grid-template-columns: 25% 74%;
+  text-align: justify;
   height: 40%;
   cursor: pointer;
 }
+
 .portadaImg {
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
-.elementoBox1Noticias:nth-of-type(2) {
+
+.elementoBox2Noticias:nth-of-type(1) {
+  grid-row: 1 / -1;
+}
+
+.elementoBox2Noticias:nth-of-type(2) {
   font-size: 80%;
   font-family: 'Georgia';
   margin: 2%;
   text-align: right;
   color: gray;
 }
-.elementoBox1Noticias:nth-of-type(3) {
+.elementoBox2Noticias:nth-of-type(3) {
   font-size: 95%;
   font-family: 'Georgia';
   margin: 2%;
   font-weight: bold;
   text-align: justify;
 }
-::-webkit-scrollbar {
-  display: none;
-}
+
 @media screen and (max-width: 768px) {
-  .elementoBox1Noticias:nth-of-type(2) {
+  .elementoBox2Noticias:nth-of-type(2) {
     font-size: 55%;
     margin: 2%;
   }
-  .elementoBox1Noticias:nth-of-type(3) {
+  .elementoBox2Noticias:nth-of-type(3) {
     font-size: 75%;
     margin: 2%;
   }
