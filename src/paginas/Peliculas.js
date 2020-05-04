@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
-import Lista1 from '../componentesNoticia/Lista1Noticias';
-import Lista2 from '../componentesNoticia/Lista2Noticias';
+import Lista1 from '../componentesPeliculas/Lista1Peliculas';
+import Lista2 from '../componentesPeliculas/Lista2Peliculas';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 
@@ -10,15 +10,15 @@ import Peticiones from '../utils/consultasPersonalizadas';
 
 const GQLClient = ClienteGql;
 
-class Noticias extends Component {
+class Peliculas extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       loading: true,
-      nextPage: 0,
+      nextPage: 1,
       info: [],
-      noticiasFecha: [],
+      estrenosDirector: [],
     };
   }
 
@@ -37,16 +37,16 @@ class Noticias extends Component {
         page: this.state.nextPage,
       };
       const respuesta = await GQLClient.request(
-        Peticiones.getNoticiasFecha,
+        Peticiones.getEstrenosDirector,
         variables
       );
       this.setState({
         loading: false,
         info: Object.values(
-          this.state.info.concat(respuesta.getNoticiasFecha.info)
+          this.state.info.concat(respuesta.getEstrenosDirector.info)
         ),
-        noticiasFecha: this.state.noticiasFecha.concat(
-          respuesta.getNoticiasFecha.results
+        estrenosDirector: this.state.estrenosDirector.concat(
+          respuesta.getEstrenosDirector.results
         ),
         nextPage: this.state.nextPage + 1,
       });
@@ -58,29 +58,23 @@ class Noticias extends Component {
       });
     }
   };
-  onHandle() {
-    this.setState({
-      nextPage: this.state.nextPage + 1,
-    });
-  }
-
   render() {
     return (
       <section className="contenedorCriticas">
         <div className="contenedorLista1">
-          <Lista1 noticiasFecha={this.state.noticiasFecha} />
+          <Lista1 estrenosDirector={this.state.estrenosDirector} />
         </div>
         <div className="contenedorLista2">
-          <Lista2 noticiasFecha={this.state.noticiasFecha} />
+          <Lista2 estrenosDirector={this.state.estrenosDirector} />
         </div>
         <Pagination
-          count={10}
+          count={this.state.info.count}
           page={this.state.nextPage}
-          onChange={this.onHandle}
+          onChange={this.state.info.next}
         />
       </section>
     );
   }
 }
 
-export default Noticias;
+export default Peliculas;
