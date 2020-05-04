@@ -39,7 +39,9 @@ class Criticas extends Component {
       );
       this.setState({
         loading: false,
-        peliculas: this.state.peliculas.concat(respuesta.getCriticasValor),
+        peliculas: this.state.peliculas.concat(
+          respuesta.getCriticasValor.results
+        ),
         nextPage: this.state.nextPage + 1,
       });
     } catch (error) {
