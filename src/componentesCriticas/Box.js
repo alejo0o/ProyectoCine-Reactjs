@@ -20,24 +20,24 @@ const GlobalCss = withStyles({
 class BigBox extends Component {
   render() {
     return (
-      <section className="contenedorBox">
+      <section className='contenedorBox'>
         <GlobalCss />
-        <div className="elementoBox1">
+        <div className='elementoBox1'>
           <img
-            alt=""
+            alt=''
             src={this.props.pelicula.portada}
-            className="portadaImg"
+            className='portadaImg'
           />
         </div>
-        <div className="elementoBox1">
+        <div className='elementoBox1'>
           <Rating
-            name="read-only"
+            name='read-only'
             value={this.props.pelicula.promedio}
             readOnly
             precision={0.5}
           />
         </div>
-        <div className="elementoBox1">{this.props.pelicula.nombre}</div>
+        <div className='elementoBox1'>{this.props.pelicula.nombre}</div>
       </section>
     );
   }

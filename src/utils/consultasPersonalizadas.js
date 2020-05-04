@@ -1,5 +1,5 @@
 const Peticiones = {
-  getPeliculasEstreno: `query getCriticas($page:Int!){
+  getCriticasValor: `query getCriticas($page:Int!){
   getCriticasValor(page:$page){
     info{
       count
