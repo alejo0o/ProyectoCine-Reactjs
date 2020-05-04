@@ -1,7 +1,12 @@
 .contenedorCriticas {
   display: grid;
   grid-template-columns: minmax(900px, 100%);
-  grid-template-rows: [inicio] minmax(400px, 80vh) [linea2] minmax(700px, 125vh) [linea3] 80vh [final];
+  grid-template-rows:
+    [inicio] minmax(400px, 80vh) [linea2] minmax(700px, 125vh) [linea3] minmax(
+      35px,
+      7vh
+    )
+    [linea4] minmax(300px, 50vh);
   gap: 3%;
   margin-top: 5%;
 }
@@ -53,13 +58,27 @@
   overflow: auto;
   margin-top: 1%;
 }
+
+.contenedorLista3 {
+  /*background: lightblue;
+
+  border: 1px solid red;*/
+  justify-content: center;
+}
+
+.paginador {
+  margin-top: 0.5%;
+  margin-left: 38%;
+}
+
 @media screen and (max-width: 768px) {
   .contenedorCriticas {
     display: grid;
     grid-template-columns: minmax(700px, 80%);
     grid-template-rows:
       [inicio] minmax(300px, 70vh) [linea2] minmax(500px, 110vh)
-      [linea3] 80vh [final];
+      [linea3] minmax(35px, 7vh)
+      [linea4] minmax(150px, 30vh);
     gap: 1.5%;
   }
 }
