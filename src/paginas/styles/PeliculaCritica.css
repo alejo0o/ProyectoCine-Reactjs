@@ -1,0 +1,28 @@
+.contenedorPeliculaCriticas {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 2.5%;
+}
+
+.elementoPeliculasCriticas {
+  background: lightblue;
+
+  border: 1px solid red;
+}
+.estiloComponenteCaja {
+  margin: 2%;
+  width: 80%;
+  height: 30vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  background-color: white;
+}
+.imagenPeliculaCritica {
+  height: 90%;
+  width: 90%;
+}
+
+.botonPeliculasCritica {
+  background-color: rgba(243, 203, 61);
+  color: white;
+}
