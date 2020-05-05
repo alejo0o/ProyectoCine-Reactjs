@@ -4,6 +4,7 @@ import Peticiones from '../utils/consultasPersonalizadas.js';
 import Rating from '@material-ui/lab/Rating';
 import CajaValoracion from '../Componentes/CajaValoracion/CajaValoracion.js';
 import ClienteGql from '../utils/GqlClient.js';
+import './styles/CriticaPelicula.scss';
 
 const GQLClient = ClienteGql;
 
@@ -14,7 +15,7 @@ class PagCriticas extends Component {
       loading: false,
       error: false,
       pelicula: {
-        promedio: '2',
+        promedio: '',
         claid: '',
         nombre: '',
         fechadelanzamiento: '',
@@ -23,6 +24,7 @@ class PagCriticas extends Component {
         trailer: '',
         portada: '',
       },
+      load: false,
     };
   }
   componentDidMount() {
@@ -48,25 +50,50 @@ class PagCriticas extends Component {
       this.setState({
         loading: false,
         pelicula: data.getCriticasPromedioPelicula,
+
       });
+
+      if (this.state.pelicula.promedio != null) {
+        this.setState({
+          load: true,
+        });
+      }
+      else {
+        this.setState({
+          load: false,
+        });
+      }
+      
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
+
       });
     }
   };
 
   render() {
-    return (
-      <div>
-        <CajaValoracion
-          promedio={this.state.pelicula.promedio}
-          peliid={this.props.match.params.peliId}
-        />
-        <CajaComentarios peliid={this.props.match.params.peliId} />
-      </div>
-    );
+    if (this.state.load) {
+      return (
+        
+        <div>
+          <CajaValoracion
+            promedio={this.state.pelicula.promedio}
+            peliid={this.props.match.params.peliId}
+          />
+          <CajaComentarios peliid={this.props.match.params.peliId} />
+        </div>
+      ); 
+    }
+    else {
+      return (
+        <div>
+          <h5 className="errorPag">Página no encontrada</h5>
+        </div>
+      ); 
+    }
+    
   }
 }
 
