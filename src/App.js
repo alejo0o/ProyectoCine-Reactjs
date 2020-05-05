@@ -23,6 +23,7 @@ import React from 'react';
 //PAGINAS WEB
 import history from './utils/history'; //en el causo de uso de router
 import { useAuth0 } from './react-auth0-spa';
+import PeliculasCritica from './paginas/PeliculaCritica';
 
 function App() {
   const { loading } = useAuth0();
@@ -54,13 +55,17 @@ function App() {
           path='/forms/:perid/EditarPersona'
           component={EditarPersona}
         />
-        <Route path='/profile' component={Profile} />
 
+        {/*Rutas a las paginas web*/}
+        <Route path='/profile' component={Profile} />
         <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
         <Route exact path='/NoticiasFecha' component={DescripcioNoticia} />
         <Route exact path='/criticas' component={CriticasPagina} />
-        {/*Rutas a las paginas web*/}
         <Route exact path='/Criticas/:peliId' component={CriticaPelicula} />
+        <Route
+          path='/PeliculaCritica/:peliculasid'
+          component={PeliculasCritica}
+        />
       </Switch>
     </BrowserRouter>
   );

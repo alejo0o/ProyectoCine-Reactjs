@@ -85,6 +85,21 @@ const Peticiones = {
       }
     }
   `,
+  getPeliculasDirector: `
+    query getPeliculaDirector($id:ID!){
+    getPeliculaDirector(id:$id){
+      peliculasid
+      nombre
+      sinopsis
+      fechadelanzamiento
+      trailer
+      duracion
+      portada
+      pernombre
+      perapellido
+    }
+  }
+`,
 };
 
 export default Peticiones;
