@@ -1,6 +1,6 @@
 .contenedorDescripcionPelicula {
   display: grid;
-  grid-template-rows: [inicio] 16% [linea2] 15.5% [linea3] 15% [linea4] 15% [linea5] 15%[final];
+  grid-template-rows: [inicio] 20% [linea2] 20% [linea3] 20% [linea4] 20% [linea5] 20%[final];
   grid-template-columns: 40% 60%;
   text-align: justify;
 }

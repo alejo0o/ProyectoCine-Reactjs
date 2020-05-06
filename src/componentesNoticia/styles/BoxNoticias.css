@@ -25,9 +25,7 @@
   font-weight: bold;
   text-align: justify;
 }
-::-webkit-scrollbar {
-  display: none;
-}
+
 @media screen and (max-width: 768px) {
   .elementoBox1Noticias:nth-of-type(2) {
     font-size: 55%;

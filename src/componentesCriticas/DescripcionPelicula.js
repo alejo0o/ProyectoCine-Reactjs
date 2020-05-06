@@ -13,34 +13,34 @@ class DescripcionPelicula extends Component {
             />
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
-            <text className='titulosComponente'>Titulo Original:</text>
-            <br />
+            <em className='titulosComponente'>Titulo Original:</em>
+
             <p className='textoComponente'>{this.props.pelicula.nombre}</p>
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
-            <text className='titulosComponente'>Fecha de Lanzamiento:</text>
-            <br />
+            <em className='titulosComponente'>Fecha de Lanzamiento:</em>
+
             <p className='textoComponente'>
               {this.props.pelicula.fechadelanzamiento}
             </p>
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
-            <text className='titulosComponente'> Director:</text>
-            <br />
+            <em className='titulosComponente'> Director:</em>
+
             <p className='textoComponente'>
               {this.props.pelicula.pernombre} {this.props.pelicula.perapellido}
             </p>
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
-            <text className='titulosComponente'>Duracion:</text>
-            <br />
+            <em className='titulosComponente'>Duracion:</em>
+
             <p className='textoComponente'>
               {this.props.pelicula.duracion} minutos
             </p>
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
-            <text className='titulosComponente'> Trailer:</text>
-            <br />
+            <em className='titulosComponente'> Trailer:</em>
+
             <p className='textoComponente'>{this.props.pelicula.trailer}</p>
           </div>
         </section>
