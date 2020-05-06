@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useAuth0 } from '../../react-auth0-spa';
 import ValoracionGlobal from './ValoracionGlobal.js';
 import ValoracionUsuario from './ValoracionUsuario.js';
@@ -7,7 +7,7 @@ import ValoracionUsuario from './ValoracionUsuario.js';
 const CajaValoracion = (props) => {
 
   
-  const { loading, user, loginWithRedirect } = useAuth0();
+  const { loading, user } = useAuth0();
 
   if (loading || !user) {
     return(
