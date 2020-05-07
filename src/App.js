@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import CriticaPelicula from './paginas/CriticaPelicula.js';
 //PAGINAS WEB
 import CriticasPagina from './paginas/Criticas';
+import AnimesPagina from './paginas/Animes'
 import DescripcioNoticia from './paginas/Noticias';
 import EditCritica from './Forms/FormEditCriticas';
 import EditNoticia from './Forms/FormEditNoticias';
@@ -55,12 +56,15 @@ function App() {
           path='/forms/:perid/EditarPersona'
           component={EditarPersona}
         />
-
+       <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
         {/*Rutas a las paginas web*/}
         <Route path='/profile' component={Profile} />
-        <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
+ 
         <Route exact path='/NoticiasFecha' component={DescripcioNoticia} />
         <Route exact path='/criticas' component={CriticasPagina} />
+
+        <Route exact path='/animes' component={AnimesPagina} />
+
         <Route exact path='/Criticas/:peliId' component={CriticaPelicula} />
         <Route
           path='/PeliculaCritica/:peliculasid'

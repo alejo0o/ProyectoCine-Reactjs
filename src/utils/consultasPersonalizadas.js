@@ -85,6 +85,29 @@ const Peticiones = {
       }
     }
   `,
+
+  getAnimesporEstreno: `
+    query getAnimesporEstreno($page: Int!) {
+      getAnimesporEstreno(page:$page){
+        info{
+          count
+          pages
+          prev
+          next
+        }
+        results{
+          peliculasid
+          nombre
+          fechadelanzamiento
+          duracion
+          sinopsis
+          portada
+        }
+      }
+    }
+  `,
+
+
   getPeliculasDirector: `
     query getPeliculaDirector($id:ID!){
     getPeliculaDirector(id:$id){
