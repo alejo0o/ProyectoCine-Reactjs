@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/DescripcionPelicula.css';
+import { Link } from 'react-router-dom';
 class DescripcionPelicula extends Component {
   render() {
     return (
@@ -39,9 +40,13 @@ class DescripcionPelicula extends Component {
             </p>
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
-            <em className='titulosComponente'> Trailer:</em>
-
-            <p className='textoComponente'>{this.props.pelicula.trailer}</p>
+            <p className='textoComponente'>
+              <Link
+                to={`/trailers/${this.props.pelicula.peliculasid}`}
+                className='botonTrailerDescripcion btn'>
+                Trailer
+              </Link>
+            </p>
           </div>
         </section>
       </div>

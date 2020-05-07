@@ -10,6 +10,7 @@ import DescripcionPelicula from '../componentesCriticas/DescripcionPelicula';
 //Componentes
 import CajaValoracion from '../Componentes/CajaValoracion/CajaValoracion';
 import CajaComentarios from '../Componentes/CajaComentarios/CajaComentarios.js';
+import Recomendaciones from '../componentesCriticas/Lista3';
 
 const GQLClient = ClienteGql;
 
@@ -40,7 +41,7 @@ class PeliculaCritica extends Component {
         trailer: '',
         portada: '',
       },
-      load: false,
+      peliculas: [],
     };
   }
 
@@ -65,10 +66,16 @@ class PeliculaCritica extends Component {
         Peticiones.getCriticasPromedioPelicula,
         variables
       );
+      const respuesta3 = await GQLClient.request(Peticiones.getCriticasValor, {
+        page: 1,
+      });
       this.setState({
         loading: false,
         pelicula: respuesta.getPeliculaDirector,
         pelicula2: respuesta2.getCriticasPromedioPelicula,
+        peliculas: this.state.peliculas.concat(
+          respuesta3.getCriticasValor.results.slice(5, 10)
+        ),
       });
     } catch (error) {
       this.setState({
@@ -97,33 +104,78 @@ class PeliculaCritica extends Component {
                 />
               </div>
               <hr />
+              <br />
               <div className='estiloComponenteCaja'>
                 <DescripcionPelicula pelicula={this.state.pelicula} />
               </div>
-
+              <br />
               <hr />
-
+              <br />
               <div className='sinopsisPeliculaCritica'>
                 {this.state.pelicula.sinopsis}
               </div>
               <hr />
+              <br />
               <img
                 alt=''
                 src={this.state.pelicula.portada}
                 className='imagenPeliculaCritica ml-5'
               />
+              <br />
               <hr />
               <div>
                 <CajaComentarios peliid={this.props.match.params.peliculasid} />
               </div>
             </div>
-            <div className='elementoPeliculasCriticas'>sdfdas</div>
+            <div className='elementoPeliculasCriticas'>
+              <Recomendaciones peliculas={this.state.peliculas} />
+            </div>
           </section>
         );
       } else {
         return (
-          <section>
-            <div>sin critica</div>
+          <section className='contenedorPeliculaCriticas'>
+            <div className='elementoPeliculasCriticas'>
+              <Link to='/criticas' className='botonPeliculasCritica btn'>
+                Criticas
+              </Link>
+              <div className='tituloPeliculaCritica'>
+                {this.state.pelicula.nombre}
+              </div>
+              <div className='cajavaloracionPeliculaCritica'>
+                <CajaValoracion
+                  promedio={0}
+                  peliid={this.props.match.params.peliculasid}
+                />
+              </div>
+              <hr />
+              <br />
+              <div className='estiloComponenteCaja'>
+                <DescripcionPelicula pelicula={this.state.pelicula} />
+              </div>
+              <br />
+              <hr />
+
+              <div className='sinopsisPeliculaCritica'>
+                {this.state.pelicula.sinopsis}
+              </div>
+              <br />
+              <hr />
+              <br />
+              <img
+                alt=''
+                src={this.state.pelicula.portada}
+                className='imagenPeliculaCritica ml-5'
+              />
+              <br />
+              <hr />
+              <div>
+                <CajaComentarios peliid={this.props.match.params.peliculasid} />
+              </div>
+            </div>
+            <div className='elementoPeliculasCriticas'>
+              <Recomendaciones peliculas={this.state.peliculas} />
+            </div>
           </section>
         );
       }

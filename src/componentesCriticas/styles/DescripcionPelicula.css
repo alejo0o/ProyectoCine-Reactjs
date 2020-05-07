@@ -14,6 +14,12 @@
   width: 100%;
   height: 100%;
 }
+.botonTrailerDescripcion {
+  background-color: rgb(31, 78, 117);
+  color: rgb(240, 230, 230);
+  margin-left: 0.5%;
+  margin-top: 1%;
+}
 
 .elementoDescripcionPelicula:nth-of-type(1) {
   grid-row: 1 / -1;
@@ -40,14 +46,29 @@
 }
 
 @media screen and (max-width: 768px) {
-  .elementoDescripcionPelicula:nth-of-type(3) {
-    font-size: 75%;
+  .titulosComponente {
+    font-size: 65%;
     font-family: 'Lucida Console', Courier, monospace;
+    font-weight: bold;
   }
-  .elementoDescripcionPelicula:nth-of-type(4) {
-    font-size: 55%;
+  .textoComponente {
+    font-size: 75%;
     opacity: 0.7;
     font-family: 'Lucida Console', Courier, monospace;
-    margin: 1.5%;
+  }
+  .botonTrailerDescripcion {
+    background-color: rgb(31, 78, 117);
+    color: rgb(240, 230, 230);
+    margin-left: 0.5%;
+    margin-top: 1%;
+    width: 24%;
+
+    font-size: smaller;
+  }
+  .contenedorDescripcionPelicula {
+    display: grid;
+    grid-template-rows: [inicio] 15% [linea2] 15% [linea3] 15% [linea4] 15% [linea5] 15%[final];
+    grid-template-columns: 40% 60%;
+    text-align: justify;
   }
 }
