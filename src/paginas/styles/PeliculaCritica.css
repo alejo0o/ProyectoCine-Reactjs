@@ -1,0 +1,73 @@
+.contenedorPeliculaCriticas {
+  display: grid;
+  grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
+  gap: 2.5%;
+}
+
+.elementoPeliculasCriticas:nth-of-type(1) {
+  background: rgb(233, 239, 241);
+  /*border: 1px solid red;*/
+  margin-left: 3%;
+}
+.elementoPeliculasCriticas:nth-of-type(2) {
+  background: rgb(233, 239, 241);
+  /*border: 1px solid red;*/
+}
+.estiloComponenteCaja {
+  margin: 2%;
+  width: 95%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  background-color: white;
+}
+.imagenPeliculaCritica {
+  height: 90%;
+  width: 90%;
+}
+
+.botonPeliculasCritica {
+  background-color: rgba(243, 203, 61);
+  color: white;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.tituloPeliculaCritica {
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: xx-large;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.cajavaloracionPeliculaCritica {
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.sinopsisPeliculaCritica {
+  font-family: Verdana, sans-serif;
+  margin-left: 3%;
+  text-align: justify;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  .contededorLista3 {
+    width: 55%;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  .estiloComponenteCaja {
+    margin: 2%;
+    width: 85%;
+    height: 210px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+  }
+}
