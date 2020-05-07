@@ -1,3 +1,5 @@
+import './styles/Criticas.css';
+
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
@@ -5,10 +7,20 @@ import Lista1 from '../componentesNoticia/Lista1Noticias';
 import Lista2 from '../componentesNoticia/Lista2Noticias';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
-
-//Listas
+import { withStyles } from '@material-ui/core/styles';
 
 const GQLClient = ClienteGql;
+
+const GlobalCss = withStyles({
+  '@global': {
+    '.MuiPagination-root': {
+      '@media screen and (max-width: 768px)': {
+        marginLeft: 220,
+        fontSize: 15,
+      },
+    },
+  },
+})(() => null);
 
 class Noticias extends Component {
   constructor(props) {
@@ -16,9 +28,15 @@ class Noticias extends Component {
     this.state = {
       error: null,
       loading: true,
-      nextPage: 0,
-      info: [],
-      noticiasFecha: [],
+      page: 1,
+      info: {
+        count: 0,
+        pages: 0,
+        prev: '',
+        next: '',
+      },
+      noticias1: [],
+      noticias2: [],
     };
   }
 
@@ -31,10 +49,9 @@ class Noticias extends Component {
       loading: true,
       error: null,
     });
-
     try {
       const variables = {
-        page: this.state.nextPage,
+        page: this.state.page,
       };
       const respuesta = await GQLClient.request(
         Peticiones.getNoticiasFecha,
@@ -42,15 +59,14 @@ class Noticias extends Component {
       );
       this.setState({
         loading: false,
-        info: Object.values(
-          this.state.info.concat(respuesta.getNoticiasFecha.info)
+        info: respuesta.getNoticiasFecha.info,
+        noticias1: this.state.noticias1.concat(
+          respuesta.getNoticiasFecha.results.slice(0, 5)
         ),
-        noticiasFecha: this.state.noticiasFecha.concat(
-          respuesta.getNoticiasFecha.results
+        noticias2: this.state.noticias2.concat(
+          respuesta.getNoticiasFecha.results.slice(5, 10)
         ),
-        nextPage: this.state.nextPage + 1,
       });
-      console.log(this.state.info);
     } catch (error) {
       this.setState({
         loading: false,
@@ -58,26 +74,43 @@ class Noticias extends Component {
       });
     }
   };
-  onHandle() {
+  handleChange = (event, value) => {
     this.setState({
-      nextPage: this.state.nextPage + 1,
+      info: {
+        count: 0,
+        pages: 0,
+        prev: '',
+        next: '',
+      },
+      noticias1: [],
+      noticias2: [],
     });
-  }
+    this.state.page = value;
+    this.fetchData();
+  };
 
   render() {
     return (
       <section className="contenedorCriticas">
+        <GlobalCss />
         <div className="contenedorLista1">
-          <Lista1 noticiasFecha={this.state.noticiasFecha} />
+          <Lista1 noticiasFecha={this.state.noticias1} />
         </div>
         <div className="contenedorLista2">
-          <Lista2 noticiasFecha={this.state.noticiasFecha} />
+          <Lista2 noticiasFecha={this.state.noticias2} />
         </div>
-        <Pagination
-          count={10}
-          page={this.state.nextPage}
-          onChange={this.onHandle}
-        />
+        <div className="contenedorLista3">
+          <Pagination
+            count={this.state.info.pages}
+            variant="outlined"
+            color="primary"
+            onChange={this.handleChange}
+            showFirstButton
+            showLastButton
+            shape="rounded"
+            className="paginador"
+          />
+        </div>
       </section>
     );
   }

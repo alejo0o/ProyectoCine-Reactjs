@@ -1,4 +1,4 @@
-import './styles/BoxPeliculas.css';
+import './styles/BoxEstrenos.css';
 
 import React, { Component } from 'react';
 
@@ -19,19 +19,19 @@ const GlobalCss = withStyles({
 class BigBox extends Component {
   render() {
     return (
-      <section className="contenedorBoxPeliculas">
+      <section className="contenedorBoxEstrenos">
         <GlobalCss />
-        <div className="elementoBox1Peliculas">
+        <div className="elementoBox1Estrenos">
           <img
             alt=""
             src={this.props.estrenosDirector.portada}
             className="portadaImg"
           />
         </div>
-        <div className="elementoBox1Peliculas">
+        <div className="elementoBox1Estrenos">
           {this.props.estrenosDirector.nombre}
         </div>
-        <div className="elementoBox1Peliculas">
+        <div className="elementoBox1Estrenos">
           {this.props.estrenosDirector.pernombre}
           {this.props.estrenosDirector.perapellido}
         </div>

@@ -9,7 +9,7 @@ import EditCritica from './Forms/FormEditCriticas';
 import EditNoticia from './Forms/FormEditNoticias';
 import EditPelicula from './Forms/FormEditPeliculas';
 import EditarPersona from './Forms/FormEditPersonas';
-import EstrenosDirector from './paginas/Peliculas';
+import EstrenosDirector from './paginas/Estrenos';
 import FormCriticas from './Forms/FormCriticas';
 import FormNoticias from './Forms/FormNoticias';
 //Forms

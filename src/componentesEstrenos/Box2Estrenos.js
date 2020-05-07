@@ -1,22 +1,22 @@
-import './styles/Box2Peliculas.css';
+import './styles/Box2Estrenos.css';
 
 import React, { Component } from 'react';
 
 class Box2 extends Component {
   render() {
     return (
-      <section className="contenedorBox2Peliculas">
-        <div className="elementoBox2Peliculas">
+      <section className="contenedorBox2Estrenos">
+        <div className="elementoBox2Estrenos">
           <img
             alt=""
             src={this.props.estrenosDirector.portada}
             className="portadaImg"
           />
         </div>
-        <div className="elementoBox2Peliculas ml-2">
+        <div className="elementoBox2Estrenos ml-2">
           {this.props.estrenosDirector.nombre}
         </div>
-        <div className="elementoBox2Peliculas ml-2">
+        <div className="elementoBox2Estrenos ml-2">
           {this.props.estrenosDirector.pernombre}
           {this.props.estrenosDirector.perapellido}
         </div>

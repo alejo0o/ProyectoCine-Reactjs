@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Box from './BoxPeliculas';
+import Box from './BoxEstrenos';
 
 class Lista1 extends Component {
   render() {
