@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Box from './Box';
-import { Link } from 'react-router-dom';
 
 class Lista1 extends Component {
   render() {
@@ -9,12 +8,9 @@ class Lista1 extends Component {
       <React.Fragment>
         {this.props.peliculas.map((pelicula) => {
           return (
-            <Link
-              to={`/PeliculaCritica/${pelicula.peliculasid}`}
-              key={pelicula.peliculasid}
-              className='item text-reset text-decoration-none'>
+            <div key={pelicula.peliculasid} className="item">
               <Box pelicula={pelicula} />
-            </Link>
+            </div>
           );
         })}
       </React.Fragment>

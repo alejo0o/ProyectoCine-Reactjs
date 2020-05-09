@@ -22,6 +22,7 @@
   font-size: 90%;
   font-family: 'Georgia';
   margin: 2%;
+  margin-top: 10%;
   color: gray;
 }
 @media screen and (max-width: 1224px) {
@@ -31,7 +32,7 @@
   }
   .elementoBox1Estrenos:nth-of-type(3) {
     font-size: 80%;
-    margin-top: 3%;
+    margin-top: 6%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -41,6 +42,6 @@
   }
   .elementoBox1Estrenos:nth-of-type(3) {
     font-size: 55%;
-    margin-top: 3%;
+    margin-top: 5%;
   }
 }

@@ -4,7 +4,6 @@ import Peticiones from '../../utils/consultasPersonalizadas.js';
 import Rating from '@material-ui/lab/Rating';
 import ClienteGql from '../../utils/GqlClient';
 
-
 const GQLClient = ClienteGql;
 
 class ValoracionUsuario extends Component {
@@ -27,11 +26,13 @@ class ValoracionUsuario extends Component {
     var partsArray = this.props.userid.split('|');
     const variables = {
       idMovie: this.props.peliid,
-      idUser: partsArray[1]
+      idUser: partsArray[1],
     };
-    console.log(variables);
     try {
-      const data = await GQLClient.request(Peticiones.getCrivalorUsuarioPelicula, variables);
+      const data = await GQLClient.request(
+        Peticiones.getCrivalorUsuarioPelicula,
+        variables
+      );
       console.log(data);
       this.setState({
         loading: false,
@@ -47,20 +48,18 @@ class ValoracionUsuario extends Component {
 
   render() {
     return (
-        <div>
-			  <Rating 
-			  name="crivalor" 
-			  className="estrellas" 
-			  value={parseFloat(this.state.crivalor)} 
-			  precision={0.5}
-        size="large"
-        readOnly
+      <div>
+        <Rating
+          name='crivalor'
+          className='estrellas'
+          value={parseFloat(this.state.crivalor)}
+          precision={0.5}
+          size='large'
+          readOnly
         />
-		</div>
-      );
+      </div>
+    );
   }
-
 }
-
 
 export default ValoracionUsuario;

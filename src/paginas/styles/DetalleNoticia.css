@@ -1,0 +1,67 @@
+.contenedorNoticiasID {
+  display: grid;
+  grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
+  gap: 2.5%;
+  border: turquoise solid;
+  text-align: center;
+}
+
+.elementoNoticiasID:nth-of-type(1) {
+  background: rgb(233, 239, 241);
+  margin-left: 3%;
+}
+
+.elementoNoticiasID:nth-of-type(2) {
+  background: rgb(233, 239, 241);
+}
+
+.imagenNoticiasID {
+  height: 40%;
+  width: 70%;
+}
+
+.botonNoticiasID {
+  background-color: rgba(243, 203, 61);
+  color: white;
+  margin-left: 3%;
+  margin-top: 3%;
+  width: 80%;
+}
+
+.tituloNoticiasID {
+  font-family: 'Georgia';
+  font-weight: bolder;
+  font-style: italic;
+  font-size: x-large;
+  margin: 3%;
+  padding-bottom: 5%;
+}
+
+.textoNoticiasID {
+  font-family: 'Georgia';
+  margin-left: 3%;
+  text-align: justify;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  padding-top: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  .contenedorNoticiasID {
+    gap: 1.5%;
+  }
+  .tituloNoticiasID {
+    margin-top: 3%;
+    font-size: 70%;
+  }
+
+  .textoNoticiasID {
+    margin-top: 2%;
+    font-size: 60%;
+  }
+  .imagenNoticiasID {
+    height: 25%;
+    width: 55%;
+  }
+}

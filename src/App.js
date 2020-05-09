@@ -1,6 +1,7 @@
 //React Router
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import AnimesPagina from './paginas/Animes';
 import CriticaPelicula from './paginas/CriticaPelicula.js';
 //PAGINAS WEB
 import CriticasPagina from './paginas/Criticas';
@@ -18,6 +19,8 @@ import FormPersonas from './Forms/FormPersonas';
 //AUTENTICACION
 import NavBar from './components/NavBar';
 import NavBar2 from './components/GlobalNavbar';
+import NoticiasID from './paginas/DetalleNoticia';
+import PeliculasCritica from './paginas/PeliculaCritica';
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile';
 import React from 'react';
@@ -62,6 +65,14 @@ function App() {
         <Route exact path="/criticas" component={CriticasPagina} />
         {/*Rutas a las paginas web*/}
         <Route exact path="/Criticas/:peliId" component={CriticaPelicula} />
+        <Route exact path="/forms/:criId/EditCritica" component={EditCritica} />
+        <Route exact path="/animes" component={AnimesPagina} />
+        <Route
+          path="/PeliculaCritica/:peliculasid"
+          component={PeliculasCritica}
+        />
+
+        <Route path="/Noticias/:notid" component={NoticiasID} />
         <Route exact path="/Estrenos" component={EstrenosDirector} />
       </Switch>
     </BrowserRouter>

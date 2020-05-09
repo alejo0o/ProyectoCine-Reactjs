@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import CajaComentarios from '../Componentes/CajaComentarios/CajaComentarios.js';
 import Peticiones from '../utils/consultasPersonalizadas.js';
-import Rating from '@material-ui/lab/Rating';
 import CajaValoracion from '../Componentes/CajaValoracion/CajaValoracion.js';
 import ClienteGql from '../utils/GqlClient.js';
+import './styles/CriticaPelicula.scss';
 
 const GQLClient = ClienteGql;
 
@@ -14,7 +14,7 @@ class PagCriticas extends Component {
       loading: false,
       error: false,
       pelicula: {
-        promedio: '2',
+        promedio: '',
         claid: '',
         nombre: '',
         fechadelanzamiento: '',
@@ -23,6 +23,7 @@ class PagCriticas extends Component {
         trailer: '',
         portada: '',
       },
+      load: false,
     };
   }
   componentDidMount() {
@@ -49,6 +50,16 @@ class PagCriticas extends Component {
         loading: false,
         pelicula: data.getCriticasPromedioPelicula,
       });
+
+      if (this.state.pelicula.promedio != null) {
+        this.setState({
+          load: true,
+        });
+      } else {
+        this.setState({
+          load: false,
+        });
+      }
     } catch (error) {
       this.setState({
         loading: false,
@@ -58,15 +69,23 @@ class PagCriticas extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <CajaValoracion
-          promedio={this.state.pelicula.promedio}
-          peliid={this.props.match.params.peliId}
-        />
-        <CajaComentarios peliid={this.props.match.params.peliId} />
-      </div>
-    );
+    if (this.state.load) {
+      return (
+        <div className='mt-5'>
+          <CajaValoracion
+            promedio={this.state.pelicula.promedio}
+            peliid={this.props.match.params.peliId}
+          />
+          <CajaComentarios peliid={this.props.match.params.peliId} />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h5 className='errorPag'></h5>
+        </div>
+      );
+    }
   }
 }
 
