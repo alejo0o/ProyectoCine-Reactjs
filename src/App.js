@@ -13,6 +13,7 @@ import EditarPersona from './Forms/FormEditPersonas';
 import EstrenosDirector from './paginas/Estrenos';
 import FormCriticas from './Forms/FormCriticas';
 import FormNoticias from './Forms/FormNoticias';
+import Trailer from './paginas/Trailers'
 //Forms
 import FormPeliculas from './Forms/FormPeliculas';
 import FormPersonas from './Forms/FormPersonas';
@@ -74,6 +75,8 @@ function App() {
 
         <Route path="/Noticias/:notid" component={NoticiasID} />
         <Route exact path="/Estrenos" component={EstrenosDirector} />
+        <Route exact path="/Estrenos/:peliculasid" component={Trailer} />
+
       </Switch>
     </BrowserRouter>
   );

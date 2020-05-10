@@ -1,28 +1,16 @@
+import React, { Component } from 'react';
+//Estilos
 import './styles/PeliculaCritica.css';
 import './styles/CriticaPelicula.scss';
-
-import React, { Component } from 'react';
-
-import CajaComentarios from '../Componentes/CajaComentarios/CajaComentarios.js';
-import CajaValoracion from '../Componentes/CajaValoracion/CajaValoracion';
-import ClienteGql from '../utils/GqlClient';
-import DescripcionPelicula from '../componentesCriticas/DescripcionPelicula';
-import { Link } from 'react-router-dom';
-import Peticiones from '../utils/consultasPersonalizadas';
-import Recomendaciones from '../componentesCriticas/Lista3';
-
-//Estilos
-
-
 ///
-
-
-
-
+import { Link } from 'react-router-dom';
+import ClienteGql from '../utils/GqlClient';
+import Peticiones from '../utils/consultasPersonalizadas';
+import DescripcionPelicula from '../componentesCriticas/DescripcionPelicula';
 //Componentes
-
-
-
+import CajaValoracion from '../Componentes/CajaValoracion/CajaValoracion';
+import CajaComentarios from '../Componentes/CajaComentarios/CajaComentarios.js';
+import Recomendaciones from '../componentesCriticas/Lista3';
 
 const GQLClient = ClienteGql;
 
@@ -101,15 +89,15 @@ class PeliculaCritica extends Component {
     if (this.state.pelicula != null) {
       if (this.state.pelicula2 != null) {
         return (
-          <section className="contenedorPeliculaCriticas">
-            <div className="elementoPeliculasCriticas">
-              <Link to="/criticas" className="botonPeliculasCritica btn">
+          <section className='contenedorPeliculaCriticas'>
+            <div className='elementoPeliculasCriticas'>
+              <Link to='/criticas' className='botonPeliculasCritica btn'>
                 Criticas
               </Link>
-              <div className="tituloPeliculaCritica">
+              <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
               </div>
-              <div className="cajavaloracionPeliculaCritica">
+              <div className='cajavaloracionPeliculaCritica'>
                 <CajaValoracion
                   promedio={this.state.pelicula2.promedio}
                   peliid={this.props.match.params.peliculasid}
@@ -117,21 +105,21 @@ class PeliculaCritica extends Component {
               </div>
               <hr />
               <br />
-              <div className="estiloComponenteCaja">
+              <div className='estiloComponenteCaja'>
                 <DescripcionPelicula pelicula={this.state.pelicula} />
               </div>
               <br />
               <hr />
               <br />
-              <div className="sinopsisPeliculaCritica">
+              <div className='sinopsisPeliculaCritica'>
                 {this.state.pelicula.sinopsis}
               </div>
               <hr />
               <br />
               <img
-                alt=""
+                alt=''
                 src={this.state.pelicula.portada}
-                className="imagenPeliculaCritica ml-5"
+                className='imagenPeliculaCritica ml-5'
               />
               <br />
               <hr />
@@ -139,22 +127,22 @@ class PeliculaCritica extends Component {
                 <CajaComentarios peliid={this.props.match.params.peliculasid} />
               </div>
             </div>
-            <div className="elementoPeliculasCriticas">
+            <div className='elementoPeliculasCriticas'>
               <Recomendaciones peliculas={this.state.peliculas} />
             </div>
           </section>
         );
       } else {
         return (
-          <section className="contenedorPeliculaCriticas">
-            <div className="elementoPeliculasCriticas">
-              <Link to="/criticas" className="botonPeliculasCritica btn">
+          <section className='contenedorPeliculaCriticas'>
+            <div className='elementoPeliculasCriticas'>
+              <Link to='/criticas' className='botonPeliculasCritica btn'>
                 Criticas
               </Link>
-              <div className="tituloPeliculaCritica">
+              <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
               </div>
-              <div className="cajavaloracionPeliculaCritica">
+              <div className='cajavaloracionPeliculaCritica'>
                 <CajaValoracion
                   promedio={0}
                   peliid={this.props.match.params.peliculasid}
@@ -162,22 +150,22 @@ class PeliculaCritica extends Component {
               </div>
               <hr />
               <br />
-              <div className="estiloComponenteCaja">
+              <div className='estiloComponenteCaja'>
                 <DescripcionPelicula pelicula={this.state.pelicula} />
               </div>
               <br />
               <hr />
 
-              <div className="sinopsisPeliculaCritica">
+              <div className='sinopsisPeliculaCritica'>
                 {this.state.pelicula.sinopsis}
               </div>
               <br />
               <hr />
               <br />
               <img
-                alt=""
+                alt=''
                 src={this.state.pelicula.portada}
-                className="imagenPeliculaCritica ml-5"
+                className='imagenPeliculaCritica ml-5'
               />
               <br />
               <hr />
@@ -185,7 +173,7 @@ class PeliculaCritica extends Component {
                 <CajaComentarios peliid={this.props.match.params.peliculasid} />
               </div>
             </div>
-            <div className="elementoPeliculasCriticas">
+            <div className='elementoPeliculasCriticas'>
               <Recomendaciones peliculas={this.state.peliculas} />
             </div>
           </section>

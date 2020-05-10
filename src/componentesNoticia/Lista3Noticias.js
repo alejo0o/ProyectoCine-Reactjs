@@ -5,18 +5,6 @@ import React, { Component } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import { withStyles } from '@material-ui/core/styles';
 
-const GlobalCss = withStyles({
-  // @global is handled by jss-plugin-global.
-  '@global': {
-    // You should target [class*="MuiButton-root"] instead if you nest themes.
-    '.MuiRating-root': {
-      '@media screen and (max-width: 768px)': {
-        fontSize: 15,
-      },
-    },
-  },
-})(() => null);
-
 class Lista3 extends Component {
   handleChange() {
     window.location.reload();
@@ -31,7 +19,6 @@ class Lista3 extends Component {
               href={`/Noticias/${noticia.notid}`}
               className="text-reset text-decoration-none"
             >
-              <GlobalCss />
               <div className="contenedorLista3Noticias">
                 <div className="imagenContenedorLista3Noticias">
                   <img

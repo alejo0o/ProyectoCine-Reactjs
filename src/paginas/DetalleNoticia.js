@@ -69,9 +69,10 @@ class DetalleNoticia extends Component {
       <section className="contenedorNoticiasID">
         <div className="elementoNoticiasID">
           <Link to="/Noticias" className="botonNoticiasID btn">
-            Noticias
+            NOTICIAS
           </Link>
           <div className="tituloNoticiasID">{this.state.noticia.nottitulo}</div>
+          <div className="fechaNoticiaID">{this.state.noticia.notfecha}</div>
           <img
             alt=""
             src={this.state.noticia.notimagen}
