@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
   gap: 2.5%;
-  border: turquoise solid;
   font-family: 'Georgia';
 }
 
