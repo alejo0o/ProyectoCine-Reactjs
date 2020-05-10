@@ -1,19 +1,14 @@
-import './styles/Criticas.css';
-
 import React, { Component } from 'react';
-
-import ClienteGql from '../utils/GqlClient';
-import Lista1 from '../componentesCriticas/Lista1';
-import Lista2 from '../componentesCriticas/Lista2';
-import Pagination from '@material-ui/lab/Pagination';
-import PaginationItem from '@material-ui/lab/PaginationItem';
+import './styles/Criticas.css';
 import Peticiones from '../utils/consultasPersonalizadas';
-import { withStyles } from '@material-ui/core/styles';
-
+import ClienteGql from '../utils/GqlClient';
 //Listas
-
+import Lista1 from '../componentesAnime/Lista1';
+import Lista2 from '../componentesAnime/Lista2';
 //Material UI
-
+import Pagination from '@material-ui/lab/Pagination';
+import { withStyles } from '@material-ui/core/styles';
+import PaginationItem from '@material-ui/lab/PaginationItem';
 const GQLClient = ClienteGql;
 
 const GlobalCss = withStyles({
@@ -61,17 +56,17 @@ class Criticas extends Component {
         page: this.state.page,
       };
       const respuesta = await GQLClient.request(
-        Peticiones.getCriticasValor,
+        Peticiones.getAnimesporEstreno,
         variables
       );
       this.setState({
         loading: false,
-        info: respuesta.getCriticasValor.info,
+        info: respuesta.getAnimesporEstreno.info,
         peliculasData1: this.state.peliculasData1.concat(
-          respuesta.getCriticasValor.results.slice(0, 5)
+          respuesta.getAnimesporEstreno.results.slice(0, 5)
         ),
         peliculasData2: this.state.peliculasData1.concat(
-          respuesta.getCriticasValor.results.slice(5, 10)
+          respuesta.getAnimesporEstreno.results.slice(5, 10)
         ),
       });
     } catch (error) {
@@ -98,24 +93,24 @@ class Criticas extends Component {
 
   render() {
     return (
-      <section className="contenedorCriticas">
+      <section className='contenedorCriticas'>
         <GlobalCss />
-        <div className="contenedorLista1">
+        <div className='contenedorLista1'>
           <Lista1 peliculas={this.state.peliculasData1} />
         </div>
-        <div className="contenedorLista2">
+        <div className='contenedorLista2'>
           <Lista2 peliculas={this.state.peliculasData2} />
         </div>
-        <div className="contenedorLista3">
+        <div className='contenedorLista3'>
           <Pagination
             count={this.state.info.pages}
-            variant="outlined"
-            color="primary"
+            variant='outlined'
+            color='primary'
             onChange={this.handleChange}
             showFirstButton
             showLastButton
-            shape="rounded"
-            className="paginador"
+            shape='rounded'
+            className='paginador'
           />
         </div>
       </section>

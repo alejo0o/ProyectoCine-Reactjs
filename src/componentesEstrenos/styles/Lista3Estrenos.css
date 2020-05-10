@@ -1,0 +1,59 @@
+.contenedorLista3Estrenos {
+  width: 75%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+.contenedorLista3Estrenos :nth-child(3) {
+  font-size: 80%;
+  font-family: 'Georgia';
+  box-shadow: none;
+  color: gray;
+  width: 85%;
+}
+
+.imagenLista3Estrenos {
+  width: 100%;
+  height: 25vh;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.imagenContenedorLista3Estrenos {
+  width: 100%;
+}
+
+.contenedortituloLista3Estrenos {
+  font-weight: bold;
+  font-family: 'Georgia';
+  text-align: justify;
+  font-size: 90%;
+  margin: 2.5%;
+}
+.tituloContenedorEstrenos {
+  font-weight: bold;
+  font-family: 'Georgia';
+  text-align: justify;
+  font-size: 100%;
+  border-left: tomato solid 3px;
+  padding-left: 2%;
+  margin-top: 4%;
+  margin-left: 10%;
+}
+@media screen and (max-width: 768px) {
+  .contenedorLista3Estrenos {
+    width: 55%;
+    height: 20%;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  .contenedortituloLista3Estrenos {
+    font-size: 75%;
+  }
+  .contenedorLista3Estrenos :nth-child(3) {
+    font-size: 70%;
+  }
+  .tituloContenedorEstrenos {
+    font-size: 70%;
+  }
+}
