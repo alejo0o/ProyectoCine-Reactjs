@@ -8,7 +8,7 @@ import ClienteGql from '../utils/GqlClient';
 import Peticiones from '../utils/consultasPersonalizadas';
 //Componentes
 import Recomendaciones from '../componentesEstrenos/Lista3Estrenos';
-import DescripcionPelicula from '../componentesCriticas/DescripcionPelicula';
+import DescripcionPelicula from '../componentesEstrenos/DescripcionPeliculaEstrenos';
 
 const GQLClient = ClienteGql;
 

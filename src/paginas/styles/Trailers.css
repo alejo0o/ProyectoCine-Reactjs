@@ -3,6 +3,7 @@
   grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
   gap: 2.5%;
   border: turquoise solid;
+  font-family: 'Georgia';
 }
 
 .elementoPeliculaTrailer:nth-of-type(1) {
@@ -20,7 +21,6 @@
   margin-left: 3%;
   margin-top: 3%;
   font-size: 70%;
-  font-family: 'Georgia';
 }
 .botonComentario {
   background-color: rgba(243, 203, 61);
@@ -28,13 +28,11 @@
   border-radius: 78px 78px 78px 78px;
   font-size: 100%;
   margin-left: 2%;
-  font-family: 'Georgia';
   width: 95%;
   margin-bottom: 5%;
   margin-top: 3%;
 }
 .tituloPeliculaTrailer {
-  font-family: 'Georgia';
   font-weight: bolder;
   font-style: italic;
   font-size: x-large;
@@ -43,7 +41,6 @@
   border-bottom: gainsboro solid;
 }
 .fechaPeliculaTrailer{
-  font-family: 'Georgia';
   color: gray;
   text-align: right;
   padding-right: 3%;
@@ -52,7 +49,6 @@
 }
 
 .sinopsisPeliculaTrailer {
-  font-family: 'Georgia';
   margin-left: 3%;
   text-align: justify;
   margin-right: 5%;
@@ -121,5 +117,10 @@
     margin-left: 2%;
     margin-bottom: 3%;
     margin-top: 1.5%;
+  }
+  .botonPeliculaTrailer {
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 60%;
   }
 }

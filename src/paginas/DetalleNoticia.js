@@ -51,7 +51,7 @@ class DetalleNoticia extends Component {
         loading: false,
         noticia: respuesta.getNoticia,
         noticias: this.state.noticias.concat(
-          respuesta2.getNoticiasFecha.results.slice(1, 4)
+          respuesta2.getNoticiasFecha.results.slice(1, 5)
         ),
       });
       console.log(this.state.noticia);

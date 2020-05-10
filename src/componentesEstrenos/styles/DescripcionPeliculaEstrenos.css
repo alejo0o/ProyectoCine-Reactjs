@@ -1,0 +1,39 @@
+.contenedorDescripcionPeliculaEstrenos {
+  display: grid;
+  grid-template-rows: [inicio] 25% [linea2] 25% [linea3] 25% [linea4] 25%[final];
+  grid-template-columns: 40% 60%;
+  text-align: justify;
+  font-family: 'Georgia';
+}
+
+.portadaImagenDescripcionPeliculaEstrenos {
+  width: 100%;
+  height: 100%;
+}
+
+.elementoDescripcionPeliculaEstrenos:nth-of-type(1) {
+  grid-row: 1 / -1;
+}
+.titulosComponenteEstrenos {
+  font-size: 80%;
+  font-weight: bold;
+}
+.textoComponenteEstrenos {
+  font-size: 80%;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .titulosComponenteEstrenos {
+    font-size: 65%;
+    font-weight: bold;
+  }
+  .textoComponenteEstrenos {
+    font-size: 75%;
+    opacity: 0.7;
+  }
+  .contenedorDescripcionPeliculaEstrenos {
+    grid-template-rows: [inicio] 22% [linea2] 22% [linea3] 22% [linea4] 22%[final];
+    grid-template-columns: 40% 60%;
+  }
+}
