@@ -20,6 +20,7 @@ import FormPersonas from './Forms/FormPersonas';
 //AUTENTICACION
 import NavBar from './components/NavBar';
 import NavBar2 from './components/GlobalNavbar';
+import Footbar from './components/Footbar.js'
 import NoticiasID from './paginas/DetalleNoticia';
 import PeliculasCritica from './paginas/PeliculaCritica';
 import PrivateRoute from './components/PrivateRoute';
@@ -78,6 +79,7 @@ function App() {
         <Route exact path="/Estrenos/:peliculasid" component={Trailer} />
 
       </Switch>
+      <Footbar />
     </BrowserRouter>
   );
 }

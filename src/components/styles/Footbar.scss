@@ -1,0 +1,37 @@
+.barra {
+	background-color: #268FD9;
+	color: white;
+	font-size: 1em;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.barra:hover {
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+.link {
+	color: white;
+	text-align: center; 
+	text-decoration: none; /* no underline */
+}
+.link:hover {
+	color: white;
+	text-decoration: none; /* no underline */
+}
+.footitem{
+	padding: 1em;
+}
+table {
+	margin: 0px auto;
+	table-layout: fixed;
+	width: 100% ;
+}
+td {
+	text-align: center; 
+    vertical-align: middle;
+}
+
