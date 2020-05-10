@@ -17,8 +17,9 @@
 }
 
 .imagenNoticiasID {
-  height: 45%;
-  width: 86%;
+  padding-left: 5%;
+  height: 40%;
+  width: 80%;
 }
 
 .botonNoticiasID {
@@ -74,5 +75,10 @@
     padding-right: 2%;
     font-size: 65%;
     padding-bottom: 3%;
+  }
+  .imagenNoticiasID {
+    padding-left: 8%;
+    height: 30%;
+    width: 70%;
   }
 }
