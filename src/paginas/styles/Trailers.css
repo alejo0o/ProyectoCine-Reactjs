@@ -1,0 +1,125 @@
+.contenedorPeliculaTrailer {
+  display: grid;
+  grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
+  gap: 2.5%;
+  font-family: 'Georgia';
+}
+
+.elementoPeliculaTrailer:nth-of-type(1) {
+  background: rgb(233, 239, 241);
+  margin-left: 3%;
+}
+
+.elementoPeliculaTrailer:nth-of-type(2) {
+  background: rgb(233, 239, 241);
+}
+
+.botonPeliculaTrailer {
+  background-color: rgba(243, 203, 61);
+  color: white;
+  margin-left: 3%;
+  margin-top: 3%;
+  font-size: 70%;
+}
+.botonComentario {
+  background-color: rgba(243, 203, 61);
+  color: white;
+  border-radius: 78px 78px 78px 78px;
+  font-size: 100%;
+  margin-left: 2%;
+  width: 95%;
+  margin-bottom: 5%;
+  margin-top: 3%;
+}
+.tituloPeliculaTrailer {
+  font-weight: bolder;
+  font-style: italic;
+  font-size: x-large;
+  margin-top: 3%;
+  margin-left: 3%;
+  border-bottom: gainsboro solid;
+}
+.fechaPeliculaTrailer{
+  color: gray;
+  text-align: right;
+  padding-right: 3%;
+  font-size: 85%;
+  padding-bottom: 5%;
+}
+
+.sinopsisPeliculaTrailer {
+  margin-left: 3%;
+  text-align: justify;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  padding-top: 5%;
+}
+.estiloComponenteCaja {
+  margin: 2%;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  background-color: white;
+}
+.wrapper {
+  position: relative;
+  padding-top: 56%;
+  /* border: springgreen solid; */
+}
+
+.player {
+  position: absolute;
+  top: 0;
+  left: 2%;
+  width: 95%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .contenedorPeliculaTrailer {
+    gap: 1.5%;
+  }
+  .tituloPeliculaTrailer {
+    margin-top: 3%;
+    font-size: 80%;
+  }
+  .sinopsisPeliculaTrailer {
+    margin-top: 2%;
+    font-size: 70%;
+  }
+  .estiloComponenteCaja {
+    margin: 2%;
+    width: 85%;
+    height: 210px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+  }
+  .wrapper {
+    position: relative;
+    padding-top: 40%;
+  }
+  .player {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 70%;
+    height: 80%;
+  }
+  .fechaPeliculaTrailer{
+    padding-right: 2%;
+    font-size: 65%;
+    padding-bottom: 3%;
+  }
+  .botonComentario {
+    font-size: 80%;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    margin-top: 1.5%;
+  }
+  .botonPeliculaTrailer {
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 60%;
+  }
+}
