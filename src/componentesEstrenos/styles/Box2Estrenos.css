@@ -1,0 +1,51 @@
+.contenedorBox2Estrenos {
+  display: grid;
+  grid-template-rows: [inicio] 55% [linea2] 45% [linea3] 150% [final];
+  grid-template-columns: 25% 74%;
+  text-align: justify;
+  height: 40%;
+  cursor: pointer;
+}
+
+.portadaImg {
+  height: 100%;
+  width: 100%;
+}
+
+.elementoBox2Estrenos:nth-of-type(1) {
+  grid-row: 1 / -1;
+}
+
+.elementoBox2Estrenos:nth-of-type(2) {
+  font-size: 120%;
+  font-family: 'Georgia';
+  margin: 2%;
+  font-weight: bold;
+  text-align: justify;
+}
+.elementoBox2Estrenos:nth-of-type(3) {
+  font-size: 90%;
+  font-family: 'Georgia';
+  margin: 2%;
+  color: gray;
+}
+@media screen and (max-width: 1224px) {
+  .elementoBox2Estrenos:nth-of-type(2) {
+    font-size: 85%;
+    margin: 2%;
+  }
+  .elementoBox2Estrenos:nth-of-type(3) {
+    font-size: 80%;
+    margin-top: 3%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .elementoBox2Estrenos:nth-of-type(2) {
+    font-size: 60%;
+    margin: 2%;
+  }
+  .elementoBox2Estrenos:nth-of-type(3) {
+    font-size: 55%;
+    margin: 2%;
+  }
+}
