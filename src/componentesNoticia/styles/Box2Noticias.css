@@ -5,6 +5,7 @@
   text-align: justify;
   height: 40%;
   cursor: pointer;
+  font-family: 'Georgia';
 }
 
 .portadaImg {
@@ -18,14 +19,12 @@
 
 .elementoBox2Noticias:nth-of-type(2) {
   font-size: 80%;
-  font-family: 'Georgia';
   margin: 2%;
   text-align: right;
   color: gray;
 }
 .elementoBox2Noticias:nth-of-type(3) {
   font-size: 95%;
-  font-family: 'Georgia';
   margin: 2%;
   font-weight: bold;
   text-align: justify;

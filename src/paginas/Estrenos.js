@@ -1,4 +1,4 @@
-import './styles/Criticas.css';
+import './styles/EstrenosNoticias.css';
 
 import React, { Component } from 'react';
 
@@ -11,23 +11,12 @@ import { withStyles } from '@material-ui/core/styles';
 
 const GQLClient = ClienteGql;
 
-const GlobalCss = withStyles({
-  '@global': {
-    '.MuiPagination-root': {
-      '@media screen and (max-width: 768px)': {
-        marginLeft: 220,
-        fontSize: 15,
-      },
-    },
-  },
-})(() => null);
-
 class Estrenos extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      loading: true,
+      error: false,
+      loading: false,
       page: 1,
       info: {
         count: 0,
@@ -37,6 +26,7 @@ class Estrenos extends Component {
       },
       estrenos1: [],
       estrenos2: [],
+      load:false
     };
   }
 
@@ -67,6 +57,15 @@ class Estrenos extends Component {
           respuesta.getEstrenosDirector.results.slice(5, 10)
         ),
       });
+      if (this.state.estrenos1 != null) {
+        this.setState({
+          load: true,
+        });
+      } else {
+        this.setState({
+          load: false,
+        });
+      }
     } catch (error) {
       this.setState({
         loading: false,
@@ -88,18 +87,17 @@ class Estrenos extends Component {
     this.state.page = value;
     this.fetchData();
   };
-
   render() {
-    return (
-      <section className="contenedorCriticas">
-        <GlobalCss />
-        <div className="contenedorLista1">
+    if (this.state.load) {
+      return (
+        <section className="contenedorNuevo">
+        <div className="contenedorLista1Nuevo">
           <Lista1 estrenosDirector={this.state.estrenos1} />
         </div>
-        <div className="contenedorLista2">
+        <div className="contenedorLista2Nuevo">
           <Lista2 estrenosDirector={this.state.estrenos2} />
         </div>
-        <div className="contenedorLista3">
+        <div className="contenedorLista3Nuevo">
           <Pagination
             count={this.state.info.pages}
             variant="outlined"
@@ -108,11 +106,18 @@ class Estrenos extends Component {
             showFirstButton
             showLastButton
             shape="rounded"
-            className="paginador"
+            className="paginadorNuevo"
           />
         </div>
       </section>
-    );
+      );
+    } else {
+      return (
+        <div>
+          <h5 className='errorPag'></h5>
+        </div>
+      );
+    }
   }
 }
 
