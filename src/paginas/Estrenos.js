@@ -1,4 +1,4 @@
-import './styles/Criticas.css';
+import './styles/EstrenosNoticias.css';
 
 import React, { Component } from 'react';
 
@@ -10,17 +10,6 @@ import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
 
 const GQLClient = ClienteGql;
-
-const GlobalCss = withStyles({
-  '@global': {
-    '.MuiPagination-root': {
-      '@media screen and (max-width: 768px)': {
-        marginLeft: 220,
-        fontSize: 15,
-      },
-    },
-  },
-})(() => null);
 
 class Estrenos extends Component {
   constructor(props) {
@@ -91,8 +80,7 @@ class Estrenos extends Component {
 
   render() {
     return (
-      <section className="contenedorCriticas">
-        <GlobalCss />
+      <section className="contenedor">
         <div className="contenedorLista1">
           <Lista1 estrenosDirector={this.state.estrenos1} />
         </div>
