@@ -19,9 +19,7 @@ const GlobalCss = withStyles({
 class BigBox extends Component {
 
   render() {
-    var link = '/Criticas/' + this.props.pelicula.peliculasid;
     return (
-        <a href={link}>
         <section className='contenedorBox'>
           <GlobalCss />
           <div className='elementoBox1'>
@@ -33,7 +31,6 @@ class BigBox extends Component {
           </div>
           <div className='elementoBox1'>{this.props.pelicula.nombre}</div>
         </section>
-        </a>
     );
   }
 }
