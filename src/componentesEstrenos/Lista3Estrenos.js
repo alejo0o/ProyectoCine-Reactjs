@@ -17,6 +17,7 @@ class Lista3 extends Component {
             <a
               href={`/Estrenos/${pelicula.peliculasid}`}
               className="text-reset text-decoration-none"
+              key={pelicula.peliculasid}
             >
               
               <div className="contenedorLista3Estrenos">
