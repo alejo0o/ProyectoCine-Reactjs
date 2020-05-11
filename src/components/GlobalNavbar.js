@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-
 //Versión 1 del navbar
 const GlobalNavbar = () => {
   return (
@@ -24,35 +23,34 @@ const GlobalNavbar = () => {
           </button>
           <div className='collapse navbar-collapse' id='navbarCollapse'>
             <ul className='navbar-nav mr-auto'>
-
               <li className='nav-item'>
-              <Link to='/noticias' className='nav-link'>
-                  Home&nbsp;<i className="fas fa-home"></i>
+                <Link to='/noticias' className='nav-link'>
+                  Home&nbsp;<i className='fas fa-home'></i>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to='/estrenos' className='nav-link'>
-                  Estrenos&nbsp;<i class="fas fa-ticket-alt"></i>
+                  Estrenos&nbsp;<i className='fas fa-ticket-alt'></i>
                 </Link>
               </li>
               <li className='nav-item'>
                 <Link to='/criticas' className='nav-link'>
-                  Críticas&nbsp;<i class="far fa-comments"></i>
+                  Críticas&nbsp;<i className='far fa-comments'></i>
                 </Link>
               </li>
               <li className='nav-item'>
                 <a className='nav-link' href='#'>
-                  Top 10&nbsp;<i class="fas fa-arrow-alt-circle-up"></i>
+                  Top 10&nbsp;<i className='fas fa-arrow-alt-circle-up'></i>
                 </a>
               </li>
               <li className='nav-item'>
                 <a className='nav-link' href='#'>
-                  Anime&nbsp;<i class="far fa-grin-stars"></i>
+                  Anime&nbsp;<i className='far fa-grin-stars'></i>
                 </a>
               </li>
               <li className='nav-item'>
                 <Link to='/profile' className='nav-link'>
-                  Perfil&nbsp;<i class="fas fa-user"></i>
+                  Perfil&nbsp;<i className='fas fa-user'></i>
                 </Link>
               </li>
             </ul>
