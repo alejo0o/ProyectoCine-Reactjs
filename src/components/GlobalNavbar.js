@@ -8,7 +8,7 @@ const GlobalNavbar = () => {
   return (
     <React.Fragment>
       <span>
-        <nav className='navbar navbar-expand-md navbar-dark  bg-dark mt-5'>
+        <nav className='navbar navbar-expand-lg navbar-dark  bg-dark mt-5'>
           <a className='navbar-brand' href='#'>
             Proyecto Cine
           </a>
@@ -41,14 +41,9 @@ const GlobalNavbar = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  Top 10&nbsp;<i class="fas fa-arrow-alt-circle-up"></i>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  Anime&nbsp;<i class="far fa-grin-stars"></i>
-                </a>
+                <Link to='/animes' className='nav-link'>
+                   Anime&nbsp;<i class="far fa-grin-stars"></i>
+                </Link>
               </li>
               <li className='nav-item'>
                 <Link to='/profile' className='nav-link'>
