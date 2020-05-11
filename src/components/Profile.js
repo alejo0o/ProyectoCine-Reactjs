@@ -5,7 +5,7 @@ const Profile = () => {
   const { loading, user } = useAuth0();
 
   if (loading || !user) {
-    return <div>Loading...</div>;
+    return <div>Por favor, ingrese con sus credenciales...</div>;
   }
   return (
     <Fragment>
