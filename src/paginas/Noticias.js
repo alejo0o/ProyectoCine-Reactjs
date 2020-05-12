@@ -7,9 +7,50 @@ import Lista1 from '../componentesNoticia/Lista1Noticias';
 import Lista2 from '../componentesNoticia/Lista2Noticias';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
-import { withStyles } from '@material-ui/core/styles';
+import { useAuth0 } from '../react-auth0-spa';
+import GqlClient from '../utils/GqlClient';
+import { gql } from 'apollo-boost';
 
 const GQLClient = ClienteGql;
+
+const SaveUser = (props) => {
+  const { loading, user } = useAuth0();
+
+  if (user) {
+    Logic(user);
+  }
+
+  return <React.Fragment></React.Fragment>;
+};
+
+const Logic = async (user) => {
+  try {
+    let variables = { sub: user.sub };
+    let usuario = await GqlClient.request(
+      Peticiones.getUsuarioporSub,
+      variables
+    );
+    usuario = usuario.getUsuarioporSub;
+
+    if (!usuario) {
+      variables = {
+        input: {
+          nickname: user.nickname,
+          name: user.name,
+          picture: user.picture,
+          email: user.email,
+          sub: user.sub,
+        },
+      };
+      const respuesta = await GqlClient.request(
+        Peticiones.crearUsuario,
+        variables
+      );
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 class Noticias extends Component {
   constructor(props) {
@@ -26,7 +67,7 @@ class Noticias extends Component {
       },
       noticias1: [],
       noticias2: [],
-      load:false,
+      load: false,
     };
   }
 
@@ -89,39 +130,38 @@ class Noticias extends Component {
   };
 
   render() {
-      if (this.state.load) {
-        return (
-          <section className="contenedorNuevo">
-        <div className="contenedorLista1Nuevo">
-          <Lista1 noticiasFecha={this.state.noticias1} />
-        </div>
-        <div className="contenedorLista2Nuevo">
-          <Lista2 noticiasFecha={this.state.noticias2} />
-        </div>
-        <div className="contenedorLista3Nuevo">
-          <Pagination
-            count={this.state.info.pages}
-            variant="outlined"
-            color="primary"
-            onChange={this.handleChange}
-            showFirstButton
-            showLastButton
-            shape="rounded"
-            className="paginadorNuevo"
-          />
-        </div>
-      </section>
-        );
-      } else {
-        return (
-          <div>
-            <h5 className='errorPag'></h5>
+    if (this.state.load) {
+      return (
+        <section className='contenedorNuevo'>
+          <div className='contenedorLista1Nuevo'>
+            <Lista1 noticiasFecha={this.state.noticias1} />
           </div>
-        );
-      }
+          <div className='contenedorLista2Nuevo'>
+            <Lista2 noticiasFecha={this.state.noticias2} />
+          </div>
+          <div className='contenedorLista3Nuevo'>
+            <Pagination
+              count={this.state.info.pages}
+              variant='outlined'
+              color='primary'
+              onChange={this.handleChange}
+              showFirstButton
+              showLastButton
+              shape='rounded'
+              className='paginadorNuevo'
+            />
+          </div>
+          <SaveUser />
+        </section>
+      );
+    } else {
+      return (
+        <div>
+          <h5 className='errorPag'></h5>
+        </div>
+      );
     }
   }
-  
-   
+}
 
 export default Noticias;

@@ -8,9 +8,9 @@ const GlobalNavbar = () => {
     <React.Fragment>
       <span>
         <nav className='navbar navbar-expand-md navbar-dark  bg-dark mt-5'>
-          <a className='navbar-brand' href='#'>
+          <Link className='navbar-brand' to='/'>
             Proyecto Cine
-          </a>
+          </Link>
           <button
             className='navbar-toggler'
             type='button'
@@ -24,7 +24,7 @@ const GlobalNavbar = () => {
           <div className='collapse navbar-collapse' id='navbarCollapse'>
             <ul className='navbar-nav mr-auto'>
               <li className='nav-item'>
-                <Link to='/noticias' className='nav-link'>
+                <Link to='/' className='nav-link'>
                   Home&nbsp;<i className='fas fa-home'></i>
                 </Link>
               </li>
@@ -44,9 +44,9 @@ const GlobalNavbar = () => {
                 </a>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
+                <Link className='nav-link' to='/animes'>
                   Anime&nbsp;<i className='far fa-grin-stars'></i>
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
                 <Link to='/profile' className='nav-link'>

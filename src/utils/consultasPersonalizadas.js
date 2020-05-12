@@ -141,6 +141,50 @@ const Peticiones = {
     }
   }
 `,
+  getUsuarioporID: `query getUsuario($id:ID!){
+  getUsuarioporID(id:$id){
+    id
+    nickname
+    name
+    picture  
+    email
+    sub
+  }
+}`,
+  crearUsuario: `mutation crearUser($input:UsuarioInput!){
+  createUsuario(input:$input){
+    id
+    nickname
+    name
+    picture  
+    email
+    sub
+  }
+}`,
+  editUsuario: `mutation EditUser($id:ID!,$input:UsuarioEditInput!){
+  editUsuario(id:$id, input:$input){
+		id
+    nickname
+    name
+    picture  
+    email
+    sub
+  }
+}`,
+  eliminarUsuario: `
+  mutation deleteUser($id:ID!){
+  deleteUsuario(id:$id)
+}`,
+  getUsuarioporSub: `query getUsuarioSub($sub:String!){
+  getUsuarioporSub(sub:$sub){
+    id
+    nickname
+    name
+    picture
+    email
+    sub
+  }
+}`,
 };
 
 export default Peticiones;

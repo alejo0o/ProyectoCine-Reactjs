@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 //Estilos
 import './styles/Trailers.css';
 ///
@@ -50,14 +50,17 @@ class Trailers extends Component {
         Peticiones.getPeliculasDirector,
         variables
       );
-      const respuesta2 = await GQLClient.request(Peticiones.getEstrenosDirector, {
-        page: 1,
-      });
+      const respuesta2 = await GQLClient.request(
+        Peticiones.getEstrenosDirector,
+        {
+          page: 1,
+        }
+      );
       this.setState({
         loading: false,
         peliculaID: respuesta.getPeliculaDirector,
         peliculas: this.state.peliculas.concat(
-          respuesta2.getEstrenosDirector.results.slice(1,5)
+          respuesta2.getEstrenosDirector.results.slice(1, 5)
         ),
       });
     } catch (error) {
@@ -69,44 +72,46 @@ class Trailers extends Component {
   };
 
   render() {
-        return (
-          <section className='contenedorPeliculaTrailer'>
-            <div className='elementoPeliculaTrailer'>
-              <Link to='/Estrenos' className='botonPeliculaTrailer btn'>
-                ESTRENOS
-              </Link>
-              <div className='tituloPeliculaTrailer'>
-                {this.state.peliculaID.nombre}
-              </div>
-              <div className="fechaPeliculaTrailer">
-                {this.state.peliculaID.fechadelanzamiento}
-              </div>
-              <div className="wrapper">
-              <ReactPlayer className="player" url={this.state.peliculaID.trailer}  
-              width='95%' 
+    return (
+      <section className='contenedorPeliculaTrailer'>
+        <div className='elementoPeliculaTrailer'>
+          <Link to='/Estrenos' className='botonPeliculaTrailer btn'>
+            ESTRENOS
+          </Link>
+          <div className='tituloPeliculaTrailer'>
+            {this.state.peliculaID.nombre}
+          </div>
+          <div className='fechaPeliculaTrailer'>
+            {this.state.peliculaID.fechadelanzamiento}
+          </div>
+          <div className='wrapper'>
+            <ReactPlayer
+              className='player'
+              url={this.state.peliculaID.trailer}
+              width='95%'
               height='100%'
-              controls="true"
-              playsinline="true"
+              controls={true}
+              playsinline={true}
             />
-              </div>
-              <div className='sinopsisPeliculaTrailer'>
-                {this.state.peliculaID.sinopsis}
-              </div>
-              <Link to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`} 
-              className='botonComentario btn'>
-              💬 Ver comentarios
-              </Link>
-              <div className='estiloComponenteCaja'>
-                <DescripcionPelicula pelicula={this.state.peliculaID} />
-              </div>
-            </div>
-            
-            <div className='elementoPeliculaTrailer'>
-              <Recomendaciones peliculas={this.state.peliculas} />
-            </div>
-        
-          </section>
-        );
+          </div>
+          <div className='sinopsisPeliculaTrailer'>
+            {this.state.peliculaID.sinopsis}
+          </div>
+          <Link
+            to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`}
+            className='botonComentario btn'>
+            💬 Ver comentarios
+          </Link>
+          <div className='estiloComponenteCaja'>
+            <DescripcionPelicula pelicula={this.state.peliculaID} />
+          </div>
+        </div>
+
+        <div className='elementoPeliculaTrailer'>
+          <Recomendaciones peliculas={this.state.peliculas} />
+        </div>
+      </section>
+    );
   }
 }
 

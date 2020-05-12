@@ -29,7 +29,6 @@ class Comentarios extends Component {
       page: 1,
       id: this.props.peliid,
     };
-    console.log('holi');
     try {
       const data = await GQLClient.request(
         Peticiones.getCriticasporPelicula,
@@ -83,5 +82,3 @@ class Comentarios extends Component {
 }
 
 export default Comentarios;
-
-//<Pagination count={10} color="primary" />

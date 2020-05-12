@@ -8,8 +8,8 @@ import ClienteGql from '../utils/GqlClient';
 import Peticiones from '../utils/consultasPersonalizadas';
 import DescripcionPelicula from '../componentesCriticas/DescripcionPelicula';
 //Componentes
-import CajaValoracion from '../Componentes/CajaValoracion/CajaValoracion';
-import CajaComentarios from '../Componentes/CajaComentarios/CajaComentarios.js';
+import CajaValoracion from '../componentesCriticas/CajaValoracion/CajaValoracion';
+import CajaComentarios from '../componentesCriticas/CajaComentarios/CajaComentarios';
 import Recomendaciones from '../componentesCriticas/Lista3';
 
 const GQLClient = ClienteGql;
