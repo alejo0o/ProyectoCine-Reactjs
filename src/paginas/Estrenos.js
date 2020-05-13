@@ -10,6 +10,18 @@ import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
 
 const GQLClient = ClienteGql;
+const GlobalCss = withStyles({
+  // @global is handled by jss-plugin-global.
+  '@global': {
+    // You should target [class*="MuiButton-root"] instead if you nest themes.
+    '.MuiPagination-root': {
+      '@media screen and (max-width: 768px)': {
+        marginLeft: 220,
+        fontSize: 15,
+      },
+    },
+  },
+})(() => null);
 
 class Estrenos extends Component {
   constructor(props) {
@@ -91,6 +103,7 @@ class Estrenos extends Component {
     if (this.state.load) {
       return (
         <section className="contenedorNuevo">
+          <GlobalCss />
         <div className="contenedorLista1Nuevo">
           <Lista1 estrenosDirector={this.state.estrenos1} />
         </div>

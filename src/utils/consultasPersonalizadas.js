@@ -141,6 +141,42 @@ const Peticiones = {
     }
   }
 `,
+  getBuscarNoticia: `
+query getBuscarNoticia($page: Int!, $word:String!) {
+  getBuscarNoticia(page:$page, word:$word){
+    info{
+      count
+      pages
+      prev
+      next
+    }
+    results{
+      notid
+      nottitulo
+      notimagen
+      notfecha
+    }
+  }
+}
+`,
+  getBuscarPelicula: `
+query getBuscarPelicula($page: Int!, $word:String!) {
+  getBuscarPelicula(page:$page, word:$word){
+    info{
+      count
+      pages
+      prev
+      next
+    }
+    results{
+      peliculasid
+      nombre
+      fechadelanzamiento
+      portada
+    }
+  }
+}
+`,
 };
 
 export default Peticiones;

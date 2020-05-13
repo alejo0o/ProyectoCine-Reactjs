@@ -1,0 +1,29 @@
+.contenedorBoxBuscar{
+    display: grid;
+    font-family: 'Georgia';
+    grid-template-columns: [inicio] 100% [final];
+    grid-template-rows: [inicio] 30% [linea2] 20% [final];
+    border: springgreen solid;
+}
+.portadaImgBuscar{
+    height: 100%;
+    width: 100%;
+}
+.elementoBoxBuscar:nth-child(1){
+    grid-row: 1 / -1;
+    border: blueviolet solid;
+}
+.elementoBoxBuscar:nth-child(2){
+    color: gray;
+    font-size: 80%;
+    text-align: right;
+    margin-right: 2%;
+    margin-bottom: 0%;
+}
+.elementoBoxBuscar:nth-child(3){
+    font-weight: bold;
+    font-size: 90%;
+    margin: 1%;
+    text-align: justify;
+    padding-bottom: 2%;
+}

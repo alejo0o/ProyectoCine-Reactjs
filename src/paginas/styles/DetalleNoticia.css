@@ -39,7 +39,7 @@
   margin-left: 3%;
   border-bottom: gainsboro solid;
 }
-.fechaNoticiaID{
+.fechaNoticiasID{
   color: gray;
   text-align: right;
   padding-right: 3%;
@@ -71,7 +71,7 @@
     margin-top: 2%;
     font-size: 60%;
   }
-  .fechaNoticiaID{
+  .fechaNoticiasID{
     padding-right: 2%;
     font-size: 65%;
     padding-bottom: 3%;

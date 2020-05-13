@@ -1,0 +1,23 @@
+.contenedorBuscar{
+    border: royalblue solid;
+
+}
+.contenedorListaPeliculas, .contenedorListaNoticias{
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    grid-template-rows: repeat(2, 40%);
+    gap: 2.5%;
+    justify-content: center;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 2%;
+    border: black solid;
+}
+
+.elementoLista2Buscar{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+    overflow: auto;
+    margin-top: 1%;
+}

@@ -1,34 +1,35 @@
 //React Router
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import AnimesPagina from './paginas/Animes';
-import CriticaPelicula from './paginas/CriticaPelicula.js';
+import AnimesPagina from "./paginas/Animes";
+import CriticaPelicula from "./paginas/CriticaPelicula.js";
 //PAGINAS WEB
-import CriticasPagina from './paginas/Criticas';
-import DescripcioNoticia from './paginas/Noticias';
-import EditCritica from './Forms/FormEditCriticas';
-import EditNoticia from './Forms/FormEditNoticias';
-import EditPelicula from './Forms/FormEditPeliculas';
-import EditarPersona from './Forms/FormEditPersonas';
-import EstrenosDirector from './paginas/Estrenos';
-import FormCriticas from './Forms/FormCriticas';
-import FormNoticias from './Forms/FormNoticias';
-import Trailer from './paginas/Trailers'
+import CriticasPagina from "./paginas/Criticas";
+import DescripcioNoticia from "./paginas/Noticias";
+import EditCritica from "./Forms/FormEditCriticas";
+import EditNoticia from "./Forms/FormEditNoticias";
+import EditPelicula from "./Forms/FormEditPeliculas";
+import EditarPersona from "./Forms/FormEditPersonas";
+import EstrenosDirector from "./paginas/Estrenos";
+import FormCriticas from "./Forms/FormCriticas";
+import FormNoticias from "./Forms/FormNoticias";
+import Trailer from "./paginas/Trailers";
+import Buscar from "./paginas/Buscar";
 //Forms
-import FormPeliculas from './Forms/FormPeliculas';
-import FormPersonas from './Forms/FormPersonas';
+import FormPeliculas from "./Forms/FormPeliculas";
+import FormPersonas from "./Forms/FormPersonas";
 //AUTENTICACION
-import NavBar from './components/NavBar';
-import NavBar2 from './components/GlobalNavbar';
-import Footbar from './components/Footbar.js'
-import NoticiasID from './paginas/DetalleNoticia';
-import PeliculasCritica from './paginas/PeliculaCritica';
-import PrivateRoute from './components/PrivateRoute';
-import Profile from './components/Profile';
-import React from 'react';
+import NavBar from "./components/NavBar";
+import NavBar2 from "./components/GlobalNavbar";
+import Footbar from "./components/Footbar.js";
+import NoticiasID from "./paginas/DetalleNoticia";
+import PeliculasCritica from "./paginas/PeliculaCritica";
+import PrivateRoute from "./components/PrivateRoute";
+import Profile from "./components/Profile";
+import React from "react";
 //PAGINAS WEB
-import history from './utils/history'; //en el causo de uso de router
-import { useAuth0 } from './react-auth0-spa';
+import history from "./utils/history"; //en el causo de uso de router
+import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
   const { loading } = useAuth0();
@@ -77,7 +78,7 @@ function App() {
         <Route path="/Noticias/:notid" component={NoticiasID} />
         <Route exact path="/Estrenos" component={EstrenosDirector} />
         <Route exact path="/Estrenos/:peliculasid" component={Trailer} />
-
+        <Route exact path="/Buscar/:word" component={Buscar} />
       </Switch>
       <Footbar />
     </BrowserRouter>
