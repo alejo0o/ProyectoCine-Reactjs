@@ -28,6 +28,7 @@ import React from 'react';
 //PAGINAS WEB
 import history from './utils/history'; //en el causo de uso de router
 import { useAuth0 } from './react-auth0-spa';
+import HOCNoticias from './paginas/HOCNoticias';
 
 function App() {
   const { loading } = useAuth0();
@@ -64,7 +65,7 @@ function App() {
         <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
 
         {/*Rutas a las paginas web*/}
-        <Route exact path='/' component={DescripcioNoticia} />
+        <Route exact path='/' component={HOCNoticias} />
         <Route exact path='/criticas' component={CriticasPagina} />
 
         <Route exact path='/animes' component={AnimesPagina} />

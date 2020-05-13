@@ -23,34 +23,7 @@ const SaveUser = (props) => {
   return <React.Fragment></React.Fragment>;
 };
 
-const Logic = async (user) => {
-  try {
-    let variables = { sub: user.sub };
-    let usuario = await GqlClient.request(
-      Peticiones.getUsuarioporSub,
-      variables
-    );
-    usuario = usuario.getUsuarioporSub;
-
-    if (!usuario) {
-      variables = {
-        input: {
-          nickname: user.nickname,
-          name: user.name,
-          picture: user.picture,
-          email: user.email,
-          sub: user.sub,
-        },
-      };
-      const respuesta = await GqlClient.request(
-        Peticiones.crearUsuario,
-        variables
-      );
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+const Logic = async (user) => {};
 
 class Noticias extends Component {
   constructor(props) {
@@ -73,6 +46,7 @@ class Noticias extends Component {
 
   componentDidMount() {
     this.fetchData();
+    this.saveUser();
   }
 
   fetchData = async () => {
@@ -129,6 +103,46 @@ class Noticias extends Component {
     this.fetchData();
   };
 
+  saveUser = async () => {
+    this.setState({
+      loading: true,
+      error: null,
+    });
+    const { usuario } = this.props;
+    if (usuario) {
+      try {
+        let variables = { sub: usuario.sub };
+        let usuarioActual = await GQLClient.request(
+          Peticiones.getUsuarioporSub,
+          variables
+        );
+        usuarioActual = usuarioActual.getUsuarioporSub;
+
+        if (!usuarioActual) {
+          variables = {
+            input: {
+              nickname: usuario.nickname,
+              name: usuario.name,
+              picture: usuario.picture,
+              email: usuario.email,
+              sub: usuario.sub,
+            },
+          };
+          await GqlClient.request(Peticiones.crearUsuario, variables);
+          this.setState({
+            loading: false,
+            error: null,
+          });
+        }
+      } catch (error) {
+        this.setState({
+          loading: false,
+          error: error,
+        });
+      }
+    }
+  };
+
   render() {
     if (this.state.load) {
       return (
@@ -151,7 +165,6 @@ class Noticias extends Component {
               className='paginadorNuevo'
             />
           </div>
-          <SaveUser />
         </section>
       );
     } else {
