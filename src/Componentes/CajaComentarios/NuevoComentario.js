@@ -6,11 +6,9 @@ import Peticiones from '../../utils/consultasCriticas.js';
 import Peticiones2 from '../../utils/consultasPersonalizadas.js';
 import Rating from '@material-ui/lab/Rating';
 
-
 const GQLClient = ClienteGql;
 
 class FormComentario extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -28,13 +26,13 @@ class FormComentario extends Component {
   }
 
   onChange = (e) => {
-      this.setState({
-        form: {
-          ...this.state.form,
-          [e.target.name]: e.target.value,
-        },
-      });
-    };
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
 
   componentDidMount() {
     this.fetchData();
@@ -46,12 +44,15 @@ class FormComentario extends Component {
     var partsArray = this.props.idUser.split('|');
     const variables = {
       idMovie: this.props.peliid,
-      idUser: partsArray[1]
+      idUser: partsArray[1],
     };
     //Se setea el usuario del form para utilizarlo en el create
     this.state.form.id = partsArray[1];
     try {
-      const data = await GQLClient.request(Peticiones2.getCriticasUsuarioPelicula, variables);
+      const data = await GQLClient.request(
+        Peticiones2.getCriticasUsuarioPelicula,
+        variables
+      );
       this.setState({
         loading: false,
         form: data.getCriticasUsuarioPelicula,
@@ -65,8 +66,6 @@ class FormComentario extends Component {
     }
   }
 
-
-
   handleSubmit = async (evt) => {
     evt.preventDefault();
     this.setState({
@@ -77,18 +76,13 @@ class FormComentario extends Component {
     this.state.form.peliculasid = parseInt(this.props.peliid);
     this.state.form.crifecha = this.getDate();
 
-    
-    
-    
     try {
-
       if (this.state.criid == '') {
         const variables = {
           input: this.state.form,
         };
         await GQLClient.request(Peticiones.createCritica, variables);
-      }
-      else {
+      } else {
         const variables = {
           input: this.state.form,
           id: this.state.criid,
@@ -99,7 +93,7 @@ class FormComentario extends Component {
         console.log(variables);
         await GQLClient.request(Peticiones.editCritica, variables);
       }
-      
+
       this.setState({
         loading: false,
       });
@@ -124,58 +118,58 @@ class FormComentario extends Component {
     return today;
   }
 
-
   render(props) {
-
-  	return(
-    		<div className="contenedor">
-  		  	<div>
-  			  	<h6>{this.props.usuario}</h6>
-  		  	</div>
-  		  	<form onSubmit={this.handleSubmit}>
-  		  		<label className="etiqueta">Puntaje: </label>
-              <Rating
-                name="crivalor"
-                className="estrellas"
-                onChange={this.onChange}
-                value={parseFloat(this.state.form.crivalor)}
-                precision={0.5}
-              />
-  			  	<textarea 
-            placeholder="Escriba su critica..."
-            name="critexto"
+    return (
+      <div className='contenedor'>
+        <div>
+          <h6>{this.props.usuario}</h6>
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <label className='etiqueta'>Puntaje: </label>
+          <Rating
+            name='crivalor'
+            className='estrellas'
+            onChange={this.onChange}
+            value={parseFloat(this.state.form.crivalor)}
+            precision={0.5}
+          />
+          <textarea
+            placeholder='Escriba su critica...'
+            name='critexto'
             onChange={this.onChange}
             value={this.state.form.critexto}
-            />
-  			  	<button type="submit" className="boton">Enviar</button>
-  			</form>
-        
-  		</div>
-    	);
-    }
+          />
+          <button type='submit' className='boton'>
+            Enviar
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
-
 const NuevoComentario = (props) => {
-  
   const { loading, user, loginWithRedirect } = useAuth0();
 
   if (loading || !user) {
     return (
-	  	<div className="contenedor">
-		  	<button onClick={() => loginWithRedirect({})} className="boton">Iniciar sesión para dejar una crítica</button>    
-		  </div>
+      <div className='contenedor'>
+        <button onClick={() => loginWithRedirect({})} className='boton'>
+          Iniciar sesión para dejar una crítica
+        </button>
+      </div>
     );
-  }
-  else {
-  	return (
+  } else {
+    return (
       <div>
-        <FormComentario peliid={props.peliid} usuario={user.email} idUser={user.sub}/>
+        <FormComentario
+          peliid={props.peliid}
+          usuario={user.email}
+          idUser={user.sub}
+        />
       </div>
     );
   }
-
-
 };
 
 export default NuevoComentario;

@@ -18,6 +18,7 @@ class Lista3 extends Component {
             <a
               href={`/Noticias/${noticia.notid}`}
               className="text-reset text-decoration-none"
+              key={noticia.notid}
             >
               <div className="contenedorLista3Noticias">
                 <div className="imagenContenedorLista3Noticias">
