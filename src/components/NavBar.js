@@ -10,16 +10,17 @@ const NavBar = () => {
     
     <div>
       {!isAuthenticated && (
-     
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
-        
-   
+        <div className="ContenedorNavBar">
+          <button className="ElementoNavBar" onClick={() => loginWithRedirect({})}>Log in</button>
+        </div>
+
       )}
 
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
 
       
     </div>
+
   );
 };
 
