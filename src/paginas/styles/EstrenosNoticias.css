@@ -9,6 +9,7 @@
       [linea4] minmax(300px, 50vh);
     gap: 3%;
     margin-top: 5%;
+
   }
   
   .contenedorLista1Nuevo {
@@ -32,7 +33,7 @@
   .elementoLista2Nuevo {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 8px 8px 8px 8px;
-    background-color: white;
+    background-color: #F7F7F7;
     overflow: auto;
     margin-top: 1%;
   }
