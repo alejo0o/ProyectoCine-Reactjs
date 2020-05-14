@@ -3,8 +3,7 @@ import "./styles/Buscar.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ClienteGql from "../utils/GqlClient";
-import ListaNoticias from "../componentesBuscar/ListaBuscarNoticias";
-import ListaPeliculas from "../componentesBuscar/ListaBuscarPeliculas";
+import ListaBuscar from "../componentesBuscar/ListaBuscar";
 import Pagination from "@material-ui/lab/Pagination";
 import Peticiones from "../utils/consultasPersonalizadas";
 import { withStyles } from "@material-ui/core/styles";
@@ -33,13 +32,7 @@ class Buscar extends Component {
       pageNoticias: 1,
       pagePeliculas: 1,
       word: "",
-      infoNoticias: {
-        count: 0,
-        pages: 0,
-        prev: "",
-        next: "",
-      },
-      infoPeliculas: {
+      info: {
         count: 0,
         pages: 0,
         prev: "",
@@ -47,8 +40,6 @@ class Buscar extends Component {
       },
       noticias: [],
       peliculas: [],
-      loadNoticias: false,
-      loadPeliculas: false,
     };
   }
 
@@ -79,7 +70,6 @@ class Buscar extends Component {
         Peticiones.getBuscarPelicula,
         variables2
       );
-      console.log(this.state.word);
       this.setState({
         loading: true,
         infoNoticias: respuesta.getBuscarNoticia.info,
@@ -93,48 +83,16 @@ class Buscar extends Component {
       });
       console.log(this.state.noticias);
       console.log(this.state.peliculas);
-      if (this.state.noticias.length !== 0) {
-        this.setState({
-          loadNoticias: true,
-        });
-      } else {
-        this.setState({
-          loadNoticias: false,
-        });
-      }
-      if (this.state.peliculas.length !== 0) {
-        this.setState({
-          loadPeliculas: true,
-        });
-      } else {
-        this.setState({
-          loadPeliculas: false,
-        });
-      }
-      console.log(this.state.loadPeliculas);
-      console.log(this.state.loadNoticias);
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
       });
+      console.log(error);
     }
   };
 
-  handleChangeN = (event, value) => {
-    this.setState({
-      infoNoticias: {
-        count: 0,
-        pages: 0,
-        prev: "",
-        next: "",
-      },
-      noticias: [],
-    });
-    this.state.pageNoticias = value;
-    this.fetchData();
-  };
-  handleChangeP = (event, value) => {
+  handleChange = (event, value) => {
     this.setState({
       infoPeliculas: {
         count: 0,
@@ -149,37 +107,45 @@ class Buscar extends Component {
   };
 
   render() {
-    if (this.state.loadNoticias && this.state.loadPeliculas) {
+    if (this.state.noticias && this.state.peliculas) {
       return (
         <section className="contenedorBuscar">
           <GlobalCss />
-          <Link to="/Noticias" className="botonNoticiasID btn">
-            NOTICIAS
-          </Link>
-          <div className="contenedorListaNoticias">
-            <ListaNoticias noticias={this.state.noticias} />
+          <div className="contenedorNoticias">
+            <div className="contenedorLista">
+              <ListaBuscar
+                noticias={this.state.noticias}
+                paginas={this.state.peliculas}
+              />
+            </div>
           </div>
           <div className="contenedorLista3">
             <Pagination
-              count={this.state.infoNoticias.pages}
+              count={
+                this.state.infoPeliculas.pages + this.state.infoNoticias.pages
+              }
               variant="outlined"
               color="primary"
-              onChange={this.handleChangeN}
+              onChange={this.handleChange}
               showFirstButton
               showLastButton
               shape="rounded"
               className="paginador"
             />
           </div>
-          <Link to="/Estrenos" className="botonPeliculaTrailer btn">
-            PELICULAS
-          </Link>
-          <div className="contenedorListaPeliculas">
-            <ListaPeliculas peliculas={this.state.peliculas} />
+        </section>
+      );
+    } else if (this.state.peliculas) {
+      return (
+        <section className="contenedorBuscar2">
+          <div className="contenedorLista">
+            <ListaBuscar peliculas={this.state.peliculas} />
           </div>
           <div className="contenedorLista3">
             <Pagination
-              count={this.state.infoPeliculas.pages}
+              count={
+                this.state.infoPeliculas.pages + this.state.infoNoticias.pages
+              }
               variant="outlined"
               color="primary"
               onChange={this.handleChangeP}
@@ -191,42 +157,18 @@ class Buscar extends Component {
           </div>
         </section>
       );
-    } else if (this.state.loadPeliculas) {
-      return (
-        <section className="contenedorBuscar">
-          <Link to="/Estrenos" className="botonPeliculaTrailer btn">
-            PELICULAS
-          </Link>
-          <div className="contenedorListaPeliculas">
-            <ListaPeliculas peliculas={this.state.peliculas} />
-          </div>
-          <div className="contenedorLista3">
-            <Pagination
-              count={this.state.infoPeliculas.pages}
-              variant="outlined"
-              color="primary"
-              onChange={this.handleChangeP}
-              showFirstButton
-              showLastButton
-              shape="rounded"
-              className="paginador"
-            />
-          </div>
-        </section>
-      );
-    } else if (this.state.loadNoticias) {
+    } else if (this.state.noticias) {
       return (
         <section className="contenedorBuscar">
           <GlobalCss />
-          <Link to="/Noticias" className="botonNoticiasID btn">
-            NOTICIAS
-          </Link>
-          <div className="contenedorListaNoticias">
-            <ListaNoticias noticias={this.state.noticias} />
+          <div className="contenedorLista">
+            <ListaBuscar noticias={this.state.noticias} />
           </div>
           <div className="contenedorLista3">
             <Pagination
-              count={this.state.infoNoticias.pages}
+              count={
+                this.state.infoPeliculas.pages + this.state.infoNoticias.pages
+              }
               variant="outlined"
               color="primary"
               onChange={this.handleChangeN}

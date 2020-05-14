@@ -61,7 +61,7 @@ function App() {
           path="/forms/:perid/EditarPersona"
           component={EditarPersona}
         />
-        <Route path="/profile" component={Profile} />
+        <PrivateRoute path="/profile" component={Profile} />
 
         <Route exact path="/forms/:criId/EditCritica" component={EditCritica} />
         <Route exact path="/Noticias" component={DescripcioNoticia} />

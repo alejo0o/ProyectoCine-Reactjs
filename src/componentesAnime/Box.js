@@ -22,14 +22,22 @@ class BigBox extends Component {
     return (
         <section className='contenedorBox'>
           <GlobalCss />
-          <div className='elementoBox1'>
+          <div className='elementoBox1anime'>
             <img
               alt=''
               src={this.props.pelicula.portada}
               className='portadaImg'
             />
           </div>
-          <div className='elementoBox1'>{this.props.pelicula.nombre}</div>
+          <div className='elementoBox1anime'>
+            {this.props.pelicula.nombre}
+          </div>
+          <div className='elementoBox1anime'>
+          </div>
+          <div className='elementoBox1anime'>
+            Duración: {this.props.pelicula.duracion}
+          </div>
+
         </section>
     );
   }

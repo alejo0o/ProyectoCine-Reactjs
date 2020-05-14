@@ -28,10 +28,12 @@ class BigBox extends Component {
             className="portadaImgBuscar"
           />
         </div>
-        <div className="elementoBoxBuscar">
+        <div className="elementoBoxBuscar ml-2">
           {this.props.peliculas.fechadelanzamiento}
         </div>
-        <div className="elementoBoxBuscar">{this.props.peliculas.nombre}</div>
+        <div className="elementoBoxBuscar ml-2">
+          {this.props.peliculas.nombre}
+        </div>
       </section>
     );
   }

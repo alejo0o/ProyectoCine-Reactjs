@@ -22,7 +22,7 @@ class GlobalNavbar extends Component {
     return (
       <React.Fragment>
         <span>
-          <nav className="navbar navbar-expand-md navbar-dark  bg-dark mt-5">
+          <nav className="navbar navbar-expand-md navbar-dark  bg-dark mt-0">
             <a className="navbar-brand" href="#">
               Proyecto Cine
             </a>
@@ -46,27 +46,22 @@ class GlobalNavbar extends Component {
                 </li>
                 <li className="nav-item">
                   <Link to="/estrenos" className="nav-link">
-                    Estrenos&nbsp;<i class="fas fa-ticket-alt"></i>
+                    Estrenos&nbsp;<i className="fas fa-ticket-alt"></i>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/criticas" className="nav-link">
-                    Críticas&nbsp;<i class="far fa-comments"></i>
+                    Críticas&nbsp;<i className="far fa-comments"></i>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    Top 10&nbsp;<i class="fas fa-arrow-alt-circle-up"></i>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Anime&nbsp;<i class="far fa-grin-stars"></i>
+                    Anime&nbsp;<i className="far fa-grin-stars"></i>
                   </a>
                 </li>
                 <li className="nav-item">
                   <Link to="/profile" className="nav-link">
-                    Perfil&nbsp;<i class="fas fa-user"></i>
+                    Perfil&nbsp;<i className="fas fa-user"></i>
                   </Link>
                 </li>
               </ul>
@@ -92,5 +87,3 @@ class GlobalNavbar extends Component {
   }
 }
 export default GlobalNavbar;
-
-/**/
