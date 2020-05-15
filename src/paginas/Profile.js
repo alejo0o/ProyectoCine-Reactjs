@@ -3,8 +3,10 @@ import Profile1 from '../componentesProfile/Profile1';
 import { useAuth0 } from '../react-auth0-spa';
 
 import './styles/Profile.css';
+
 const Profile = () => {
   const { loading, user } = useAuth0();
+
   if (loading || !user) {
     return <div>Por favor, ingrese con sus credenciales...</div>;
   }
@@ -13,7 +15,7 @@ const Profile = () => {
     <React.Fragment>
       <div className='profile__profile1'>
         <div className='row'>
-          <div class='col-5'>
+          <div className='col-8'>
             <Profile1
               picture={user.picture}
               nickname={user.nickname}

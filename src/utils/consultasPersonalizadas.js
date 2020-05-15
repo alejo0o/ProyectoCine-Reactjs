@@ -141,7 +141,6 @@ const Peticiones = {
     }
   }
 `,
-<<<<<<< HEAD
   getUsuarioporID: `query getUsuario($id:ID!){
   getUsuarioporID(id:$id){
     id
@@ -186,7 +185,6 @@ const Peticiones = {
     sub
   }
 }`,
-=======
   getBuscarNoticia: `
 query getBuscarNoticia($page: Int!, $word:String!) {
   getBuscarNoticia(page:$page, word:$word){
@@ -223,7 +221,6 @@ query getBuscarPelicula($page: Int!, $word:String!) {
   }
 }
 `,
->>>>>>> 17bd10f28ed89af5a220bc1e94998ba30b378cbf
 };
 
 export default Peticiones;

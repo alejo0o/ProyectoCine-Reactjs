@@ -1,5 +1,3 @@
-import './styles/EstrenosNoticias.css';
-
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
@@ -146,15 +144,15 @@ class Noticias extends Component {
   render() {
     if (this.state.load) {
       return (
-        <section className='contenedorNuevo'>
+        <section className='contenedorCriticas'>
           <GlobalCss />
-          <div className='contenedorLista1Nuevo'>
+          <div className='contenedorLista1'>
             <Lista1 noticiasFecha={this.state.noticias1} />
           </div>
-          <div className='contenedorLista2Nuevo'>
+          <div className='contenedorLista2'>
             <Lista2 noticiasFecha={this.state.noticias2} />
           </div>
-          <div className='contenedorLista3Nuevo'>
+          <div className='contenedorLista3'>
             <Pagination
               count={this.state.info.pages}
               variant='outlined'
@@ -163,7 +161,7 @@ class Noticias extends Component {
               showFirstButton
               showLastButton
               shape='rounded'
-              className='paginadorNuevo'
+              className='paginador'
             />
           </div>
         </section>

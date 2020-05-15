@@ -39,11 +39,6 @@ const GlobalNavbar = () => {
                 </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
-                  Top 10&nbsp;<i className='fas fa-arrow-alt-circle-up'></i>
-                </a>
-              </li>
-              <li className='nav-item'>
                 <Link className='nav-link' to='/animes'>
                   Anime&nbsp;<i className='far fa-grin-stars'></i>
                 </Link>
