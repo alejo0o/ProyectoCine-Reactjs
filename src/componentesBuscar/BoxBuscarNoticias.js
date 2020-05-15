@@ -13,6 +13,7 @@ class Box2 extends Component {
             className="portadaImgBuscar"
           />
         </div>
+        <div className="etiqueta">NOTICIA</div>
         <div className="elementoBoxBuscar ml-2">
           {this.props.noticias.notfecha}
         </div>

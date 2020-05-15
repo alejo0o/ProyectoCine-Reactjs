@@ -28,6 +28,7 @@ class BigBox extends Component {
             className="portadaImgBuscar"
           />
         </div>
+        <div className="etiqueta">PELICULA</div>
         <div className="elementoBoxBuscar ml-2">
           {this.props.peliculas.fechadelanzamiento}
         </div>
