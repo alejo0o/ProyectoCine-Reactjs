@@ -1,21 +1,19 @@
-import "./styles/EstrenosNoticias.css";
+import React, { Component } from 'react';
 
-import React, { Component } from "react";
-
-import ClienteGql from "../utils/GqlClient";
-import Lista1 from "../componentesEstrenos/Lista1Estrenos";
-import Lista2 from "../componentesEstrenos/Lista2Estrenos";
-import Pagination from "@material-ui/lab/Pagination";
-import Peticiones from "../utils/consultasPersonalizadas";
-import { withStyles } from "@material-ui/core/styles";
+import ClienteGql from '../utils/GqlClient';
+import Lista1 from '../componentesEstrenos/Lista1Estrenos';
+import Lista2 from '../componentesEstrenos/Lista2Estrenos';
+import Pagination from '@material-ui/lab/Pagination';
+import Peticiones from '../utils/consultasPersonalizadas';
+import { withStyles } from '@material-ui/core/styles';
 
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
-  "@global": {
+  '@global': {
     // You should target [class*="MuiButton-root"] instead if you nest themes.
-    ".MuiPagination-root": {
-      "@media screen and (max-width: 768px)": {
+    '.MuiPagination-root': {
+      '@media screen and (max-width: 768px)': {
         marginLeft: 220,
         fontSize: 15,
       },
@@ -33,8 +31,8 @@ class Estrenos extends Component {
       info: {
         count: 0,
         pages: 0,
-        prev: "",
-        next: "",
+        prev: '',
+        next: '',
       },
       estrenos1: [],
       estrenos2: [],
@@ -90,8 +88,8 @@ class Estrenos extends Component {
       info: {
         count: 0,
         pages: 0,
-        prev: "",
-        next: "",
+        prev: '',
+        next: '',
       },
       estrenos1: [],
       estrenos2: [],
@@ -102,24 +100,24 @@ class Estrenos extends Component {
   render() {
     if (this.state.load) {
       return (
-        <section className="contenedorNuevo">
+        <section className='contenedorCriticas'>
           <GlobalCss />
-          <div className="contenedorLista1Nuevo">
+          <div className='contenedorLista1'>
             <Lista1 estrenosDirector={this.state.estrenos1} />
           </div>
-          <div className="contenedorLista2Nuevo">
+          <div className='contenedorLista2'>
             <Lista2 estrenosDirector={this.state.estrenos2} />
           </div>
-          <div className="contenedorLista3Nuevo">
+          <div className='contenedorLista3'>
             <Pagination
               count={this.state.info.pages}
-              variant="outlined"
-              color="primary"
+              variant='outlined'
+              color='primary'
               onChange={this.handleChange}
               showFirstButton
               showLastButton
-              shape="rounded"
-              className="paginadorNuevo"
+              shape='rounded'
+              className='paginador'
             />
           </div>
         </section>
@@ -127,7 +125,7 @@ class Estrenos extends Component {
     } else {
       return (
         <div>
-          <h5 className="errorPag"></h5>
+          <h5 className='errorPag'></h5>
         </div>
       );
     }

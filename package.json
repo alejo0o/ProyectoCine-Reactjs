@@ -16,9 +16,9 @@
     "bootstrap": "^4.4.1",
     "graphql": "^15.0.0",
     "graphql-request": "^1.8.2",
-    "pagination": "github:react-bootstrap/Pagination",
     "jquery": "^3.5.0",
     "node-sass": "^4.14.0",
+    "pagination": "github:react-bootstrap/Pagination",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-apollo": "^3.1.5",
@@ -27,10 +27,12 @@
     "react-dom": "^16.13.1",
     "react-js-pagination": "^3.0.3",
     "react-player": "^2.0.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "video-react": "^0.14.1"
   },
   "scripts": {

@@ -6,15 +6,16 @@
       35px,
       7vh
     )
-    [linea4] minmax(300px, 50vh);
-  gap: 3%;
+    [linea4] minmax(20px, 30px);
+  gap: 1%;
   margin-top: 5%;
+  border: black solid;
 }
 
 .elemento {
-  /* background: lightblue;
+  /*background: lightblue;
 
-  border: 1px solid red; */
+  border: 1px solid red;*/
 }
 /*Css correspondiente a la lista 1*/
 .contenedorLista1 {
@@ -25,9 +26,9 @@
   justify-content: center;
   margin-left: 2%;
   margin-right: 2%;
-  /* background: lightblue;
+  /*background: lightblue;
 
-  border: 1px solid red; */
+  border: 1px solid red;*/
 }
 .item {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -46,9 +47,9 @@
   gap: 1.5%;
   justify-content: space-evenly;
   margin-top: 1%;
-  /* background: lightblue; */
+  /*background: lightblue;
 
-  /* border: 1px solid red; */
+  border: 1px solid red;*/
 }
 
 .elementoLista2 {
