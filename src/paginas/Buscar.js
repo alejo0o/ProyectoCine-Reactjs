@@ -1,21 +1,21 @@
-import "./styles/Buscar.css";
+import './styles/Buscar.css';
 
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import ClienteGql from "../utils/GqlClient";
-import ListaBuscar from "../componentesBuscar/ListaBuscar";
-import Pagination from "@material-ui/lab/Pagination";
-import Peticiones from "../utils/consultasPersonalizadas";
-import { withStyles } from "@material-ui/core/styles";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import ClienteGql from '../utils/GqlClient';
+import ListaBuscar from '../componentesBuscar/ListaBuscar';
+import Pagination from '@material-ui/lab/Pagination';
+import Peticiones from '../utils/consultasPersonalizadas';
+import { withStyles } from '@material-ui/core/styles';
 
 const GQLClient = ClienteGql;
 
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
-  "@global": {
+  '@global': {
     // You should target [class*="MuiButton-root"] instead if you nest themes.
-    ".MuiPagination-root": {
-      "@media screen and (max-width: 768px)": {
+    '.MuiPagination-root': {
+      '@media screen and (max-width: 768px)': {
         marginLeft: 220,
         fontSize: 15,
       },
@@ -30,18 +30,18 @@ class Buscar extends Component {
       error: null,
       loading: true,
       page: 1,
-      word: "",
+      word: '',
       infoNoticias: {
         count: 0,
         pages: 0,
-        prev: "",
-        next: "",
+        prev: '',
+        next: '',
       },
       infoPeliculas: {
         count: 0,
         pages: 0,
-        prev: "",
-        next: "",
+        prev: '',
+        next: '',
       },
       noticias: [],
       peliculas: [],
@@ -101,14 +101,14 @@ class Buscar extends Component {
       infoNoticias: {
         count: 0,
         pages: 0,
-        prev: "",
-        next: "",
+        prev: '',
+        next: '',
       },
       infoPeliculas: {
         count: 0,
         pages: 0,
-        prev: "",
-        next: "",
+        prev: '',
+        next: '',
       },
       peliculas: [],
       noticias: [],
@@ -122,77 +122,77 @@ class Buscar extends Component {
     console.log(this.state.infoPeliculas);
     if (this.state.noticias && this.state.peliculas) {
       return (
-        <section className="contenedorBuscar">
+        <section className='contenedorBuscar'>
           <GlobalCss />
-          <div className="contenedorLista">
+          <div className='contenedorLista'>
             <ListaBuscar
               noticias={this.state.noticias}
               peliculas={this.state.peliculas}
             />
           </div>
-          <div className="contenedorLista3">
+          <div className='contenedorLista3'>
             <Pagination
               count={Math.ceil(
                 (this.state.infoPeliculas.count +
                   this.state.infoNoticias.count) /
                   12
               )}
-              variant="outlined"
-              color="primary"
+              variant='outlined'
+              color='primary'
               onChange={this.handleChange}
               showFirstButton
               showLastButton
-              shape="rounded"
-              className="paginador"
+              shape='rounded'
+              className='paginador'
             />
           </div>
         </section>
       );
     } else if (this.state.peliculas) {
       return (
-        <section className="contenedorBuscar">
-          <div className="contenedorLista">
+        <section className='contenedorBuscar'>
+          <div className='contenedorLista'>
             <ListaBuscar peliculas={this.state.peliculas} />
           </div>
-          <div className="contenedorLista3">
+          <div className='contenedorLista3'>
             <Pagination
               count={Math.ceil(
                 (this.state.infoPeliculas.count +
                   this.state.infoNoticias.count) /
                   12
               )}
-              variant="outlined"
-              color="primary"
+              variant='outlined'
+              color='primary'
               onChange={this.handleChange}
               showFirstButton
               showLastButton
-              shape="rounded"
-              className="paginador"
+              shape='rounded'
+              className='paginador'
             />
           </div>
         </section>
       );
     } else if (this.state.noticias) {
       return (
-        <section className="contenedorBuscar">
+        <section className='contenedorBuscar'>
           <GlobalCss />
-          <div className="contenedorLista">
+          <div className='contenedorLista'>
             <ListaBuscar noticias={this.state.noticias} />
           </div>
-          <div className="contenedorLista3">
+          <div className='contenedorLista3'>
             <Pagination
               count={Math.ceil(
                 (this.state.infoPeliculas.count +
                   this.state.infoNoticias.count) /
                   12
               )}
-              variant="outlined"
-              color="primary"
+              variant='outlined'
+              color='primary'
               onChange={this.handleChange}
               showFirstButton
               showLastButton
-              shape="rounded"
-              className="paginador"
+              shape='rounded'
+              className='paginador'
             />
           </div>
         </section>
@@ -200,7 +200,7 @@ class Buscar extends Component {
     } else {
       return (
         <div>
-          <h5 className="errorPag">... </h5>
+          <h5 className='errorPag'>... </h5>
         </div>
       );
     }

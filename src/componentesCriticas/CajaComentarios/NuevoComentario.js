@@ -41,14 +41,37 @@ class FormComentario extends Component {
   async fetchData() {
     //Obtiene el ciente
     //es necesario hace split por el formato en que devuelve auth0
-    var partsArray = this.props.idUser.split('|');
-    console.log(partsArray);
+    let usuarioid;
+    this.setState({
+      loading: true,
+      error: null,
+    });
+    try {
+      let vars = {
+        sub: this.props.idUser,
+      };
+      const usu = await GQLClient.request(Peticiones2.getUsuarioporSub, vars);
+      this.state.form.id = usu.getUsuarioporSub.id;
+      usuarioid = usu.getUsuarioporSub.id;
+      this.setState({
+        loading: false,
+        error: null,
+      });
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error,
+      });
+    }
+    /*var partsArray = this.props.idUser.split('|');
+    console.log(partsArray);*/
     const variables = {
       idMovie: this.props.peliid,
-      idUser: partsArray[1],
+      idUser: usuarioid,
     };
     //Se setea el usuario del form para utilizarlo en el create
-    this.state.form.id = partsArray[1];
+    //this.state.form.id = partsArray[1];
+
     try {
       const data = await GQLClient.request(
         Peticiones2.getCriticasUsuarioPelicula,
