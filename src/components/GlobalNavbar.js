@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
+import { Navbar } from 'reactstrap';
+import './styles/NavBar.css';
 
 //Versión 1 del navbar
 class GlobalNavbar extends Component {
@@ -22,9 +24,9 @@ class GlobalNavbar extends Component {
     return (
       <React.Fragment>
         <span>
-          <nav className='navbar navbar-expand-md navbar-dark  bg-dark mt-0'>
-            <a className='navbar-brand' href='#'>
-              Proyecto Cine
+          <nav className='navbar navbar-expand-md navbar-dark color-nav mt-0 sticky-top'>
+            <a className='navbar-brand' href='/noticias'>
+              Cine Leaders
             </a>
             <button
               className='navbar-toggler'
@@ -39,7 +41,7 @@ class GlobalNavbar extends Component {
             <div className='collapse navbar-collapse' id='navbarCollapse'>
               <ul className='navbar-nav mr-auto'>
                 <li className='nav-item'>
-                  <Link to='/' className='nav-link'>
+                  <Link to='/noticias' className='nav-link'>
                     Home&nbsp;<i className='fas fa-home'></i>
                   </Link>
                 </li>
@@ -54,9 +56,9 @@ class GlobalNavbar extends Component {
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='#'>
+                  <Link to='/animes' className='nav-link'>
                     Anime&nbsp;<i className='far fa-grin-stars'></i>
-                  </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='/profile' className='nav-link'>
@@ -75,7 +77,7 @@ class GlobalNavbar extends Component {
                   aria-label='Buscar'
                 />
                 <a href={`/Buscar/${this.state.word}`} className='nav-link'>
-                  Buscar
+                  Buscar&nbsp;<i className='fas fa-search'></i>
                 </a>
               </form>
             </div>

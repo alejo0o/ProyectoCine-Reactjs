@@ -93,25 +93,25 @@ class Trailers extends Component {
               controls={true}
               playsinline={true}
             />
-          </div>
-          <div className='sinopsisPeliculaTrailer'>
-            {this.state.peliculaID.sinopsis}
-          </div>
-          <Link
-            to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`}
-            className='botonComentario btn'>
-            💬 Ver comentarios
-          </Link>
-          <div className='estiloComponenteCaja'>
-            <DescripcionPelicula pelicula={this.state.peliculaID} />
-          </div>
-        </div>
-
-        <div className='elementoPeliculaTrailer'>
-          <Recomendaciones peliculas={this.state.peliculas} />
-        </div>
-      </section>
-    );
+              </div>
+              <div className='sinopsisPeliculaTrailer'>
+                {this.state.peliculaID.sinopsis}
+              </div>
+              <Link to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`} 
+              className='botonComentario btn'>
+               &nbsp;<i className="far fa-comment-dots"></i> Ver comentarios
+              </Link>
+              <div className='estiloComponenteCaja'>
+                <DescripcionPelicula pelicula={this.state.peliculaID} />
+              </div>
+            </div>
+            
+            <div className='elementoPeliculaTrailer'>
+              <Recomendaciones peliculas={this.state.peliculas} />
+            </div>
+        
+          </section>
+        );
   }
 }
 
