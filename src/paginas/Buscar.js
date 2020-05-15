@@ -29,10 +29,15 @@ class Buscar extends Component {
     this.state = {
       error: null,
       loading: true,
-      pageNoticias: 1,
-      pagePeliculas: 1,
+      page: 1,
       word: "",
-      info: {
+      infoNoticias: {
+        count: 0,
+        pages: 0,
+        prev: "",
+        next: "",
+      },
+      infoPeliculas: {
         count: 0,
         pages: 0,
         prev: "",
@@ -54,12 +59,11 @@ class Buscar extends Component {
     });
     try {
       const variables = {
-        page: this.state.pageNoticias,
+        page: this.state.page,
         word: this.props.match.params.word,
       };
-
       const variables2 = {
-        page: this.state.pagePeliculas,
+        page: this.state.page,
         word: this.props.match.params.word,
       };
       const respuesta = await GQLClient.request(
@@ -94,6 +98,12 @@ class Buscar extends Component {
 
   handleChange = (event, value) => {
     this.setState({
+      infoNoticias: {
+        count: 0,
+        pages: 0,
+        prev: "",
+        next: "",
+      },
       infoPeliculas: {
         count: 0,
         pages: 0,
@@ -101,29 +111,32 @@ class Buscar extends Component {
         next: "",
       },
       peliculas: [],
+      noticias: [],
     });
-    this.state.pagePeliculas = value;
+    this.state.page = value;
     this.fetchData();
   };
 
   render() {
+    console.log(this.state.infoNoticias);
+    console.log(this.state.infoPeliculas);
     if (this.state.noticias && this.state.peliculas) {
       return (
         <section className="contenedorBuscar">
           <GlobalCss />
-          <div className="contenedorNoticias">
-            <div className="contenedorLista">
-              <ListaBuscar
-                noticias={this.state.noticias}
-                paginas={this.state.peliculas}
-              />
-            </div>
+          <div className="contenedorLista">
+            <ListaBuscar
+              noticias={this.state.noticias}
+              peliculas={this.state.peliculas}
+            />
           </div>
           <div className="contenedorLista3">
             <Pagination
-              count={
-                this.state.infoPeliculas.pages + this.state.infoNoticias.pages
-              }
+              count={Math.ceil(
+                (this.state.infoPeliculas.count +
+                  this.state.infoNoticias.count) /
+                  12
+              )}
               variant="outlined"
               color="primary"
               onChange={this.handleChange}
@@ -137,18 +150,20 @@ class Buscar extends Component {
       );
     } else if (this.state.peliculas) {
       return (
-        <section className="contenedorBuscar2">
+        <section className="contenedorBuscar">
           <div className="contenedorLista">
             <ListaBuscar peliculas={this.state.peliculas} />
           </div>
           <div className="contenedorLista3">
             <Pagination
-              count={
-                this.state.infoPeliculas.pages + this.state.infoNoticias.pages
-              }
+              count={Math.ceil(
+                (this.state.infoPeliculas.count +
+                  this.state.infoNoticias.count) /
+                  12
+              )}
               variant="outlined"
               color="primary"
-              onChange={this.handleChangeP}
+              onChange={this.handleChange}
               showFirstButton
               showLastButton
               shape="rounded"
@@ -166,12 +181,14 @@ class Buscar extends Component {
           </div>
           <div className="contenedorLista3">
             <Pagination
-              count={
-                this.state.infoPeliculas.pages + this.state.infoNoticias.pages
-              }
+              count={Math.ceil(
+                (this.state.infoPeliculas.count +
+                  this.state.infoNoticias.count) /
+                  12
+              )}
               variant="outlined"
               color="primary"
-              onChange={this.handleChangeN}
+              onChange={this.handleChange}
               showFirstButton
               showLastButton
               shape="rounded"

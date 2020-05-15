@@ -21,7 +21,7 @@ class BigBox extends Component {
     return (
       <section className="contenedorBoxBuscar">
         <GlobalCss />
-        <div className="elementoBoxBuscar">
+        <div className="imagenContenedorListaBuscar">
           <img
             alt=""
             src={this.props.peliculas.portada}

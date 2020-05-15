@@ -1,23 +1,12 @@
 import React, { Component } from "react";
+
 import Box2 from "./BoxBuscarPeliculas";
-import Box from "./BoxBuscarNoticias";
 import { Link } from "react-router-dom";
 
-class Lista1 extends Component {
+class Lista2 extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.noticias.map((noticia) => {
-          return (
-            <Link
-              to={`/Noticias/${noticia.notid}`}
-              key={noticia.notid}
-              className="elementoLista2Buscar text-reset text-decoration-none"
-            >
-              <Box noticias={noticia} />
-            </Link>
-          );
-        })}
         {this.props.peliculas.map((pelicula) => {
           return (
             <Link
@@ -34,4 +23,4 @@ class Lista1 extends Component {
   }
 }
 
-export default Lista1;
+export default Lista2;

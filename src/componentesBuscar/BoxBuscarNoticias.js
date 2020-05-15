@@ -6,7 +6,7 @@ class Box2 extends Component {
   render() {
     return (
       <section className="contenedorBoxBuscar">
-        <div className="elementoBoxBuscar">
+        <div className="imagenContenedorListaBuscar">
           <img
             alt=""
             src={this.props.noticias.notimagen}
