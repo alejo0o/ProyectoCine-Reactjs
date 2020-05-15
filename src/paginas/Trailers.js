@@ -94,7 +94,7 @@ class Trailers extends Component {
               </div>
               <Link to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`} 
               className='botonComentario btn'>
-              💬 Ver comentarios
+               &nbsp;<i className="far fa-comment-dots"></i> Ver comentarios
               </Link>
               <div className='estiloComponenteCaja'>
                 <DescripcionPelicula pelicula={this.state.peliculaID} />

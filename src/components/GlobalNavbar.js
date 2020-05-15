@@ -79,7 +79,7 @@ class GlobalNavbar extends Component {
                   aria-label="Buscar"
                 />
                 <a href={`/Buscar/${this.state.word}`} className="nav-link">
-                  Buscar
+                  Buscar&nbsp;<i className="fas fa-search"></i>
                 </a>
               </form>
             </div>
