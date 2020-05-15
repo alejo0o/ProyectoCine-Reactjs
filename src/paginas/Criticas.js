@@ -6,7 +6,6 @@ import ClienteGql from '../utils/GqlClient';
 import Lista1 from '../componentesCriticas/Lista1';
 import Lista2 from '../componentesCriticas/Lista2';
 import Pagination from '@material-ui/lab/Pagination';
-import PaginationItem from '@material-ui/lab/PaginationItem';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -98,24 +97,24 @@ class Criticas extends Component {
 
   render() {
     return (
-      <section className="contenedorCriticas">
+      <section className='contenedorCriticas'>
         <GlobalCss />
-        <div className="contenedorLista1">
+        <div className='contenedorLista1'>
           <Lista1 peliculas={this.state.peliculasData1} />
         </div>
-        <div className="contenedorLista2">
+        <div className='contenedorLista2'>
           <Lista2 peliculas={this.state.peliculasData2} />
         </div>
-        <div className="contenedorLista3">
+        <div className='contenedorLista3'>
           <Pagination
             count={this.state.info.pages}
-            variant="outlined"
-            color="primary"
+            variant='outlined'
+            color='primary'
             onChange={this.handleChange}
             showFirstButton
             showLastButton
-            shape="rounded"
-            className="paginador"
+            shape='rounded'
+            className='paginador'
           />
         </div>
       </section>

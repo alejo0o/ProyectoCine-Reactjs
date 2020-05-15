@@ -42,6 +42,7 @@ class FormComentario extends Component {
     //Obtiene el ciente
     //es necesario hace split por el formato en que devuelve auth0
     var partsArray = this.props.idUser.split('|');
+    console.log(partsArray);
     const variables = {
       idMovie: this.props.peliid,
       idUser: partsArray[1],
@@ -81,6 +82,7 @@ class FormComentario extends Component {
         const variables = {
           input: this.state.form,
         };
+        console.log(variables);
         await GQLClient.request(Peticiones.createCritica, variables);
       } else {
         const variables = {
