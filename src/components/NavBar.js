@@ -13,7 +13,7 @@ const NavBar = () => {
           <div className="ElementoNavBar">
             <img
               alt=""
-              src="https://i.ibb.co/nQQdh9T/spiderman-far-frin-home.jpg"
+              src="https://i.ibb.co/KrWnSMj/source.gif"
               className="LogoNav"
             />
           </div>
@@ -30,7 +30,7 @@ const NavBar = () => {
         <div className="ElementoNavBar">
           <img
             alt=""
-            src="https://i.ibb.co/nQQdh9T/spiderman-far-frin-home.jpg"
+            src="https://i.ibb.co/KrWnSMj/source.gif"
             className="LogoNav"
           />
         </div>

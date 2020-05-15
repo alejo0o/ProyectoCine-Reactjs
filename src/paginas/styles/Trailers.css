@@ -15,14 +15,17 @@
 }
 
 .botonPeliculaTrailer {
-  background-color: rgba(243, 203, 61);
+  background-color: #23374D;
   color: white;
   margin-left: 3%;
   margin-top: 3%;
   font-size: 70%;
 }
+.botonPeliculaTrailer:hover{
+  color:#268FD9;
+}
 .botonComentario {
-  background-color: rgba(243, 203, 61);
+  background-color: #23374D;
   color: white;
   border-radius: 78px 78px 78px 78px;
   font-size: 100%;
@@ -30,6 +33,9 @@
   width: 95%;
   margin-bottom: 5%;
   margin-top: 3%;
+}
+.botonComentario:hover{
+  color:#268FD9;
 }
 .tituloPeliculaTrailer {
   font-weight: bolder;

@@ -4,17 +4,17 @@
   gap: 2.5%;
   font-family: 'Georgia';
   border: blanchedalmond solid;
-  background-color: #F6E1E1;
+  background-color: #EEEEEE;
 }
 
 .elementoNoticiasID:nth-of-type(1) {
-  background: #F6E1E1;
+  background: #EEEEEE;
   margin-left: 3%;
   padding-bottom: 10%;
 }
 
 .elementoNoticiasID:nth-of-type(2) {
-  background:  #FF9D76;
+  background:  #DADADA;
   padding-bottom: 5%;
 }
 
@@ -25,14 +25,16 @@
 }
 
 .botonNoticiasID {
-  background-color: #FF1E56;
+  background-color: #23374D;
   color: white;
   margin-left: 3%;
   margin-top: 3%;
   font-size: 70%;
   text-align: left;
 }
-
+.botonNoticiasID:hover{
+  color: #268FD9;
+}
 .tituloNoticiasID {
   font-weight: bolder;
   font-style: italic;

@@ -15,10 +15,13 @@
   height: 100%;
 }
 .botonTrailerDescripcion {
-  background-color: rgb(31, 78, 117);
+  background-color: #23374D;
   color: rgb(240, 230, 230);
   margin-left: 0.5%;
   margin-top: 1%;
+}
+.botonTrailerDescripcion{
+  color:#268FD9;
 }
 
 .elementoDescripcionPelicula:nth-of-type(1) {

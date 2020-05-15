@@ -26,10 +26,13 @@
 }
 
 .botonPeliculasCritica {
-  background-color: rgba(243, 203, 61);
+  background-color: #23374D;
   color: white;
   margin-left: 3%;
   margin-top: 3%;
+}
+.botonPeliculasCritica:hover{
+  color:#268FD9;
 }
 
 .tituloPeliculaCritica {
