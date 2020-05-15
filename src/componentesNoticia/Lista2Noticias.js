@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Box2 from './Box2Noticias';
-import { Link } from 'react-router-dom';
+import Box2 from "./Box2Noticias";
+import { Link } from "react-router-dom";
 
 class Lista2 extends Component {
   render() {
@@ -12,7 +12,7 @@ class Lista2 extends Component {
             <Link
               to={`/Noticias/${noticia.notid}`}
               key={noticia.notid}
-              className="item text-reset text-decoration-none"
+              className="elementoLista2 text-reset text-decoration-none"
             >
               <Box2 noticiasFecha={noticia} />
             </Link>

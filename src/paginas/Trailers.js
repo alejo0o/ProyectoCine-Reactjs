@@ -85,8 +85,8 @@ class Trailers extends Component {
               <ReactPlayer className="player" url={this.state.peliculaID.trailer}  
               width='95%' 
               height='100%'
-              controls="true"
-              playsinline="true"
+              controls={true}
+              playsinline={true}
             />
               </div>
               <div className='sinopsisPeliculaTrailer'>
