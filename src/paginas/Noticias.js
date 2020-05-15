@@ -7,11 +7,23 @@ import Lista1 from '../componentesNoticia/Lista1Noticias';
 import Lista2 from '../componentesNoticia/Lista2Noticias';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
-import { useAuth0 } from '../react-auth0-spa';
-import GqlClient from '../utils/GqlClient';
-import { gql } from 'apollo-boost';
 
+import GqlClient from '../utils/GqlClient';
+
+import { withStyles } from '@material-ui/core/styles';
 const GQLClient = ClienteGql;
+const GlobalCss = withStyles({
+  // @global is handled by jss-plugin-global.
+  '@global': {
+    // You should target [class*="MuiButton-root"] instead if you nest themes.
+    '.MuiPagination-root': {
+      '@media screen and (max-width: 768px)': {
+        marginLeft: 220,
+        fontSize: 15,
+      },
+    },
+  },
+})(() => null);
 
 class Noticias extends Component {
   constructor(props) {
@@ -135,6 +147,7 @@ class Noticias extends Component {
     if (this.state.load) {
       return (
         <section className='contenedorNuevo'>
+          <GlobalCss />
           <div className='contenedorLista1Nuevo'>
             <Lista1 noticiasFecha={this.state.noticias1} />
           </div>

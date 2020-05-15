@@ -13,6 +13,7 @@ import EstrenosDirector from './paginas/Estrenos';
 import FormCriticas from './Forms/FormCriticas';
 import FormNoticias from './Forms/FormNoticias';
 import Trailer from './paginas/Trailers';
+import Buscar from './paginas/Buscar';
 //Forms
 import FormPeliculas from './Forms/FormPeliculas';
 import FormPersonas from './Forms/FormPersonas';
@@ -23,7 +24,6 @@ import Footbar from './components/Footbar.js';
 import NoticiasID from './paginas/DetalleNoticia';
 import PeliculasCritica from './paginas/PeliculaCritica';
 import PrivateRoute from './components/PrivateRoute';
-import Profile from './components/Profile';
 import React from 'react';
 //PAGINAS WEB
 import history from './utils/history'; //en el causo de uso de router
@@ -62,23 +62,25 @@ function App() {
           path='/forms/:perid/EditarPersona'
           component={EditarPersona}
         />
-        <PrivateRoute path='/profile' component={Profile2} />
-
         <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
 
         {/*Rutas a las paginas web*/}
         <Route exact path='/' component={HOCNoticias} />
-        <Route exact path='/criticas' component={CriticasPagina} />
-
+        <PrivateRoute path='/profile' component={Profile2} />
         <Route exact path='/animes' component={AnimesPagina} />
+        <Route exact path='/Noticias' component={DescripcioNoticia} />
+        <Route exact path='/criticas' component={CriticasPagina} />
+        <Route exact path='/Estrenos' component={EstrenosDirector} />
+
         <Route
           path='/PeliculaCritica/:peliculasid'
           component={PeliculasCritica}
         />
 
         <Route path='/Noticias/:notid' component={NoticiasID} />
-        <Route exact path='/Estrenos' component={EstrenosDirector} />
+
         <Route exact path='/Estrenos/:peliculasid' component={Trailer} />
+        <Route exact path='/Buscar/:word' component={Buscar} />
       </Switch>
       <Footbar />
     </BrowserRouter>

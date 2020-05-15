@@ -3,16 +3,18 @@
   grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
   gap: 2.5%;
   font-family: 'Georgia';
+  border: blanchedalmond solid;
+  background-color: #F6E1E1;
 }
 
 .elementoNoticiasID:nth-of-type(1) {
-  background: rgb(233, 239, 241);
+  background: #F6E1E1;
   margin-left: 3%;
   padding-bottom: 10%;
 }
 
 .elementoNoticiasID:nth-of-type(2) {
-  background: rgb(233, 239, 241);
+  background:  #FF9D76;
   padding-bottom: 5%;
 }
 
@@ -23,7 +25,7 @@
 }
 
 .botonNoticiasID {
-  background-color: rgba(243, 203, 61);
+  background-color: #FF1E56;
   color: white;
   margin-left: 3%;
   margin-top: 3%;
@@ -39,7 +41,7 @@
   margin-left: 3%;
   border-bottom: gainsboro solid;
 }
-.fechaNoticiaID{
+.fechaNoticiasID{
   color: gray;
   text-align: right;
   padding-right: 3%;
@@ -71,7 +73,7 @@
     margin-top: 2%;
     font-size: 60%;
   }
-  .fechaNoticiaID{
+  .fechaNoticiasID{
     padding-right: 2%;
     font-size: 65%;
     padding-bottom: 3%;
