@@ -8,7 +8,7 @@
     color:white
 }
 .nav-link:hover{
-    color:black
+    color:#23374D
     
 }
 .navbar .navbar-nav{
@@ -34,6 +34,7 @@
 }
 .ElementoNavBar:nth-child(2){
     background-color: #23374D;
+    border: #23374D solid;
     color: white;
     font-size: 110%;
     justify-self: flex-end;

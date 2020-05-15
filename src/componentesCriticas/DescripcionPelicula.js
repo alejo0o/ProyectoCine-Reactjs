@@ -41,11 +41,14 @@ class DescripcionPelicula extends Component {
           </div>
           <div className='elementoDescripcionPelicula ml-2'>
             <p className='textoComponente'>
-              <Link
-                to={`/trailers/${this.props.pelicula.peliculasid}`}
-                className='botonTrailerDescripcion btn'>
-                Trailer
-              </Link>
+              <div className="BotonTrailer"> 
+                <Link
+                  to={`/trailers/${this.props.pelicula.peliculasid}`}
+                  className='botonTrailerDescripcion btn'>
+                  Trailer
+                </Link>
+              </div>
+              
             </p>
           </div>
         </section>

@@ -58,9 +58,9 @@ class GlobalNavbar extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link to="/animes" className="nav-link">
                     Anime&nbsp;<i className="far fa-grin-stars"></i>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/profile" className="nav-link">
