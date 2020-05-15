@@ -28,7 +28,9 @@ import React from 'react';
 //PAGINAS WEB
 import history from './utils/history'; //en el causo de uso de router
 import { useAuth0 } from './react-auth0-spa';
+/////
 import HOCNoticias from './paginas/HOCNoticias';
+import Profile2 from './paginas/Profile';
 
 function App() {
   const { loading } = useAuth0();
@@ -60,7 +62,7 @@ function App() {
           path='/forms/:perid/EditarPersona'
           component={EditarPersona}
         />
-        <PrivateRoute path='/profile' component={Profile} />
+        <PrivateRoute path='/profile' component={Profile2} />
 
         <Route exact path='/forms/:criId/EditCritica' component={EditCritica} />
 

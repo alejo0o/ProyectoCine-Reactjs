@@ -13,18 +13,6 @@ import { gql } from 'apollo-boost';
 
 const GQLClient = ClienteGql;
 
-const SaveUser = (props) => {
-  const { loading, user } = useAuth0();
-
-  if (user) {
-    Logic(user);
-  }
-
-  return <React.Fragment></React.Fragment>;
-};
-
-const Logic = async (user) => {};
-
 class Noticias extends Component {
   constructor(props) {
     super(props);
