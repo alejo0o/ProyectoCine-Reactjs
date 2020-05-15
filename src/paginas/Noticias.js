@@ -1,15 +1,27 @@
-import './styles/EstrenosNoticias.css';
+import "./styles/EstrenosNoticias.css";
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import ClienteGql from '../utils/GqlClient';
-import Lista1 from '../componentesNoticia/Lista1Noticias';
-import Lista2 from '../componentesNoticia/Lista2Noticias';
-import Pagination from '@material-ui/lab/Pagination';
-import Peticiones from '../utils/consultasPersonalizadas';
-import { withStyles } from '@material-ui/core/styles';
+import ClienteGql from "../utils/GqlClient";
+import Lista1 from "../componentesNoticia/Lista1Noticias";
+import Lista2 from "../componentesNoticia/Lista2Noticias";
+import Pagination from "@material-ui/lab/Pagination";
+import Peticiones from "../utils/consultasPersonalizadas";
+import { withStyles } from "@material-ui/core/styles";
 
 const GQLClient = ClienteGql;
+const GlobalCss = withStyles({
+  // @global is handled by jss-plugin-global.
+  "@global": {
+    // You should target [class*="MuiButton-root"] instead if you nest themes.
+    ".MuiPagination-root": {
+      "@media screen and (max-width: 768px)": {
+        marginLeft: 220,
+        fontSize: 15,
+      },
+    },
+  },
+})(() => null);
 
 class Noticias extends Component {
   constructor(props) {
@@ -21,12 +33,12 @@ class Noticias extends Component {
       info: {
         count: 0,
         pages: 0,
-        prev: '',
-        next: '',
+        prev: "",
+        next: "",
       },
       noticias1: [],
       noticias2: [],
-      load:false,
+      load: false,
     };
   }
 
@@ -78,8 +90,8 @@ class Noticias extends Component {
       info: {
         count: 0,
         pages: 0,
-        prev: '',
-        next: '',
+        prev: "",
+        next: "",
       },
       noticias1: [],
       noticias2: [],
@@ -87,41 +99,40 @@ class Noticias extends Component {
     this.state.page = value;
     this.fetchData();
   };
-
   render() {
-      if (this.state.load) {
-        return (
-          <section className="contenedorNuevo">
-        <div className="contenedorLista1Nuevo">
-          <Lista1 noticiasFecha={this.state.noticias1} />
-        </div>
-        <div className="contenedorLista2Nuevo">
-          <Lista2 noticiasFecha={this.state.noticias2} />
-        </div>
-        <div className="contenedorLista3Nuevo">
-          <Pagination
-            count={this.state.info.pages}
-            variant="outlined"
-            color="primary"
-            onChange={this.handleChange}
-            showFirstButton
-            showLastButton
-            shape="rounded"
-            className="paginadorNuevo"
-          />
-        </div>
-      </section>
-        );
-      } else {
-        return (
-          <div>
-            <h5 className='errorPag'></h5>
+    if (this.state.load) {
+      return (
+        <section className="contenedorNuevo">
+          <GlobalCss />
+          <div className="contenedorLista1Nuevo">
+            <Lista1 noticiasFecha={this.state.noticias1} />
           </div>
-        );
-      }
+          <div className="contenedorLista2Nuevo">
+            <Lista2 noticiasFecha={this.state.noticias2}></Lista2>
+          </div>
+
+          <div className="contenedorLista3Nuevo">
+            <Pagination
+              count={this.state.info.pages}
+              variant="outlined"
+              color="primary"
+              onChange={this.handleChange}
+              showFirstButton
+              showLastButton
+              shape="rounded"
+              className="paginadorNuevo"
+            />
+          </div>
+        </section>
+      );
+    } else {
+      return (
+        <div>
+          <h5 className="errorPag"></h5>
+        </div>
+      );
     }
   }
-  
-   
+}
 
 export default Noticias;

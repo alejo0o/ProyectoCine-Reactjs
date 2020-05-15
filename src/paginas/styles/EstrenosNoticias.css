@@ -9,7 +9,7 @@
       [linea4] minmax(300px, 50vh);
     gap: 3%;
     margin-top: 5%;
-
+    border: black solid;
   }
   
   .contenedorLista1Nuevo {
@@ -23,13 +23,13 @@
   }
   .contenedorLista2Nuevo {
     display: grid;
-    grid-template-rows: repeat(4, 18%);
+    grid-template-rows: repeat(5, 18%);
     grid-template-columns: 70%;
     gap: 1.5%;
     justify-content: space-evenly;
     margin-top: 1%;
   }
-  
+
   .elementoLista2Nuevo {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 8px 8px 8px 8px;

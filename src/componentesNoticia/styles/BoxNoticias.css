@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: [inicio] 100% [final];
   grid-template-rows: [inicio] 170% [linea2] 20% [linea3] 20% [linea4] 20% [final];
-
   gap: 1%;
   height: 40%;
   cursor: pointer;

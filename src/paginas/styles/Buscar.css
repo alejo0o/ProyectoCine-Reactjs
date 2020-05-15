@@ -1,0 +1,13 @@
+.contenedorBuscar{
+    font-family: 'Georgia';
+    /* border: palevioletred solid; */
+}
+.contenedorLista{
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    /* grid-template-rows: 30%; */
+    justify-content: center;
+    row-gap: 0.5%;
+    column-gap: 0.5%;
+    margin-bottom: 7%;
+}
