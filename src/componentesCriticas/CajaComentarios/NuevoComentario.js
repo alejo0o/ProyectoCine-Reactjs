@@ -189,7 +189,7 @@ const NuevoComentario = (props) => {
       <div>
         <FormComentario
           peliid={props.peliid}
-          usuario={user.email}
+          usuario={user.nickname}
           idUser={user.sub}
         />
       </div>
