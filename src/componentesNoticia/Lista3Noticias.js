@@ -1,9 +1,9 @@
-import './styles/Lista3Noticias.css';
+import "./styles/Lista3Noticias.css";
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Rating from '@material-ui/lab/Rating';
-import { withStyles } from '@material-ui/core/styles';
+import Rating from "@material-ui/lab/Rating";
+import { withStyles } from "@material-ui/core/styles";
 
 class Lista3 extends Component {
   handleChange() {
@@ -28,9 +28,7 @@ class Lista3 extends Component {
                     className="imagenLista3Noticias"
                   ></img>
                 </div>
-                <div className="contenedorLista3Noticias">
-                  {noticia.notfecha}
-                </div>
+                <div className="fechaLista3Noticias">{noticia.notfecha}</div>
                 <div className="contenedortituloLista3Noticias">
                   <em className="tituloLista3Noticias">{noticia.nottitulo}</em>
                 </div>
