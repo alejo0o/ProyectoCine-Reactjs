@@ -1,7 +1,6 @@
 import './styles/Buscar.css';
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ClienteGql from '../utils/GqlClient';
 import ListaBuscar from '../componentesBuscar/ListaBuscar';
 import Pagination from '@material-ui/lab/Pagination';
@@ -118,8 +117,6 @@ class Buscar extends Component {
   };
 
   render() {
-    console.log(this.state.infoNoticias);
-    console.log(this.state.infoPeliculas);
     if (this.state.noticias && this.state.peliculas) {
       return (
         <section className='contenedorBuscar'>
