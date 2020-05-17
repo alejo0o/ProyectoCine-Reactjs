@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Peticiones from '../utils/consultasPersonalizadas';
 import PeticionesNoticias from '../utils/consultasNoticias';
 import Recomendaciones from '../componentesNoticia/Lista3Noticias';
+import Loading from '../components/Loading';
 
 const GQLClient = ClienteGql;
 
@@ -65,22 +66,26 @@ class DetalleNoticia extends Component {
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
+
     return (
-      <section className="contenedorNoticiasID">
-        <div className="elementoNoticiasID">
-          <Link to="/Noticias" className="botonNoticiasID btn">
+      <section className='contenedorNoticiasID'>
+        <div className='elementoNoticiasID'>
+          <Link to='/Noticias' className='botonNoticiasID btn'>
             NOTICIAS
           </Link>
-          <div className="tituloNoticiasID">{this.state.noticia.nottitulo}</div>
-          <div className="fechaNoticiasID">{this.state.noticia.notfecha}</div>
+          <div className='tituloNoticiasID'>{this.state.noticia.nottitulo}</div>
+          <div className='fechaNoticiasID'>{this.state.noticia.notfecha}</div>
           <img
-            alt=""
+            alt=''
             src={this.state.noticia.notimagen}
-            className="imagenNoticiasID ml-5"
+            className='imagenNoticiasID ml-5'
           />
-          <div className="textoNoticiasID">{this.state.noticia.nottexto}</div>
+          <div className='textoNoticiasID'>{this.state.noticia.nottexto}</div>
         </div>
-        <div className="elementoNoticiasID">
+        <div className='elementoNoticiasID'>
           <Recomendaciones noticias={this.state.noticias} />
         </div>
       </section>

@@ -6,6 +6,7 @@ import Lista2 from '../componentesEstrenos/Lista2Estrenos';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
+import Loading from '../components/Loading';
 
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
@@ -67,15 +68,6 @@ class Estrenos extends Component {
           respuesta.getEstrenosDirector.results.slice(5, 10)
         ),
       });
-      if (this.state.estrenos1 != null) {
-        this.setState({
-          load: true,
-        });
-      } else {
-        this.setState({
-          load: false,
-        });
-      }
     } catch (error) {
       this.setState({
         loading: false,
@@ -98,37 +90,33 @@ class Estrenos extends Component {
     this.fetchData();
   };
   render() {
-    if (this.state.load) {
-      return (
-        <section className='contenedorCriticas'>
-          <GlobalCss />
-          <div className='contenedorLista1'>
-            <Lista1 estrenosDirector={this.state.estrenos1} />
-          </div>
-          <div className='contenedorLista2'>
-            <Lista2 estrenosDirector={this.state.estrenos2} />
-          </div>
-          <div className='contenedorLista3'>
-            <Pagination
-              count={this.state.info.pages}
-              variant='outlined'
-              color='primary'
-              onChange={this.handleChange}
-              showFirstButton
-              showLastButton
-              shape='rounded'
-              className='paginador'
-            />
-          </div>
-        </section>
-      );
-    } else {
-      return (
-        <div>
-          <h5 className='errorPag'></h5>
-        </div>
-      );
+    if (this.state.loading) {
+      return <Loading />;
     }
+
+    return (
+      <section className='contenedorCriticas'>
+        <GlobalCss />
+        <div className='contenedorLista1'>
+          <Lista1 estrenosDirector={this.state.estrenos1} />
+        </div>
+        <div className='contenedorLista2'>
+          <Lista2 estrenosDirector={this.state.estrenos2} />
+        </div>
+        <div className='contenedorLista3'>
+          <Pagination
+            count={this.state.info.pages}
+            variant='outlined'
+            color='primary'
+            onChange={this.handleChange}
+            showFirstButton
+            showLastButton
+            shape='rounded'
+            className='paginador'
+          />
+        </div>
+      </section>
+    );
   }
 }
 

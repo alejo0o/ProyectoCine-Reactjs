@@ -8,7 +8,7 @@ import Lista2 from '../componentesCriticas/Lista2';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
-
+import Loading from '../components/Loading';
 //Listas
 
 //Material UI
@@ -48,6 +48,11 @@ class Criticas extends Component {
 
   componentDidMount() {
     this.fetchData();
+    //this.intervalId = setInterval(this.fetchData, 5000);
+  }
+
+  componentWillUnmount() {
+    //clearInterval(this.intervalId);
   }
 
   fetchData = async () => {
@@ -96,6 +101,10 @@ class Criticas extends Component {
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
+
     return (
       <section className='contenedorCriticas'>
         <GlobalCss />

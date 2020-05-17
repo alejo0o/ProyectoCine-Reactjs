@@ -25,9 +25,9 @@ class GlobalNavbar extends Component {
       <React.Fragment>
         <span>
           <nav className='navbar navbar-expand-md navbar-dark color-nav mt-0 sticky-top'>
-            <a className='navbar-brand' href='/noticias'>
+            <Link className='navbar-brand' to='/'>
               Cine Leaders
-            </a>
+            </Link>
             <button
               className='navbar-toggler'
               type='button'

@@ -9,6 +9,7 @@ import Peticiones from '../utils/consultasPersonalizadas';
 import GqlClient from '../utils/GqlClient';
 
 import { withStyles } from '@material-ui/core/styles';
+import Loading from '../components/Loading';
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
@@ -70,15 +71,6 @@ class Noticias extends Component {
           respuesta.getNoticiasFecha.results.slice(5, 10)
         ),
       });
-      if (this.state.noticias1 != null) {
-        this.setState({
-          load: true,
-        });
-      } else {
-        this.setState({
-          load: false,
-        });
-      }
     } catch (error) {
       this.setState({
         loading: false,
@@ -142,37 +134,32 @@ class Noticias extends Component {
   };
 
   render() {
-    if (this.state.load) {
-      return (
-        <section className='contenedorCriticas'>
-          <GlobalCss />
-          <div className='contenedorLista1'>
-            <Lista1 noticiasFecha={this.state.noticias1} />
-          </div>
-          <div className='contenedorLista2'>
-            <Lista2 noticiasFecha={this.state.noticias2} />
-          </div>
-          <div className='contenedorLista3'>
-            <Pagination
-              count={this.state.info.pages}
-              variant='outlined'
-              color='primary'
-              onChange={this.handleChange}
-              showFirstButton
-              showLastButton
-              shape='rounded'
-              className='paginador'
-            />
-          </div>
-        </section>
-      );
-    } else {
-      return (
-        <div>
-          <h5 className='errorPag'></h5>
-        </div>
-      );
+    if (this.state.loading) {
+      return <Loading />;
     }
+    return (
+      <section className='contenedorCriticas'>
+        <GlobalCss />
+        <div className='contenedorLista1'>
+          <Lista1 noticiasFecha={this.state.noticias1} />
+        </div>
+        <div className='contenedorLista2'>
+          <Lista2 noticiasFecha={this.state.noticias2} />
+        </div>
+        <div className='contenedorLista3'>
+          <Pagination
+            count={this.state.info.pages}
+            variant='outlined'
+            color='primary'
+            onChange={this.handleChange}
+            showFirstButton
+            showLastButton
+            shape='rounded'
+            className='paginador'
+          />
+        </div>
+      </section>
+    );
   }
 }
 

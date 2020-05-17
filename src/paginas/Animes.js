@@ -9,6 +9,7 @@ import Lista2 from '../componentesAnime/Lista2';
 import Pagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
 import PaginationItem from '@material-ui/lab/PaginationItem';
+import Loading from '../components/Loading';
 const GQLClient = ClienteGql;
 
 const GlobalCss = withStyles({
@@ -92,6 +93,9 @@ class Criticas extends Component {
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
     return (
       <section className='contenedorCriticas'>
         <GlobalCss />
