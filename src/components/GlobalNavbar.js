@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
-import { Navbar } from 'reactstrap';
 import './styles/NavBar.css';
 
 //Versión 1 del navbar

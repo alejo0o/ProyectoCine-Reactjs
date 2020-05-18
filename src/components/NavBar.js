@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAuth0 } from '../react-auth0-spa';
-import { Link } from 'react-router-dom';
 import "./styles/NavBar.css";
 //Versión 1 del navbar
 const NavBar = () => {

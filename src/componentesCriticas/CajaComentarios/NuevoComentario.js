@@ -63,8 +63,7 @@ class FormComentario extends Component {
         error: error,
       });
     }
-    /*var partsArray = this.props.idUser.split('|');
-    console.log(partsArray);*/
+
     const variables = {
       idMovie: this.props.peliid,
       idUser: usuarioid,
@@ -101,11 +100,11 @@ class FormComentario extends Component {
     this.state.form.crifecha = this.getDate();
 
     try {
-      if (this.state.criid == '') {
+      if (this.state.criid === '') {
         const variables = {
           input: this.state.form,
         };
-        console.log(variables);
+
         await GQLClient.request(Peticiones.createCritica, variables);
       } else {
         const variables = {
@@ -115,7 +114,7 @@ class FormComentario extends Component {
         //Cuando si existe la critica y se carga el form desde la DB, el campo criid se crea
         //Si no se lo elimina, graphql no sabra que hacer con el valor extra
         delete this.state.form.criid;
-        console.log(variables);
+
         await GQLClient.request(Peticiones.editCritica, variables);
       }
 
@@ -129,7 +128,6 @@ class FormComentario extends Component {
         loading: false,
         error: error,
       });
-      console.log(error);
     }
   };
 

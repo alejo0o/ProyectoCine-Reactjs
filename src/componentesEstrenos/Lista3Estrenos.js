@@ -2,7 +2,7 @@ import './styles/Lista3Estrenos.css';
 
 import React, { Component } from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
+
 
 class Lista3 extends Component {
   handleChange() {

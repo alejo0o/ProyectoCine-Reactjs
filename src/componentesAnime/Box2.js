@@ -2,7 +2,6 @@ import './styles/Box2.css';
 
 import React, { Component } from 'react';
 
-import Rating from '@material-ui/lab/Rating';
 
 class Box2 extends Component {
   render() {

@@ -55,8 +55,7 @@ class DetalleNoticia extends Component {
           respuesta2.getNoticiasFecha.results.slice(1, 5)
         ),
       });
-      console.log(this.state.noticia);
-      console.log(this.state.noticias);
+
     } catch (error) {
       this.setState({
         loading: false,
