@@ -91,6 +91,7 @@ class Noticias extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   saveUser = async () => {
@@ -156,6 +157,7 @@ class Noticias extends Component {
             showLastButton
             shape='rounded'
             className='paginador'
+            page={this.globalPage}
           />
         </div>
       </section>

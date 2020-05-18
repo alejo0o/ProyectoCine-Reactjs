@@ -89,6 +89,7 @@ class Criticas extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   render() {
@@ -114,6 +115,7 @@ class Criticas extends Component {
             showLastButton
             shape='rounded'
             className='paginador'
+            page={this.globalPage}
           />
         </div>
       </section>

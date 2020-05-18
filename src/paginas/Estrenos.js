@@ -88,6 +88,7 @@ class Estrenos extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
   render() {
     if (this.state.loading) {
@@ -113,6 +114,7 @@ class Estrenos extends Component {
             showLastButton
             shape='rounded'
             className='paginador'
+            page={this.globalPage}
           />
         </div>
       </section>

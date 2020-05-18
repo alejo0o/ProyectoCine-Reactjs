@@ -93,13 +93,13 @@ class Criticas extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   render() {
     if (this.state.loading) {
       return <Loading />;
     }
-
     return (
       <section className='contenedorCriticas'>
         <GlobalCss />
@@ -119,6 +119,7 @@ class Criticas extends Component {
             showLastButton
             shape='rounded'
             className='paginador'
+            page={this.globalPage}
           />
         </div>
       </section>
