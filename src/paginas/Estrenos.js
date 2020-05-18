@@ -100,24 +100,24 @@ class Estrenos extends Component {
   render() {
     if (this.state.load) {
       return (
-        <section className='contenedorCriticas'>
+        <section className="contenedorCriticas">
           <GlobalCss />
-          <div className='contenedorLista1'>
+          <div className="contenedorLista1">
             <Lista1 estrenosDirector={this.state.estrenos1} />
           </div>
-          <div className='contenedorLista2'>
+          <div className="contenedorLista2">
             <Lista2 estrenosDirector={this.state.estrenos2} />
           </div>
-          <div className='contenedorLista3'>
+          <div className="contenedorLista3">
             <Pagination
               count={this.state.info.pages}
-              variant='outlined'
-              color='primary'
+              variant="outlined"
+              color="primary"
               onChange={this.handleChange}
               showFirstButton
               showLastButton
-              shape='rounded'
-              className='paginador'
+              shape="rounded"
+              className="paginador"
             />
           </div>
         </section>
@@ -125,7 +125,7 @@ class Estrenos extends Component {
     } else {
       return (
         <div>
-          <h5 className='errorPag'></h5>
+          <h5 className="errorPag"></h5>
         </div>
       );
     }

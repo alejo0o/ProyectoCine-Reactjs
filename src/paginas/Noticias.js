@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
+import GqlClient from '../utils/GqlClient';
 import Lista1 from '../componentesNoticia/Lista1Noticias';
 import Lista2 from '../componentesNoticia/Lista2Noticias';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
-
-import GqlClient from '../utils/GqlClient';
-
 import { withStyles } from '@material-ui/core/styles';
+
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
@@ -42,9 +41,15 @@ class Noticias extends Component {
     };
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   componentDidMount() {
-    this.fetchData();
-    this.saveUser();
+    this.interval = setTimeout(() => {
+      this.setState((state) => ({ showCounter: !state.showCounter }));
+      this.fetchData();
+      this.saveUser();
+    }, 500);
   }
 
   fetchData = async () => {
@@ -144,24 +149,24 @@ class Noticias extends Component {
   render() {
     if (this.state.load) {
       return (
-        <section className='contenedorCriticas'>
+        <section className="contenedorCriticas">
           <GlobalCss />
-          <div className='contenedorLista1'>
+          <div className="contenedorLista1">
             <Lista1 noticiasFecha={this.state.noticias1} />
           </div>
-          <div className='contenedorLista2'>
+          <div className="contenedorLista2">
             <Lista2 noticiasFecha={this.state.noticias2} />
           </div>
-          <div className='contenedorLista3'>
+          <div className="contenedorLista3">
             <Pagination
               count={this.state.info.pages}
-              variant='outlined'
-              color='primary'
+              variant="outlined"
+              color="primary"
               onChange={this.handleChange}
               showFirstButton
               showLastButton
-              shape='rounded'
-              className='paginador'
+              shape="rounded"
+              className="paginador"
             />
           </div>
         </section>
@@ -169,7 +174,7 @@ class Noticias extends Component {
     } else {
       return (
         <div>
-          <h5 className='errorPag'></h5>
+          <h5 className="errorPag"></h5>
         </div>
       );
     }
