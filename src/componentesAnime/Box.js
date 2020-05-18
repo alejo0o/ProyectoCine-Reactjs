@@ -1,7 +1,5 @@
 import './styles/Box.css';
 import React, { Component } from 'react';
-
-import Rating from '@material-ui/lab/Rating';
 import { withStyles } from '@material-ui/core/styles';
 
 const GlobalCss = withStyles({

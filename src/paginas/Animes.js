@@ -8,7 +8,7 @@ import Lista2 from '../componentesAnime/Lista2';
 //Material UI
 import Pagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
-import PaginationItem from '@material-ui/lab/PaginationItem';
+import Loading from '../components/Loading';
 const GQLClient = ClienteGql;
 
 const GlobalCss = withStyles({
@@ -89,9 +89,13 @@ class Criticas extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
     return (
       <section className='contenedorCriticas'>
         <GlobalCss />
@@ -111,6 +115,7 @@ class Criticas extends Component {
             showLastButton
             shape='rounded'
             className='paginador'
+            page={this.globalPage}
           />
         </div>
       </section>

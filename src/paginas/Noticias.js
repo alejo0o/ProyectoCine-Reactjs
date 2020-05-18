@@ -4,6 +4,7 @@ import ClienteGql from '../utils/GqlClient';
 import GqlClient from '../utils/GqlClient';
 import Lista1 from '../componentesNoticia/Lista1Noticias';
 import Lista2 from '../componentesNoticia/Lista2Noticias';
+import Loading from '../components/Loading';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
@@ -75,15 +76,6 @@ class Noticias extends Component {
           respuesta.getNoticiasFecha.results.slice(5, 10)
         ),
       });
-      if (this.state.noticias1 != null) {
-        this.setState({
-          load: true,
-        });
-      } else {
-        this.setState({
-          load: false,
-        });
-      }
     } catch (error) {
       this.setState({
         loading: false,
@@ -104,6 +96,7 @@ class Noticias extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   saveUser = async () => {
@@ -147,37 +140,33 @@ class Noticias extends Component {
   };
 
   render() {
-    if (this.state.load) {
-      return (
-        <section className="contenedorCriticas">
-          <GlobalCss />
-          <div className="contenedorLista1">
-            <Lista1 noticiasFecha={this.state.noticias1} />
-          </div>
-          <div className="contenedorLista2">
-            <Lista2 noticiasFecha={this.state.noticias2} />
-          </div>
-          <div className="contenedorLista3">
-            <Pagination
-              count={this.state.info.pages}
-              variant="outlined"
-              color="primary"
-              onChange={this.handleChange}
-              showFirstButton
-              showLastButton
-              shape="rounded"
-              className="paginador"
-            />
-          </div>
-        </section>
-      );
-    } else {
-      return (
-        <div>
-          <h5 className="errorPag"></h5>
-        </div>
-      );
+    if (this.state.loading) {
+      return <Loading />;
     }
+    return (
+      <section className="contenedorCriticas">
+        <GlobalCss />
+        <div className="contenedorLista1">
+          <Lista1 noticiasFecha={this.state.noticias1} />
+        </div>
+        <div className="contenedorLista2">
+          <Lista2 noticiasFecha={this.state.noticias2} />
+        </div>
+        <div className="contenedorLista3">
+          <Pagination
+            count={this.state.info.pages}
+            variant="outlined"
+            color="primary"
+            onChange={this.handleChange}
+            showFirstButton
+            showLastButton
+            shape="rounded"
+            className="paginador"
+            page={this.globalPage}
+          />
+        </div>
+      </section>
+    );
   }
 }
 

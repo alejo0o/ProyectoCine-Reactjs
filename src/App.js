@@ -26,17 +26,17 @@ import PeliculasCritica from './paginas/PeliculaCritica';
 import PrivateRoute from './components/PrivateRoute';
 import React from 'react';
 //PAGINAS WEB
-import history from './utils/history'; //en el causo de uso de router
 import { useAuth0 } from './react-auth0-spa';
 /////
 import HOCNoticias from './paginas/HOCNoticias';
 import Profile2 from './paginas/Profile';
+import Loading from './components/Loading';
 
 function App() {
   const { loading } = useAuth0();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <BrowserRouter>

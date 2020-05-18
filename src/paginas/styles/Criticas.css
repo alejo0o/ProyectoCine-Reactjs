@@ -9,8 +9,8 @@
     [linea4] minmax(20px, 30px);
   gap: 1%;
   padding-top: 5%;
-
-  background-color: #EEEEEE;
+  padding-bottom: 3%;
+  background-color: #eeeeee;
 }
 
 .elemento {
@@ -34,7 +34,7 @@
 .item {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 8px 8px 8px 8px;
-  background-color: #DADADA;
+  background-color: #dadada;
   overflow: auto;
 }
 .item:nth-of-type(1) {
@@ -56,7 +56,7 @@
 .elementoLista2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 8px 8px 8px 8px;
-  background-color: #DADADA;
+  background-color: #dadada;
   overflow: auto;
   margin-top: 1%;
 }

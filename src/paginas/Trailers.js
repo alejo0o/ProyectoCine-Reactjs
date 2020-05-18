@@ -9,6 +9,7 @@ import Peticiones from '../utils/consultasPersonalizadas';
 //Componentes
 import Recomendaciones from '../componentesEstrenos/Lista3Estrenos';
 import DescripcionPelicula from '../componentesEstrenos/DescripcionPeliculaEstrenos';
+import Loading from '../components/Loading';
 
 const GQLClient = ClienteGql;
 
@@ -72,6 +73,10 @@ class Trailers extends Component {
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
+
     return (
       <section className='contenedorPeliculaTrailer'>
         <div className='elementoPeliculaTrailer'>
@@ -93,25 +98,25 @@ class Trailers extends Component {
               controls={true}
               playsinline={true}
             />
-              </div>
-              <div className='sinopsisPeliculaTrailer'>
-                {this.state.peliculaID.sinopsis}
-              </div>
-              <Link to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`} 
-              className='botonComentario btn'>
-               &nbsp;<i className="far fa-comment-dots"></i> Ver comentarios
-              </Link>
-              <div className='estiloComponenteCaja'>
-                <DescripcionPelicula pelicula={this.state.peliculaID} />
-              </div>
-            </div>
-            
-            <div className='elementoPeliculaTrailer'>
-              <Recomendaciones peliculas={this.state.peliculas} />
-            </div>
-        
-          </section>
-        );
+          </div>
+          <div className='sinopsisPeliculaTrailer'>
+            {this.state.peliculaID.sinopsis}
+          </div>
+          <Link
+            to={`/PeliculaCritica/${this.state.peliculaID.peliculasid}`}
+            className='botonComentario btn'>
+            &nbsp;<i className='far fa-comment-dots'></i> Ver comentarios
+          </Link>
+          <div className='estiloComponenteCaja'>
+            <DescripcionPelicula pelicula={this.state.peliculaID} />
+          </div>
+        </div>
+
+        <div className='elementoPeliculaTrailer'>
+          <Recomendaciones peliculas={this.state.peliculas} />
+        </div>
+      </section>
+    );
   }
 }
 

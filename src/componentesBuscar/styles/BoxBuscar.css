@@ -1,46 +1,43 @@
-.contenedorBoxBuscar{
-    width: 75%;
-    font-family: 'Georgia';
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 8px 8px 8px 8px;
-    background-color: white;
-    margin-left: 10%;
-    margin-top: 10%;
-
+.contenedorBoxBuscar {
+  width: 75%;
+  font-family: 'Georgia';
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 8px 8px;
+  background-color: #dadada;
+  margin-left: 10%;
+  margin-top: 10%;
 }
-.etiqueta{
-    font-size: 80%;
-    margin-left: 2%;
+.etiqueta {
+  font-size: 80%;
+  margin-left: 2%;
 }
 .portadaImgBuscar {
-    width: 100%;
-    height: 25vh;
-    border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  height: 25vh;
+  border-radius: 8px 8px 0px 0px;
 }
 .imagenContenedorListaBuscar {
-    width: 100%;
-
+  width: 100%;
 }
-.elementoBoxBuscar:nth-of-type(3){
-    color: gray;
-    text-align: right;
-    margin-right: 3%;
-    font-size: 80%;
+.elementoBoxBuscar:nth-of-type(3) {
+  color: gray;
+  text-align: right;
+  margin-right: 3%;
+  font-size: 80%;
 }
-.elementoBoxBuscar:nth-of-type(4){
-    font-weight: bold;
-    text-align: justify;
-    margin: 3%;
-    font-size: 90%;
+.elementoBoxBuscar:nth-of-type(4) {
+  font-weight: bold;
+  text-align: justify;
+  margin: 3%;
+  font-size: 90%;
 }
 @media screen and (max-width: 768px) {
-    .elementoBoxBuscar:nth-of-type(3){
-        margin-right: 1%;
-        font-size: 60%;
-    }
-    .elementoBoxBuscar:nth-of-type(4){
-        margin: 1%;
-        font-size: 70%;
-
-    }
+  .elementoBoxBuscar:nth-of-type(3) {
+    margin-right: 1%;
+    font-size: 60%;
+  }
+  .elementoBoxBuscar:nth-of-type(4) {
+    margin: 1%;
+    font-size: 70%;
+  }
 }

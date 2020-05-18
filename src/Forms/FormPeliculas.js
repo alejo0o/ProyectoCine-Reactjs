@@ -92,7 +92,7 @@ class Form extends Component {
         loading: false,
         error: error,
       });
-      console.log(error);
+
     }
   };
 

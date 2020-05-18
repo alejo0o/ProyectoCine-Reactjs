@@ -1,12 +1,12 @@
 import './styles/Buscar.css';
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ClienteGql from '../utils/GqlClient';
 import ListaBuscar from '../componentesBuscar/ListaBuscar';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
+import Loading from '../components/Loading';
 
 const GQLClient = ClienteGql;
 
@@ -75,7 +75,7 @@ class Buscar extends Component {
         variables2
       );
       this.setState({
-        loading: true,
+        loading: false,
         infoNoticias: respuesta.getBuscarNoticia.info,
         infoPeliculas: respuesta2.getBuscarPelicula.info,
         noticias: this.state.noticias.concat(
@@ -85,14 +85,11 @@ class Buscar extends Component {
           respuesta2.getBuscarPelicula.results
         ),
       });
-      console.log(this.state.noticias);
-      console.log(this.state.peliculas);
     } catch (error) {
       this.setState({
         loading: false,
         error: error,
       });
-      console.log(error);
     }
   };
 
@@ -115,11 +112,13 @@ class Buscar extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   render() {
-    console.log(this.state.infoNoticias);
-    console.log(this.state.infoPeliculas);
+    if (this.state.loading) {
+      return <Loading />;
+    }
     if (this.state.noticias && this.state.peliculas) {
       return (
         <section className='contenedorBuscar'>
@@ -144,6 +143,7 @@ class Buscar extends Component {
               showLastButton
               shape='rounded'
               className='paginador'
+              page={this.globalPage}
             />
           </div>
         </section>
@@ -168,6 +168,7 @@ class Buscar extends Component {
               showLastButton
               shape='rounded'
               className='paginador'
+              page={this.globalPage}
             />
           </div>
         </section>
@@ -193,6 +194,7 @@ class Buscar extends Component {
               showLastButton
               shape='rounded'
               className='paginador'
+              page={this.globalPage}
             />
           </div>
         </section>

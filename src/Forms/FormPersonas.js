@@ -80,7 +80,7 @@ class FormPersonas extends Component {
         loading: false,
         error: error,
       });
-      console.log(error);
+
     }
   };
 

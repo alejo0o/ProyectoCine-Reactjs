@@ -11,6 +11,7 @@ import DescripcionPelicula from '../componentesCriticas/DescripcionPelicula';
 import CajaValoracion from '../componentesCriticas/CajaValoracion/CajaValoracion';
 import CajaComentarios from '../componentesCriticas/CajaComentarios/CajaComentarios';
 import Recomendaciones from '../componentesCriticas/Lista3';
+import Loading from '../components/Loading';
 
 const GQLClient = ClienteGql;
 
@@ -86,6 +87,9 @@ class PeliculaCritica extends Component {
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
     if (this.state.pelicula != null) {
       if (this.state.pelicula2 != null) {
         return (

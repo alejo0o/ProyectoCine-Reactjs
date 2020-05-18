@@ -8,7 +8,7 @@ import Lista2 from '../componentesCriticas/Lista2';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
-
+import Loading from '../components/Loading';
 //Listas
 
 //Material UI
@@ -93,9 +93,13 @@ class Criticas extends Component {
     });
     this.state.page = value;
     this.fetchData();
+    this.globalPage = value;
   };
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
     return (
       <section className='contenedorCriticas'>
         <GlobalCss />
@@ -115,6 +119,7 @@ class Criticas extends Component {
             showLastButton
             shape='rounded'
             className='paginador'
+            page={this.globalPage}
           />
         </div>
       </section>
