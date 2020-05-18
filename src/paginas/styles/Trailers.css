@@ -3,29 +3,31 @@
   grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
   gap: 2.5%;
   font-family: 'Georgia';
+  background-color: #eeeeee;
 }
 
 .elementoPeliculaTrailer:nth-of-type(1) {
-  background: rgb(233, 239, 241);
   margin-left: 3%;
+  padding-bottom: 3%;
 }
 
 .elementoPeliculaTrailer:nth-of-type(2) {
-  background: rgb(233, 239, 241);
+  background: #dadada;
+  padding-bottom: 10%;
 }
 
 .botonPeliculaTrailer {
-  background-color: #23374D;
+  background-color: #23374d;
   color: white;
   margin-left: 3%;
   margin-top: 3%;
   font-size: 70%;
 }
-.botonPeliculaTrailer:hover{
-  color:#268FD9;
+.botonPeliculaTrailer:hover {
+  color: #268fd9;
 }
 .botonComentario {
-  background-color: #23374D;
+  background-color: #23374d;
   color: white;
   border-radius: 78px 78px 78px 78px;
   font-size: 100%;
@@ -34,8 +36,8 @@
   margin-bottom: 5%;
   margin-top: 3%;
 }
-.botonComentario:hover{
-  color:#268FD9;
+.botonComentario:hover {
+  color: #268fd9;
 }
 .tituloPeliculaTrailer {
   font-weight: bolder;
@@ -45,7 +47,7 @@
   margin-left: 3%;
   border-bottom: gainsboro solid;
 }
-.fechaPeliculaTrailer{
+.fechaPeliculaTrailer {
   color: gray;
   text-align: right;
   padding-right: 3%;
@@ -112,7 +114,7 @@
     width: 70%;
     height: 80%;
   }
-  .fechaPeliculaTrailer{
+  .fechaPeliculaTrailer {
     padding-right: 2%;
     font-size: 65%;
     padding-bottom: 3%;
