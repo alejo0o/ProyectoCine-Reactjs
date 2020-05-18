@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './styles/DescripcionPeliculaEstrenos.css';
-import { Link } from 'react-router-dom';
 class DescripcionPelicula extends Component {
   render() {
     return (

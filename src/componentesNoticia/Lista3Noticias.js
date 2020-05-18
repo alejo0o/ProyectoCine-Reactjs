@@ -2,8 +2,6 @@ import "./styles/Lista3Noticias.css";
 
 import React, { Component } from "react";
 
-import Rating from "@material-ui/lab/Rating";
-import { withStyles } from "@material-ui/core/styles";
 
 class Lista3 extends Component {
   handleChange() {

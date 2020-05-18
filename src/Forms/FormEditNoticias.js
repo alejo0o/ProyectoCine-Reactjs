@@ -87,7 +87,7 @@ class FormEditNoticias extends Component {
         loading: false,
         error: error,
       });
-      console.log(error);
+
     }
   };
   handleDelete = async () => {
@@ -99,7 +99,7 @@ class FormEditNoticias extends Component {
       await GQLClient.request(Peticiones.deleteNoticia, variables);
       this.props.history.push('/forms/Noticias');
     } catch (error) {
-      console.log(error);
+
     }
   };
 

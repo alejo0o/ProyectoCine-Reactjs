@@ -8,7 +8,6 @@ import Lista2 from '../componentesAnime/Lista2';
 //Material UI
 import Pagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
-import PaginationItem from '@material-ui/lab/PaginationItem';
 import Loading from '../components/Loading';
 const GQLClient = ClienteGql;
 

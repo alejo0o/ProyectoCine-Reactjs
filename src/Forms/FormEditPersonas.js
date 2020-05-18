@@ -85,7 +85,7 @@ class FormEditPersonas extends Component {
         loading: false,
         error: error,
       });
-      console.log(error);
+
     }
   };
   handleDelete = async () => {
@@ -97,7 +97,7 @@ class FormEditPersonas extends Component {
       await GQLClient.request(Peticiones.deletePersona, variables);
       this.props.history.push('/forms/Personas');
     } catch (error) {
-      console.log(error);
+
     }
   };
 

@@ -3,7 +3,7 @@ import './scss/Comentarios.scss';
 import Peticiones from '../../utils/consultasPersonalizadas.js';
 import ClienteGql from '../../utils/GqlClient';
 import Rating from '@material-ui/lab/Rating';
-import Pagination from '@material-ui/lab/Pagination';
+
 
 const GQLClient = ClienteGql;
 

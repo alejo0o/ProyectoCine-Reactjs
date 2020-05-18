@@ -88,7 +88,7 @@ class FormEditPeliculas extends Component {
         loading: false,
         error: error,
       });
-      console.log(error);
+
     }
   };
   handleDelete = async () => {
@@ -100,7 +100,7 @@ class FormEditPeliculas extends Component {
       await GQLClient.request(Peticiones.deletePelicula, variables);
       this.props.history.push('/forms/Peliculas');
     } catch (error) {
-      console.log(error);
+
     }
   };
 

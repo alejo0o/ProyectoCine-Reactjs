@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useAuth0 } from '../../react-auth0-spa';
 import Peticiones from '../../utils/consultasPersonalizadas.js';
 import Rating from '@material-ui/lab/Rating';
 import ClienteGql from '../../utils/GqlClient';
@@ -33,7 +32,7 @@ class ValoracionUsuario extends Component {
         Peticiones.getCrivalorUsuarioPelicula,
         variables
       );
-      console.log(data);
+
       this.setState({
         loading: false,
         crivalor: data.getCriticasUsuarioPelicula.crivalor,
