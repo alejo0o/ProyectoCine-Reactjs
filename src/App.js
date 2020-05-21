@@ -32,6 +32,7 @@ import HOCNoticias from './paginas/HOCNoticias';
 import Profile2 from './paginas/Profile';
 import Loading from './components/Loading';
 
+
 function App() {
   const { loading } = useAuth0();
 
@@ -71,6 +72,7 @@ function App() {
         <Route exact path='/Noticias' component={DescripcioNoticia} />
         <Route exact path='/criticas' component={CriticasPagina} />
         <Route exact path='/Estrenos' component={EstrenosDirector} />
+
 
         <Route
           path='/PeliculaCritica/:peliculasid'

@@ -9,6 +9,7 @@ import Lista2 from '../componentesAnime/Lista2';
 import Pagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
 import Loading from '../components/Loading';
+import Error404 from '../components/Error404';
 const GQLClient = ClienteGql;
 
 const GlobalCss = withStyles({
@@ -95,6 +96,9 @@ class Criticas extends Component {
   render() {
     if (this.state.loading) {
       return <Loading />;
+    }
+    if(this.state.error!=null){
+      return <Error404></Error404>;
     }
     return (
       <section className='contenedorCriticas'>

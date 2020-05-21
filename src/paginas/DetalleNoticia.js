@@ -8,7 +8,7 @@ import Peticiones from '../utils/consultasPersonalizadas';
 import PeticionesNoticias from '../utils/consultasNoticias';
 import Recomendaciones from '../componentesNoticia/Lista3Noticias';
 import Loading from '../components/Loading';
-
+import Error404 from '../components/Error404';
 const GQLClient = ClienteGql;
 
 class DetalleNoticia extends Component {
@@ -67,6 +67,9 @@ class DetalleNoticia extends Component {
   render() {
     if (this.state.loading) {
       return <Loading />;
+    }
+    if(this.state.error!=null){
+      return <Error404></Error404>;
     }
 
     return (

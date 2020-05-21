@@ -7,7 +7,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
 import Loading from '../components/Loading';
-
+import Error404 from '../components/Error404';
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
@@ -93,6 +93,9 @@ class Estrenos extends Component {
   render() {
     if (this.state.loading) {
       return <Loading />;
+    }
+    if(this.state.error!=null){
+      return <Error404></Error404>;
     }
 
     return (

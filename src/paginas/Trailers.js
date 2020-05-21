@@ -10,7 +10,7 @@ import Peticiones from '../utils/consultasPersonalizadas';
 import Recomendaciones from '../componentesEstrenos/Lista3Estrenos';
 import DescripcionPelicula from '../componentesEstrenos/DescripcionPeliculaEstrenos';
 import Loading from '../components/Loading';
-
+import Error404 from '../components/Error404';
 const GQLClient = ClienteGql;
 
 class Trailers extends Component {
@@ -75,6 +75,9 @@ class Trailers extends Component {
   render() {
     if (this.state.loading) {
       return <Loading />;
+    }
+    if(this.state.error!=null){
+      return <Error404></Error404>;
     }
 
     return (
