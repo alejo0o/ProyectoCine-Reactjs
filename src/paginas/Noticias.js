@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
-import GqlClient from '../utils/GqlClient';
+
 import Lista1 from '../componentesNoticia/Lista1Noticias';
 import Lista2 from '../componentesNoticia/Lista2Noticias';
 import Loading from '../components/Loading';
@@ -43,15 +43,9 @@ class Noticias extends Component {
     };
   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
   componentDidMount() {
-    this.interval = setTimeout(() => {
-      this.setState((state) => ({ showCounter: !state.showCounter }));
-      this.fetchData();
-      this.saveUser();
-    }, 500);
+    this.fetchData();
+    this.saveUser();
   }
 
   fetchData = async () => {
@@ -125,7 +119,7 @@ class Noticias extends Component {
               sub: usuario.sub,
             },
           };
-          await GqlClient.request(Peticiones.crearUsuario, variables);
+          await GQLClient.request(Peticiones.crearUsuario, variables);
           this.setState({
             loading: false,
             error: null,
@@ -144,28 +138,28 @@ class Noticias extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
-    if(this.state.error!=null){
+    if (this.state.error != null) {
       return <Error404></Error404>;
     }
     return (
-      <section className="contenedorCriticas">
+      <section className='contenedorCriticas'>
         <GlobalCss />
-        <div className="contenedorLista1">
+        <div className='contenedorLista1'>
           <Lista1 noticiasFecha={this.state.noticias1} />
         </div>
-        <div className="contenedorLista2">
+        <div className='contenedorLista2'>
           <Lista2 noticiasFecha={this.state.noticias2} />
         </div>
-        <div className="contenedorLista3">
+        <div className='contenedorLista3'>
           <Pagination
             count={this.state.info.pages}
-            variant="outlined"
-            color="primary"
+            variant='outlined'
+            color='primary'
             onChange={this.handleChange}
             showFirstButton
             showLastButton
-            shape="rounded"
-            className="paginador"
+            shape='rounded'
+            className='paginador'
             page={this.globalPage}
           />
         </div>

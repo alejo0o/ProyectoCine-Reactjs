@@ -29,9 +29,9 @@ import React from 'react';
 import { useAuth0 } from './react-auth0-spa';
 /////
 import HOCNoticias from './paginas/HOCNoticias';
-import Profile2 from './paginas/Profile';
+import Profile2 from './paginas/HOCProfile';
 import Loading from './components/Loading';
-
+import Error404 from './components/Error404';
 
 function App() {
   const { loading } = useAuth0();
@@ -73,7 +73,6 @@ function App() {
         <Route exact path='/criticas' component={CriticasPagina} />
         <Route exact path='/Estrenos' component={EstrenosDirector} />
 
-
         <Route
           path='/PeliculaCritica/:peliculasid'
           component={PeliculasCritica}
@@ -83,6 +82,7 @@ function App() {
 
         <Route exact path='/Estrenos/:peliculasid' component={Trailer} />
         <Route exact path='/Buscar/:word' component={Buscar} />
+        <Route component={Error404} />
       </Switch>
       <Footbar />
     </BrowserRouter>
