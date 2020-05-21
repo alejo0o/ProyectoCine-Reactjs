@@ -31,6 +31,7 @@ import { useAuth0 } from './react-auth0-spa';
 import HOCNoticias from './paginas/HOCNoticias';
 import Profile2 from './paginas/Profile';
 import Loading from './components/Loading';
+import Error404 from './components/Error404';
 
 function App() {
   const { loading } = useAuth0();
@@ -71,6 +72,7 @@ function App() {
         <Route exact path='/Noticias' component={DescripcioNoticia} />
         <Route exact path='/criticas' component={CriticasPagina} />
         <Route exact path='/Estrenos' component={EstrenosDirector} />
+        <Route exact path="*" component={Error404} />
 
         <Route
           path='/PeliculaCritica/:peliculasid'
