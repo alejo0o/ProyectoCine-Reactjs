@@ -1,36 +1,42 @@
 
-body{
+.Fondo{
     background-image: url('https://mars-404.templateku.co/img/star.svg'),linear-gradient(to bottom, #05007A, #4D007D);
-    height: 80%;
+   
+    height: 100%;
     margin: 0;
-
+    padding: 20%;
+    display: flex;
   }
-  
-  .mars{
+
+
+  .Tierrita{
     left:0;
     right:0;
     bottom:0;
-    position:absolute;
+    position: absolute;
     height: 27vmin;
     background: url('https://mars-404.templateku.co/img/mars.svg') no-repeat bottom center;
     background-size: cover;
   }
-  .logo-404{
+  .Imagen1{
     position: absolute;
-    margin-left: auto;
+    margin-left: 40%;
     margin-right: auto;
     left: 0;
     right: 0;
     top: 16vmin;
     width: 30vmin;
     margin-top: 6%;
-  
-   
   }
-  .meteor{
+  .Imagen2{
     position: absolute;
     right: 2vmin;
     top: 16vmin;
+  }
+  .Texto{
+    position:absolute;
+    margin-left: 11%;
+    margin-top: -6%;
   }
   .title{
     color: white;
@@ -38,7 +44,6 @@ body{
     font-weight: 600;
     text-align: center;
     font-size: 5vmin;
-    margin-top: 31vmin;
   
     
   }
@@ -49,29 +54,32 @@ body{
     text-align: center;
     font-size: 3.5vmin;
     margin-top: -1vmin;
-    margin-bottom: 9vmin;
   }
-  .botonRegresoHome{
-    border: 1px solid white;
-    color: white;
-    height: 5vmin;
-    padding: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-      border-radius: 5px;
-  }
-  .astronaut{
+ 
+  .Imagen3{
     position: absolute;
     top: 18vmin;
     left: 10vmin;
     height: 30vmin;
-      animation: floating 3s infinite ease-in-out;
-  
-  
+
   }
-  .spaceship{
+  .Imagen4{
     position: absolute;
     bottom: 15vmin;
     right: 24vmin;
-  
+  }
+  @media screen and (max-width: 768px) {
+      .Imagen3, .Imagen4, .Tierrita{
+          display: none;
+      }
+      .Texto{
+          margin-top: 1%;
+
+      }
+      .Imagen1{
+          margin-top: 10%;
+      }
+      .Fondo{
+          padding-bottom: 30%;
+      }
   }

@@ -72,7 +72,7 @@ function App() {
         <Route exact path='/Noticias' component={DescripcioNoticia} />
         <Route exact path='/criticas' component={CriticasPagina} />
         <Route exact path='/Estrenos' component={EstrenosDirector} />
-        <Route exact path="*" component={Error404} />
+
 
         <Route
           path='/PeliculaCritica/:peliculasid'

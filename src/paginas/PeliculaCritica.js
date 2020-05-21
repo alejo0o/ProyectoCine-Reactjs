@@ -12,6 +12,7 @@ import CajaValoracion from '../componentesCriticas/CajaValoracion/CajaValoracion
 import CajaComentarios from '../componentesCriticas/CajaComentarios/CajaComentarios';
 import Recomendaciones from '../componentesCriticas/Lista3';
 import Loading from '../components/Loading';
+import Error404 from '../components/Error404';
 
 const GQLClient = ClienteGql;
 
@@ -185,9 +186,8 @@ class PeliculaCritica extends Component {
       }
     } else {
       return (
-        <section>
-          <div>Ups pelicula no encontrada</div>
-        </section>
+
+        <Error404></Error404>
       );
     }
   }

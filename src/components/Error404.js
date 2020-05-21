@@ -4,24 +4,24 @@ import './styles/Error404.css';
 
 class Error404 extends React.Component{
     render(){
-        return <div>        
-          <div className="mars"></div>
-          <img src="https://mars-404.templateku.co/img/404.svg" class="logo-404" />
-          <img src="https://mars-404.templateku.co/img/meteor.svg" class="meteor" />
-          <p className="title">Oh no!!</p>
+        return (
+          <div className="Fondo">        
+          <div className="Tierrita">
+            
+          </div>
+          <div className="Imagen1"> <img src="https://mars-404.templateku.co/img/404.svg"  /> </div>
+
+          <div className="Imagen2">  <img src="https://mars-404.templateku.co/img/meteor.svg"  /> </div>
+          <div className="Texto"> <p className="title">Oh no!!</p>
           <p className="subtitle">
-            La URL está mal escrita <br /> O la página solicitada no existe ! 
-          </p>
-          <div align="center" className='BotonTrailer'>
-              <Link
-                to={"/"}
-                className='botonRegresoHome btn'>
-                Regresa al Home
-              </Link>
-            </div>
-          <img src="https://mars-404.templateku.co/img/astronaut.svg" className="astronaut" />
-          <img src="https://mars-404.templateku.co/img/spaceship.svg" className="spaceship" />
-          </div>;
+            URL no válida <br /> O no se encontró la página solicitada! 
+          </p> 
+          </div>
+          <div className="Imagen3"> <img src="https://mars-404.templateku.co/img/astronaut.svg"  /> </div>
+          <div className="Imagen4"> <img src="https://mars-404.templateku.co/img/spaceship.svg" /> </div>
+          
+          </div>
+        )
           
     }
 }
