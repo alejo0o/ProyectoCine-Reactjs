@@ -8,6 +8,7 @@ import Loading from '../components/Loading';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
+import Error404 from '../components/Error404';
 
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
@@ -142,6 +143,9 @@ class Noticias extends Component {
   render() {
     if (this.state.loading) {
       return <Loading />;
+    }
+    if(this.state.error!=null){
+      return <Error404></Error404>;
     }
     return (
       <section className="contenedorCriticas">

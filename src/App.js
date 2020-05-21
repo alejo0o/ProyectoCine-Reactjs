@@ -31,7 +31,7 @@ import { useAuth0 } from './react-auth0-spa';
 import HOCNoticias from './paginas/HOCNoticias';
 import Profile2 from './paginas/Profile';
 import Loading from './components/Loading';
-import Error404 from './components/Error404';
+
 
 function App() {
   const { loading } = useAuth0();

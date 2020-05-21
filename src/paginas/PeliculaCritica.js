@@ -91,6 +91,9 @@ class PeliculaCritica extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
+    if(this.state.error!=null){
+      return <Error404></Error404>;
+    }
     if (this.state.pelicula != null) {
       if (this.state.pelicula2 != null) {
         return (
