@@ -142,24 +142,25 @@ class Noticias extends Component {
       return <Error404></Error404>;
     }
     return (
-      <section className='contenedorCriticas'>
+      <section className="contenedorCriticas">
         <GlobalCss />
-        <div className='contenedorLista1'>
+        <div className="contenedorLista1">
           <Lista1 noticiasFecha={this.state.noticias1} />
         </div>
-        <div className='contenedorLista2'>
+        <div className="contenedorEspacio"></div>
+        <div className="contenedorLista2">
           <Lista2 noticiasFecha={this.state.noticias2} />
         </div>
-        <div className='contenedorLista3'>
+        <div className="contenedorLista3">
           <Pagination
             count={this.state.info.pages}
-            variant='outlined'
-            color='primary'
+            variant="outlined"
+            color="primary"
             onChange={this.handleChange}
             showFirstButton
             showLastButton
-            shape='rounded'
-            className='paginador'
+            shape="rounded"
+            className="paginador"
             page={this.globalPage}
           />
         </div>

@@ -1,84 +1,75 @@
-
-.color-nav{
-    background-color: #268FD9;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 120%;
+.color-nav {
+  background-color: #268fd9;
+  font-family: 'Georgia';
+  font-size: 120%;
 }
-.nav-link{
-    color:white
+.nav-link {
+  color: white;
 }
-.nav-link:hover{
-    color:#23374D
-    
+.nav-link:hover {
+  color: #23374d;
 }
-.navbar .navbar-nav{
-    margin:0 auto;
+.navbar .navbar-nav {
+  margin: 0 auto;
 }
-.ContenedorNavBar{
-    margin:none;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-template-rows: 70%;
-    grid-column-gap: 2%;
-    background-color: #3A3A3A;
-
+.ContenedorNavBar {
+  margin: none;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 70%;
+  grid-column-gap: 2%;
+  background-color: #3a3a3a;
+  font-family: 'Georgia';
 }
-.ElementoNavBar:nth-child(1){
-    grid-row: 1/3;
-    margin-left: 5%;
-
+.ElementoNavBar:nth-child(1) {
+  grid-row: 1/3;
+  margin-left: 5%;
 }
-.LogoNav{
-    height: 8%;
-    width: 8%;  
+.LogoNav {
+  height: 8%;
+  width: 8%;
 }
-.ElementoNavBar:nth-child(2){
-    background-color: #23374D;
-    border: #23374D solid;
-    color: white;
-    font-size: 110%;
-    justify-self: flex-end;
-    width: 20%;
-    margin-right: 10%;
-    margin-top: 4%;
-
+.ElementoNavBar:nth-child(2) {
+  background-color: #23374d;
+  border: #23374d solid;
+  color: white;
+  font-size: 110%;
+  justify-self: flex-end;
+  width: 20%;
+  margin-right: 10%;
+  margin-top: 4%;
 }
 @media screen and (max-width: 1224px) {
-    .LogoNav{
-        height: 15%;
-        width: 15%;  
-    }
-    .ElementoNavBar:nth-child(2){
-        font-size: 60%;
-        width: 40%;
-        margin-right: 6%;
-        margin-top: 1.5%;
-    
-    }
+  .LogoNav {
+    height: 15%;
+    width: 15%;
+  }
+  .ElementoNavBar:nth-child(2) {
+    font-size: 60%;
+    width: 40%;
+    margin-right: 6%;
+    margin-top: 1.5%;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .ContenedorNavBar{
-        margin:none;
-        grid-column-gap: 1.5%;
-        padding-bottom: 0.8%;
-    }
-    .ElementoNavBar:nth-child(1){
-        margin-left: 3%;
-        margin-top: 0.8%;
-    }
-    .LogoNav{
-        height: 15%;
-        width: 15%;  
-    }
-    .ElementoNavBar:nth-child(2){
-        font-size: 50%;
-        width: 40%;
-        margin-right: 6%;
-        margin-top: 1.5%;
-    
-    }
+  .ContenedorNavBar {
+    margin: none;
+    grid-column-gap: 1.5%;
+    padding-bottom: 0.8%;
+  }
+  .ElementoNavBar:nth-child(1) {
+    margin-left: 3%;
+    margin-top: 0.8%;
+  }
+  .LogoNav {
+    height: 15%;
+    width: 15%;
+  }
+  .ElementoNavBar:nth-child(2) {
+    font-size: 50%;
+    width: 40%;
+    margin-right: 6%;
+    margin-top: 1.5%;
+  }
 }
-
-
-

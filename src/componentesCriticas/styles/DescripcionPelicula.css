@@ -3,6 +3,7 @@
   grid-template-rows: [inicio] 20% [linea2] 20% [linea3] 20% [linea4] 20% [linea5] 20%[final];
   grid-template-columns: 40% 60%;
   text-align: justify;
+  font-family: 'Georgia';
 }
 
 /*.elementoDescripcionPelicula {
@@ -26,13 +27,11 @@
 }
 .titulosComponente {
   font-size: 80%;
-  font-family: 'Lucida Console', Courier, monospace;
   font-weight: bold;
 }
 .textoComponente {
   font-size: 80%;
   opacity: 0.7;
-  font-family: 'Lucida Console', Courier, monospace;
 }
 .elementoDescripcionPelicula:nth-of-type(3) {
   /*font-size: 100%;
@@ -48,13 +47,10 @@
 @media screen and (max-width: 768px) {
   .titulosComponente {
     font-size: 65%;
-    font-family: 'Lucida Console', Courier, monospace;
-    font-weight: bold;
   }
   .textoComponente {
     font-size: 75%;
     opacity: 0.7;
-    font-family: 'Lucida Console', Courier, monospace;
   }
   .botonTrailerDescripcion {
     background-color: rgb(31, 78, 117);

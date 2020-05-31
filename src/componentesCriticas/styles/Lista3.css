@@ -7,11 +7,11 @@
   overflow: auto;
   margin-left: 10%;
   margin-top: 10%;
+  font-family: 'Georgia';
 }
 
 .tituloContenedor {
   font-weight: bold;
-  font-family: 'Georgia';
   text-align: justify;
   font-size: 100%;
   border-left: tomato solid 3px;
@@ -34,7 +34,6 @@
 
 .tituloLista3 {
   font-weight: bold;
-  font-family: Verdana, sans-serif;
   text-align: justify;
 }
 .contenedortituloLista3 {
@@ -49,7 +48,6 @@
   }
   .tituloLista3 {
     font-weight: bold;
-    font-family: Verdana, sans-serif;
     text-align: justify;
     font-size: 65%;
   }
