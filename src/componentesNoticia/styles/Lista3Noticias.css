@@ -14,8 +14,9 @@
   text-align: right;
   color: gray;
   padding-right: 3%;
-  width:100%;
+  width: 100%;
   margin: none;
+  font-family: 'Comic Sans', fantasy;
 }
 
 .imagenLista3Noticias {
@@ -58,7 +59,7 @@
   }
   .fechaLista3Noticias {
     font-size: 70%;
-   padding-right: 1%;
+    padding-right: 1%;
   }
   .tituloContenedorNoticias {
     font-size: 70%;

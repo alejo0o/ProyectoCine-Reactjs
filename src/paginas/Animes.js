@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
 import './styles/Criticas.css';
-import Peticiones from '../utils/consultasPersonalizadas';
+
+import React, { Component } from 'react';
+
 import ClienteGql from '../utils/GqlClient';
-//Listas
+import Error404 from '../components/Error404';
 import Lista1 from '../componentesAnime/Lista1';
 import Lista2 from '../componentesAnime/Lista2';
-//Material UI
-import Pagination from '@material-ui/lab/Pagination';
-import { withStyles } from '@material-ui/core/styles';
 import Loading from '../components/Loading';
-import Error404 from '../components/Error404';
+import Pagination from '@material-ui/lab/Pagination';
+import Peticiones from '../utils/consultasPersonalizadas';
+import { withStyles } from '@material-ui/core/styles';
+
+//Listas
+
+
+//Material UI
+
+
+
+
 const GQLClient = ClienteGql;
 
 const GlobalCss = withStyles({
@@ -97,28 +106,29 @@ class Criticas extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
-    if(this.state.error!=null){
+    if (this.state.error != null) {
       return <Error404></Error404>;
     }
     return (
-      <section className='contenedorCriticas'>
+      <section className="contenedorCriticas">
         <GlobalCss />
-        <div className='contenedorLista1'>
+        <div className="contenedorLista1">
           <Lista1 peliculas={this.state.peliculasData1} />
         </div>
-        <div className='contenedorLista2'>
+        <div className="contenedorEspacio"></div>
+        <div className="contenedorLista2">
           <Lista2 peliculas={this.state.peliculasData2} />
         </div>
-        <div className='contenedorLista3'>
+        <div className="contenedorLista3">
           <Pagination
             count={this.state.info.pages}
-            variant='outlined'
-            color='primary'
+            variant="outlined"
+            color="primary"
             onChange={this.handleChange}
             showFirstButton
             showLastButton
-            shape='rounded'
-            className='paginador'
+            shape="rounded"
+            className="paginador"
             page={this.globalPage}
           />
         </div>

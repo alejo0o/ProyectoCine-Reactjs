@@ -2,15 +2,25 @@
   display: grid;
   grid-template-columns: minmax(900px, 100%);
   grid-template-rows:
-    [inicio] minmax(400px, 80vh) [linea2] minmax(700px, 125vh) [linea3] minmax(
-      35px,
-      7vh
+    [inicio] minmax(400px, 80vh) [linea2] minmax(20px, 10vh) [linea2] minmax(
+      700px,
+      125vh
     )
+    [linea3] minmax(35px, 7vh)
     [linea4] minmax(20px, 30px);
   gap: 1%;
   padding-top: 5%;
   padding-bottom: 3%;
   background-color: #eeeeee;
+}
+
+.contenedorEspacio {
+  background-color: #dadada;
+  border-radius: 8px 8px 8px 8px;
+  margin: none;
+  height: 60%;
+  width: 100%;
+  margin-top: 1%;
 }
 
 .elemento {
@@ -78,10 +88,17 @@
     display: grid;
     grid-template-columns: minmax(700px, 80%);
     grid-template-rows:
-      [inicio] minmax(300px, 70vh) [linea2] minmax(500px, 110vh)
+      [inicio] minmax(300px, 70vh) [linea2] minmax(20px, 10vh) [linea2] minmax(
+        500px,
+        110vh
+      )
       [linea3] minmax(35px, 7vh)
       [linea4] minmax(150px, 30vh);
     gap: 1.5%;
+  }
+  .contenedorEspacio {
+    height: 50%;
+    margin-top: 1%;
   }
 }
 
