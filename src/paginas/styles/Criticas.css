@@ -2,15 +2,9 @@
   display: grid;
   grid-template-columns: minmax(900px, 100%);
   grid-template-rows:
-<<<<<<< HEAD
-    [inicio] minmax(400px, 80vh)  [linea2] minmax(700px, 125vh) [linea3] minmax(
-      35px,
-      7vh
-=======
     [inicio] minmax(400px, 80vh) [linea2] minmax(20px, 10vh) [linea2] minmax(
       700px,
       125vh
->>>>>>> cc3bab60674dcbcf47116c278154511ac6672d9a
     )
     [linea3] minmax(35px, 7vh)
     [linea4] minmax(20px, 30px);
