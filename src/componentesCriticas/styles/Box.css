@@ -4,6 +4,7 @@
   grid-template-rows: [inicio] 170% [linea2] 20% [linea3] 20% [linea4] 20% [final];
   gap: 1%;
   height: 40%;
+  font-family: 'Georgia';
 }
 .portadaImg {
   width: 100%;
@@ -14,15 +15,13 @@
 }
 .elementoBox1:nth-of-type(3) {
   font-size: 110%;
-  font-family: 'Lucida Console', Courier, monospace;
+  font-weight: bold;
   margin: 2%;
 }
 
 @media screen and (max-width: 768px) {
   .elementoBox1:nth-of-type(3) {
     font-size: 75%;
-    font-family: 'Lucida Console', Courier, monospace;
-
     margin: 2%;
   }
 }

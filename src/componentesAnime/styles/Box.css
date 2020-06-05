@@ -5,6 +5,7 @@
 
   gap: 1%;
   height: 40%;
+  font-family: 'Georgia';
 }
 .portadaImg {
   width: 100%;
@@ -16,13 +17,12 @@
 
 .elementoBox1anime:nth-of-type(2) {
   font-size: 100%;
-  font-family: 'Lucida Console', Courier, monospace;
+  font-weight: bold;
   margin: 2%;
   padding: 0.4em;
 }
 .elementoBox1anime:nth-of-type(4) {
   font-size: 75%;
-  font-family: 'Lucida Console', Courier, monospace;
   margin: 2%;
   padding: 0.4em;
   color: gray;
@@ -30,17 +30,12 @@
 
 @media screen and (max-width: 768px) {
   .elementoBox1anime:nth-of-type(2) {
-  font-size: 75%;
-  font-family: 'Lucida Console', Courier, monospace;
-  margin: 2%;
-
+    font-size: 75%;
+    margin: 2%;
   }
   .elementoBox1anime:nth-of-type(4) {
     font-size: 60%;
-    font-family: 'Lucida Console', Courier, monospace;
-
     margin: 2%;
     color: gray;
   }
-  
 }

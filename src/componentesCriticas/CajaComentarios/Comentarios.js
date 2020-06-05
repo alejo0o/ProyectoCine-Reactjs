@@ -4,7 +4,6 @@ import Peticiones from '../../utils/consultasPersonalizadas.js';
 import ClienteGql from '../../utils/GqlClient';
 import Rating from '@material-ui/lab/Rating';
 
-
 const GQLClient = ClienteGql;
 
 class Comentarios extends Component {
@@ -58,7 +57,7 @@ class Comentarios extends Component {
               return (
                 <li key={critica.criid} className='listaComentarios'>
                   <div className='critica'>
-                    <h6>{critica.email}</h6>
+                    <h6>{critica.nickname}</h6>
                     <h6 className='puntaje'>Puntaje: </h6>
                     <Rating
                       name='crivalor'

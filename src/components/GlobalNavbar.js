@@ -65,7 +65,9 @@ class GlobalNavbar extends Component {
                   </Link>
                 </li>
               </ul>
-              <form className='form-inline mt-2 mt-md-0'>
+              <form
+                className='form-inline mt-2 mt-md-0'
+                action={`/Buscar/${this.state.word}`}>
                 <input
                   className='form-control mr-sm-2'
                   name='word'

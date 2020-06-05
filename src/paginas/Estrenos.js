@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 import ClienteGql from '../utils/GqlClient';
+import Error404 from '../components/Error404';
 import Lista1 from '../componentesEstrenos/Lista1Estrenos';
 import Lista2 from '../componentesEstrenos/Lista2Estrenos';
+import Loading from '../components/Loading';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
-import Loading from '../components/Loading';
-import Error404 from '../components/Error404';
+
 const GQLClient = ClienteGql;
 const GlobalCss = withStyles({
   // @global is handled by jss-plugin-global.
@@ -94,7 +95,7 @@ class Estrenos extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
-    if(this.state.error!=null){
+    if (this.state.error != null) {
       return <Error404></Error404>;
     }
 
@@ -104,6 +105,7 @@ class Estrenos extends Component {
         <div className="contenedorLista1">
           <Lista1 estrenosDirector={this.state.estrenos1} />
         </div>
+        <div className="contenedorEspacio"></div>
         <div className="contenedorLista2">
           <Lista2 estrenosDirector={this.state.estrenos2} />
         </div>

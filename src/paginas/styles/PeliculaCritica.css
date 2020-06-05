@@ -3,6 +3,7 @@
   grid-template-columns: minmax(650px, 65%) minmax(300px, 30%);
   gap: 2.5%;
   background-color: #eeeeee;
+  font-family: 'Georgia';
 }
 
 .elementoPeliculasCriticas:nth-of-type(1) {
@@ -50,7 +51,6 @@
 }
 
 .sinopsisPeliculaCritica {
-  font-family: Verdana, sans-serif;
   margin-left: 3%;
   text-align: justify;
   margin-right: 5%;

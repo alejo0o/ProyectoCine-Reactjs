@@ -1,97 +1,91 @@
 $small: 200px;
 
 .contenedorBarrafoot {
-	margin-top: auto;
-	position: relative;
-    bottom: 0;
+  margin-top: auto;
+  position: relative;
+  bottom: 0;
+  font-family: 'Georgia';
 }
 
 .barrafoot {
-	background-color: #268FD9;
-	color: white;
-	font-size: 1em;
-	position: relative;
-    bottom: 0;
-    width: 100%;
-    
+  background-color: #268fd9;
+  color: white;
+  font-size: 1em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
-.footIconTable{
-	width: 70%;
-	margin: 0px auto;
-	table-layout: fixed;
+.footIconTable {
+  width: 70%;
+  margin: 0px auto;
+  table-layout: fixed;
 }
 
 .footItemTable {
-	width: 70% ;
-	margin: 0px auto;
-	table-layout: fixed;
+  width: 70%;
+  margin: 0px auto;
+  table-layout: fixed;
 }
 .footTitle {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 .footLink {
-	color: white;
-	font-size: 0.9em;
-	text-decoration: none; /* no underline */
-	//padding-left: 2em;
+  color: white;
+  font-size: 0.9em;
+  text-decoration: none; /* no underline */
+  //padding-left: 2em;
 }
 .footLink:hover {
-	color: white;
-	text-decoration: none; /* no underline */
+  color: white;
+  text-decoration: none; /* no underline */
 }
 .footLinkList {
-    display: table;
-    margin: 0 auto;
-	list-style-type: none;
+  display: table;
+  margin: 0 auto;
+  list-style-type: none;
 }
-.footitem{
-	padding: 1em;
-	vertical-align: top;
+.footitem {
+  padding: 1em;
+  vertical-align: top;
 }
-.footicon{
-	padding: 1em;
-	color: #005795;
-	font-size: 2em;
-	text-align: center;
+.footicon {
+  padding: 1em;
+  color: #005795;
+  font-size: 2em;
+  text-align: center;
 }
-.footicon:hover{
-	color: white;
-}
-
-.footInfo{
-	background: #3A3A3A;
-	margin-top: 5em;
-	padding: 2em;
-	padding-bottom: 3.5em;
-
+.footicon:hover {
+  color: white;
 }
 
-.footInfoTable{
-	font-size: 0.7em;
-	color: white;
-	width: 100% ;
-	margin: 0px auto;
-	table-layout: fixed;
-
-
+.footInfo {
+  background: #3a3a3a;
+  margin-top: 5em;
+  padding: 2em;
+  padding-bottom: 3.5em;
 }
 
-.footLinea1{
-	box-shadow: 0px 50px 30px -50px #005795, 0px -50px 30px -50px #005795;
-	margin: 0 auto;
-	padding: 1px;
-	width: 70%;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	@media screen and (max-width: 768px) {
-		width: 85%;
-	}
+.footInfoTable {
+  font-size: 0.7em;
+  color: white;
+  width: 100%;
+  margin: 0px auto;
+  table-layout: fixed;
 }
 
-.infoDerecha{
-	text-align: right;
+.footLinea1 {
+  box-shadow: 0px 50px 30px -50px #005795, 0px -50px 30px -50px #005795;
+  margin: 0 auto;
+  padding: 1px;
+  width: 70%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  @media screen and (max-width: 768px) {
+    width: 85%;
+  }
 }
 
-
-
+.infoDerecha {
+  text-align: right;
+}

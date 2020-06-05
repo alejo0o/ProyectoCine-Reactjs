@@ -12,6 +12,7 @@ class ValoracionUsuario extends Component {
       loading: false,
       error: false,
       crivalor: '',
+      id: '',
     };
   }
 
@@ -22,11 +23,36 @@ class ValoracionUsuario extends Component {
   async fetchData() {
     //Obtiene el ciente
     //es necesario hace split por el formato en que devuelve auth0
-    var partsArray = this.props.userid.split('|');
+    //var partsArray = this.props.userid.split('|');
+    let usuarioid;
+    this.setState({
+      loading: true,
+      error: null,
+    });
+    try {
+      let vars = {
+        sub: this.props.userid,
+      };
+
+      const usu = await GQLClient.request(Peticiones.getUsuarioporSub, vars);
+      this.state.id = usu.getUsuarioporSub.id;
+      usuarioid = usu.getUsuarioporSub.id;
+      this.setState({
+        loading: false,
+        error: null,
+      });
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error,
+      });
+    }
+
     const variables = {
       idMovie: this.props.peliid,
-      idUser: partsArray[1],
+      idUser: usuarioid,
     };
+
     try {
       const data = await GQLClient.request(
         Peticiones.getCrivalorUsuarioPelicula,

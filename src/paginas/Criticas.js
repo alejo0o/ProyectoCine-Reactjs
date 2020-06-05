@@ -5,10 +5,11 @@ import React, { Component } from 'react';
 import ClienteGql from '../utils/GqlClient';
 import Lista1 from '../componentesCriticas/Lista1';
 import Lista2 from '../componentesCriticas/Lista2';
+import Loading from '../components/Loading';
 import Pagination from '@material-ui/lab/Pagination';
 import Peticiones from '../utils/consultasPersonalizadas';
 import { withStyles } from '@material-ui/core/styles';
-import Loading from '../components/Loading';
+
 //Listas
 
 //Material UI
@@ -101,24 +102,25 @@ class Criticas extends Component {
       return <Loading />;
     }
     return (
-      <section className='contenedorCriticas'>
+      <section className="contenedorCriticas">
         <GlobalCss />
-        <div className='contenedorLista1'>
+        <div className="contenedorLista1">
           <Lista1 peliculas={this.state.peliculasData1} />
         </div>
-        <div className='contenedorLista2'>
+        <div className="contenedorEspacio"></div>
+        <div className="contenedorLista2">
           <Lista2 peliculas={this.state.peliculasData2} />
         </div>
-        <div className='contenedorLista3'>
+        <div className="contenedorLista3">
           <Pagination
             count={this.state.info.pages}
-            variant='outlined'
-            color='primary'
+            variant="outlined"
+            color="primary"
             onChange={this.handleChange}
             showFirstButton
             showLastButton
-            shape='rounded'
-            className='paginador'
+            shape="rounded"
+            className="paginador"
             page={this.globalPage}
           />
         </div>

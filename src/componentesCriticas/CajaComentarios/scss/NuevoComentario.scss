@@ -1,40 +1,46 @@
-.contenedor{
-	padding: 2em;
+.contenedor {
+  padding: 2em;
+  font-family: 'Georgia';
 }
 .boton {
-	box-shadow:inset 0px -3px 7px 0px #29bbff;
-	background-color:#2dabf9;
-	border-radius:3px;
-	border:1px solid #FFFFFF;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size: 1em;
-	padding:0.8em 1.8em;
-	text-decoration:none;
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 1em;
+  padding: 0.8em 1.8em;
+  text-decoration: none;
+  font-family: 'Georgia';
 }
 .boton:hover {
-	background-color:#0688fa;
+  background-color: #0688fa;
 }
 .boton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
-textarea{
-	width: 100%;
-	padding-bottom: 1.5em;
-	margin-bottom: 1.5em;
-	margin-top: 0.5em;
+textarea {
+  width: 100%;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  margin-top: 0.5em;
 }
 
+<<<<<<< HEAD
 .etiqueta{
 	margin-right: 1em;
 	font-size: 1.2em;
+=======
+.etiqueta {
+  margin-right: 1em;
+>>>>>>> cc3bab60674dcbcf47116c278154511ac6672d9a
 }
 
-.estrellas{
-	line-height: 0px; 
+.estrellas {
+  line-height: 0px;
 }
-

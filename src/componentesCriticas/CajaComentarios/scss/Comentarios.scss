@@ -1,20 +1,21 @@
-.fecha{
-	font-size: 1em;
-	color: #AAAAAA;
-	font-weight:normal;
+.fecha {
+  font-size: 1em;
+  color: #aaaaaa;
+  font-weight: normal;
+  font-family: 'Georgia';
 }
 
-.puntaje{
-    display: inline;
+.puntaje {
+  display: inline;
 }
 
-.critica{
-	width: 100%;
-	padding: 2em;
-	padding-left: 2.5em;
-	padding-top: 1em;
+.critica {
+  width: 100%;
+  padding: 2em;
+  padding-left: 2.5em;
+  padding-top: 1em;
 }
 
 .listaComentarios {
-    list-style-type: none;
+  list-style-type: none;
 }

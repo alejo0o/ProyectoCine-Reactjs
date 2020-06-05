@@ -48,7 +48,7 @@ const Peticiones = {
       critexto
       crivalor
       criid
-      
+      nickname
     }
   }
 }`,
