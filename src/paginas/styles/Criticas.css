@@ -82,6 +82,12 @@
   margin-top: 0.5%;
   margin-left: 38%;
 }
+.Espacio{
+  width: 80%;
+  height: 5%;
+  margin: none;
+  border: red solid;
+}
 
 @media screen and (max-width: 768px) {
   .contenedorCriticas {
