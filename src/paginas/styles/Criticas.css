@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: minmax(900px, 100%);
   grid-template-rows:
-    [inicio] minmax(400px, 80vh) [linea2] minmax(700px, 125vh) [linea3] minmax(
+    [inicio] minmax(400px, 80vh)  [linea2] minmax(700px, 125vh) [linea3] minmax(
       35px,
       7vh
     )
@@ -71,6 +71,12 @@
 .paginador {
   margin-top: 0.5%;
   margin-left: 38%;
+}
+.Espacio{
+  width: 80%;
+  height: 5%;
+  margin: none;
+  border: red solid;
 }
 
 @media screen and (max-width: 768px) {
