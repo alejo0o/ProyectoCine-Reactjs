@@ -13,6 +13,7 @@ import CajaComentarios from '../componentesCriticas/CajaComentarios/CajaComentar
 import Recomendaciones from '../componentesCriticas/Lista3';
 import Loading from '../components/Loading';
 import Error404 from '../components/Error404';
+import { withRouter } from "react-router";
 
 const GQLClient = ClienteGql;
 
@@ -88,6 +89,7 @@ class PeliculaCritica extends Component {
   };
 
   render() {
+    const { history } = this.props;
     if (this.state.loading) {
       return <Loading />;
     }
@@ -95,13 +97,14 @@ class PeliculaCritica extends Component {
       return <Error404></Error404>;
     }
     if (this.state.pelicula != null) {
+      console.log(history);
       if (this.state.pelicula2 != null) {
         return (
           <section className='contenedorPeliculaCriticas'>
             <div className='elementoPeliculasCriticas'>
-              <Link to='/criticas' className='botonPeliculasCritica btn'>
+              <div onClick={() => { history.goBack() }} className='botonPeliculasCritica btn'>
                 Criticas
-              </Link>
+              </div>
               <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
               </div>
@@ -144,9 +147,9 @@ class PeliculaCritica extends Component {
         return (
           <section className='contenedorPeliculaCriticas'>
             <div className='elementoPeliculasCriticas'>
-              <Link to='/criticas' className='botonPeliculasCritica btn'>
+              <div onClick={() => { history.goBack() }} className='botonPeliculasCritica btn'>
                 Criticas
-              </Link>
+              </div>
               <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
               </div>
