@@ -103,7 +103,7 @@ class PeliculaCritica extends Component {
           <section className='contenedorPeliculaCriticas'>
             <div className='elementoPeliculasCriticas'>
               <div onClick={() => { history.goBack() }} className='botonPeliculasCritica btn'>
-                Criticas
+                Animes
               </div>
               <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
@@ -148,7 +148,7 @@ class PeliculaCritica extends Component {
           <section className='contenedorPeliculaCriticas'>
             <div className='elementoPeliculasCriticas'>
               <div onClick={() => { history.goBack() }} className='botonPeliculasCritica btn'>
-                Criticas
+                Animes
               </div>
               <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
