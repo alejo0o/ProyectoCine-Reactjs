@@ -99,8 +99,8 @@ class PeliculaCritica extends Component {
         return (
           <section className='contenedorPeliculaCriticas'>
             <div className='elementoPeliculasCriticas'>
-              <Link to='/animes' className='botonPeliculasCritica btn'>
-                Anime
+              <Link to='/criticas' className='botonPeliculasCritica btn'>
+                Criticas
               </Link>
               <div className='tituloPeliculaCritica'>
                 {this.state.pelicula.nombre}
