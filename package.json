@@ -17,7 +17,7 @@
     "graphql": "^15.0.0",
     "graphql-request": "^1.8.2",
     "jquery": "^3.5.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "pagination": "github:react-bootstrap/Pagination",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
